@@ -176,6 +176,18 @@
 ### Association
 - belongs_to :user_detail
 
+## birthdaysテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|user_detail_id|integer|null: false, foreign_key: true|
+|birth_year|integer||
+|birth_month|integer||
+|birth_year|integer||
+
+### Association
+- belongs_to :user_detail
+
 
 
 This README would normally document whatever steps are necessary to get the
