@@ -188,6 +188,17 @@
 ### Association
 - belongs_to :user_detail
 
+## profilesテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|user_detail_id|integer|null: false, foreign_key: true|
+|image|text||
+|text|text||
+
+### Association
+- belongs_to :user_detail
+
 
 
 This README would normally document whatever steps are necessary to get the
