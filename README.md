@@ -161,6 +161,21 @@
 ### Association
 - belongs_to :user_detail
 
+## addressesテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|user_detail_id|integer|null: false, foreign_key: true|
+|postal_code|string||
+|prefecture|text||
+|city|text||
+|street_address|text||
+|building|text||
+|phone|string||
+
+### Association
+- belongs_to :user_detail
+
 
 
 This README would normally document whatever steps are necessary to get the
