@@ -121,6 +121,21 @@
 - belongs_to :user_detail
 - belongs_to :banks
 
+## banksテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|deposit_id|integer|null: false, foreign_key: true|
+|bank_name|string||
+|type|string||
+|branch_code|string||
+|account_number|string||
+|first_name_kana|string||
+|last_name_kana|string||
+
+### Association
+- belongs_to :deposit
+
 
 
 This README would normally document whatever steps are necessary to get the
