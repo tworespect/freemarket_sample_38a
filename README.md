@@ -149,6 +149,18 @@
 ### Association
 - belongs_to :user_detail
 
+## pointsテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|user_detail_id|integer|null: false, foreign_key: true|
+|point_365|integer||
+|point_180|integer||
+|effective_term|string|
+
+### Association
+- belongs_to :user_detail
+
 
 
 This README would normally document whatever steps are necessary to get the
