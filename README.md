@@ -278,6 +278,17 @@
 ### Association
 - has_many :product_detail_brands
 
+## product_detail_categoriesテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|product_detail_id|integer|null: false, foreign_key: true|
+|category_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :product_detail
+- belongs_to :category
+
 
 
 This README would normally document whatever steps are necessary to get the
