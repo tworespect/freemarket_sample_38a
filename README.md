@@ -233,6 +233,19 @@
 - belongs_to :product_detail_brand
 - belongs_to :product_detail_category
 
+## imagesテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|product_id|integer|null: false, foreign_key: true|
+|first_image|text|null: false, foreign_key: true|
+|second_image|text||
+|third_image|text||
+|forth_image|text||
+
+### Association
+- belongs_to :product_detail
+
 
 
 This README would normally document whatever steps are necessary to get the
