@@ -24,7 +24,12 @@
 ### Association
 - belongs_to :social_profile
 - belongs_to :user_detail
-- has_many :rates
+- belongs_to :point
+- belongs_to :credit_card
+- belongs_to :deposit
+- belongs_to :rate
+- belongs_to :address
+- belongs_to :birthday
 - has_many :products
 - has_many :users_news
 - has_many :notices
@@ -104,12 +109,6 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :deposit
-- belongs_to :credit_card
-- belongs_to :point
-- belongs_to :address
-- belongs_to :profile
-- has_many :rates
 
 ## depositsテーブル
 
@@ -119,7 +118,7 @@
 |proceeds|integer||
 
 ### Association
-- belongs_to :user_detail
+- belongs_to :user
 - belongs_to :banks
 
 ## banksテーブル
@@ -141,32 +140,32 @@
 
 |column|Type|Options|
 |------|----|-------|
-|user_detail_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 |main_number|string|ull: false|
 |month|integer|ull: false|
 |year|integer|ull: false|
 |security_code|integer|ull: false|
 
 ### Association
-- belongs_to :user_detail
+- belongs_to :user
 
 ## pointsテーブル
 
 |column|Type|Options|
 |------|----|-------|
-|user_detail_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 |point_365|integer||
 |point_180|integer||
 |effective_term|string|ull: false|
 
 ### Association
-- belongs_to :user_detail
+- belongs_to :user
 
 ## addressesテーブル
 
 |column|Type|Options|
 |------|----|-------|
-|user_detail_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 |postal_code|string|ull: false|
 |prefecture|text|ull: false|
 |city|text|ull: false|
@@ -175,19 +174,19 @@
 |phone|string||
 
 ### Association
-- belongs_to :user_detail
+- belongs_to :user
 
 ## birthdaysテーブル
 
 |column|Type|Options|
 |------|----|-------|
-|user_detail_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 |birth_year|integer||
 |birth_month|integer||
 |birth_year|integer||
 
 ### Association
-- belongs_to :user_detail
+- belongs_to :user
 
 ## productsテーブル
 
