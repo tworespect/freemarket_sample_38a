@@ -199,6 +199,23 @@
 ### Association
 - belongs_to :user_detail
 
+## productsテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, unique: true, index: true|
+|name|string||
+|price|integer||
+|satatus|string||
+
+### Association
+- belongs_to :product_detail
+- belongs_to :order
+- belongs_to :user
+- has_many :transaction_comments
+- has_many :product_page_comments
+- has_many :likes
+
 
 
 This README would normally document whatever steps are necessary to get the
