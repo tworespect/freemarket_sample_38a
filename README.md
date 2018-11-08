@@ -202,6 +202,10 @@
 - belongs_to :product_detail
 - belongs_to :order
 - belongs_to :user
+- belongs_to :delivery
+- belongs_to :image
+- belongs_to :product_detail_brand
+- belongs_to :product_detail_category
 - has_many :transaction_comments
 - has_many :product_page_comments
 - has_many :likes
@@ -218,10 +222,6 @@
 
 ### Association
 - belongs_to :product
-- belongs_to :delivery
-- belongs_to :image
-- belongs_to :product_detail_brand
-- belongs_to :product_detail_category
 
 ## imagesテーブル
 
@@ -234,7 +234,7 @@
 |forth_image|text||
 
 ### Association
-- belongs_to :product_detail
+- belongs_to :product
 
 ## deliveriesテーブル
 
@@ -246,9 +246,9 @@
 |ship_day|string|ull: false|
 
 ### Association
-- belongs_to :product_detail
+- belongs_to :product
 
-## product_detail_brandsテーブル
+## products_brandsテーブル
 
 |column|Type|Options|
 |------|----|-------|
@@ -256,7 +256,7 @@
 |brand_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :product_detail
+- belongs_to :product
 - belongs_to :brand
 
 ## brandsテーブル
@@ -266,17 +266,17 @@
 |name|string|null: false, index: true|
 
 ### Association
-- has_many :product_detail_brands
+- has_many :products_brands
 
-## product_detail_categoriesテーブル
+## products_categoriesテーブル
 
 |column|Type|Options|
 |------|----|-------|
-|product_detail_id|integer|null: false, foreign_key: true|
+|product_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :product_detail
+- belongs_to :product
 - belongs_to :category
 
 ## categoriesテーブル
@@ -286,7 +286,7 @@
 |name|string|null: false, index: true|
 
 ### Association
-- has_many :product_detail_categories
+- has_many :products_categories
 
 ## transaction_commentsテーブル
 
