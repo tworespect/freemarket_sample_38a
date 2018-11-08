@@ -136,6 +136,19 @@
 ### Association
 - belongs_to :deposit
 
+## credit_cardsテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|user_detail_id|integer|null: false, foreign_key: true|
+|main_number|string||
+|month|integer||
+|year|integer||
+|security_code|integer||
+
+### Association
+- belongs_to :user_detail
+
 
 
 This README would normally document whatever steps are necessary to get the
