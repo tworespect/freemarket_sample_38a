@@ -44,7 +44,8 @@
 
 |column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
+|from_user_id|integer|null: false, foreign_key: true|
+|to_user_id|integer|null: false, foreign_key: true|
 |text|text|null: false|
 
 ### Association
