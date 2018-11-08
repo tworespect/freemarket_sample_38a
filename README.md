@@ -65,6 +65,19 @@
 - belongs_to :user
 - belongs_to :news
 
+## newsテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|title|text||
+|text|text||
+|personal|integer||
+
+### Association
+- has_many :users, through: news_users
+- has_many :news_users
+- accepts_nested_attributes_for :news_users
+
 
 
 This README would normally document whatever steps are necessary to get the
