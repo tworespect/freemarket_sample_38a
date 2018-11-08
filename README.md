@@ -54,6 +54,17 @@
 ### Association
 - belongs_to :user
 
+## news_usersテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|news_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :news
+
 
 
 This README would normally document whatever steps are necessary to get the
