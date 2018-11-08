@@ -4,8 +4,8 @@
 
 |column|Type|Options|
 |------|----|-------|
-|provider|string||
-|uid|string||
+|provider|string|null: false|
+|uid|string|null: false, unique: true|
 |token|string||
 |nickname|string||
 |email|varchar||
@@ -18,7 +18,7 @@
 |column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false, unique: true, index: true|
-|email|varchar||
+|email|varchar|unique: true|
 
 ### Association
 - belongs_to :social_profile
@@ -39,7 +39,7 @@
 |column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|text|text||
+|text|text|null: false|
 
 ### Association
 - belongs_to :user
@@ -49,7 +49,7 @@
 |column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|text|text||
+|text|text|null: false|
 
 ### Association
 - belongs_to :user
@@ -69,8 +69,8 @@
 
 |column|Type|Options|
 |------|----|-------|
-|title|text||
-|text|text||
+|title|text|null: false|
+|text|text|null: false|
 |personal|integer||
 
 ### Association
@@ -84,7 +84,7 @@
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |user_detail_id|integer|null: false, foreign_key: true|
-|rating|integer||
+|rating|integer|null: false|
 
 ### Association
 - belongs_to :user
@@ -95,10 +95,10 @@
 |column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|first_name_kanji|string||
-|last_name_kanji|string||
-|first_name_kana|string||
-|last_name_kana|string||
+|first_name_kanji|string|ull: false|
+|last_name_kanji|string|ull: false|
+|first_name_kana|string|ull: false|
+|last_name_kana|string|ull: false|
 |payment|integer||
 
 ### Association
@@ -126,12 +126,12 @@
 |column|Type|Options|
 |------|----|-------|
 |deposit_id|integer|null: false, foreign_key: true|
-|bank_name|string||
-|type|string||
-|branch_code|string||
-|account_number|string||
-|first_name_kana|string||
-|last_name_kana|string||
+|bank_name|string|ull: false|
+|type|string|ull: false|
+|branch_code|string|ull: false|
+|account_number|string|ull: false|
+|first_name_kana|string|ull: false|
+|last_name_kana|string|ull: false|
 
 ### Association
 - belongs_to :deposit
@@ -141,10 +141,10 @@
 |column|Type|Options|
 |------|----|-------|
 |user_detail_id|integer|null: false, foreign_key: true|
-|main_number|string||
-|month|integer||
-|year|integer||
-|security_code|integer||
+|main_number|string|ull: false|
+|month|integer|ull: false|
+|year|integer|ull: false|
+|security_code|integer|ull: false|
 
 ### Association
 - belongs_to :user_detail
@@ -156,7 +156,7 @@
 |user_detail_id|integer|null: false, foreign_key: true|
 |point_365|integer||
 |point_180|integer||
-|effective_term|string|
+|effective_term|string|ull: false|
 
 ### Association
 - belongs_to :user_detail
@@ -166,10 +166,10 @@
 |column|Type|Options|
 |------|----|-------|
 |user_detail_id|integer|null: false, foreign_key: true|
-|postal_code|string||
-|prefecture|text||
-|city|text||
-|street_address|text||
+|postal_code|string|ull: false|
+|prefecture|text|ull: false|
+|city|text|ull: false|
+|street_address|text|ull: false|
 |building|text||
 |phone|string||
 
@@ -204,9 +204,9 @@
 |column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, unique: true, index: true|
-|name|string||
-|price|integer||
-|satatus|string||
+|name|string|ull: false|
+|price|integer|ull: false|
+|satatus|string|ull: false|
 
 ### Association
 - belongs_to :product_detail
@@ -221,9 +221,9 @@
 |column|Type|Options|
 |------|----|-------|
 |product_id|integer|null: false, foreign_key: true|
-|state_of_goods|text||
-|freight|integer||
-|description|text||
+|state_of_goods|text|ull: false|
+|freight|integer|ull: false|
+|description|text|ull: false|
 |size|string||
 
 ### Association
@@ -238,7 +238,7 @@
 |column|Type|Options|
 |------|----|-------|
 |product_id|integer|null: false, foreign_key: true|
-|first_image|text|null: false, foreign_key: true|
+|first_image|text|null: false|
 |second_image|text||
 |third_image|text||
 |forth_image|text||
@@ -251,9 +251,9 @@
 |column|Type|Options|
 |------|----|-------|
 |product_id|integer|null: false, foreign_key: true|
-|ship_method|string||
-|ship_form_location|string||
-|ship_day|string||
+|ship_method|string|ull: false|
+|ship_form_location|string|ull: false|
+|ship_day|string|ull: false|
 
 ### Association
 - belongs_to :product_detail
@@ -304,7 +304,7 @@
 |------|----|-------|
 |product_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
-|text|text||
+|text|text|ull: false|
 
 ### Association
 - belongs_to :product
@@ -316,7 +316,7 @@
 |------|----|-------|
 |product_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
-|text|text||
+|text|text|ull: false|
 
 ### Association
 - belongs_to :product
