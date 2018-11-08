@@ -298,6 +298,18 @@
 ### Association
 - has_many :product_detail_categories
 
+## transaction_commentsテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|product_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+|text|text||
+
+### Association
+- belongs_to :product
+- belongs_to :user
+
 
 
 This README would normally document whatever steps are necessary to get the
