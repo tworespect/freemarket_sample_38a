@@ -246,6 +246,18 @@
 ### Association
 - belongs_to :product_detail
 
+## deliveriesテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|product_id|integer|null: false, foreign_key: true|
+|ship_method|string||
+|ship_form_location|string||
+|ship_day|string||
+
+### Association
+- belongs_to :product_detail
+
 
 
 This README would normally document whatever steps are necessary to get the
