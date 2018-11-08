@@ -34,6 +34,16 @@
 - has_many :likes
 - has_many :orders
 
+## noticesテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|text|text||
+
+### Association
+- belongs_to :user
+
 
 
 This README would normally document whatever steps are necessary to get the
