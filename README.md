@@ -78,6 +78,18 @@
 - has_many :news_users
 - accepts_nested_attributes_for :news_users
 
+## ratesテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|user_detail_id|integer|null: false, foreign_key: true|
+|rating|integer||
+
+### Association
+- belongs_to :user
+- belongs_to :user_detail
+
 
 
 This README would normally document whatever steps are necessary to get the
