@@ -258,6 +258,17 @@
 ### Association
 - belongs_to :product_detail
 
+## product_detail_brandsテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|product_detail_id|integer|null: false, foreign_key: true|
+|brand_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :product_detail
+- belongs_to :brand
+
 
 
 This README would normally document whatever steps are necessary to get the
