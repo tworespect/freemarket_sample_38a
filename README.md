@@ -11,14 +11,15 @@
 |email|varchar||
 
 ### Association
-- has_many :users
+- belongs_to :user
 
 ## usersテーブル
 
 |column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false, unique: true, index: true|
-|email|varchar|unique: true|
+|image|text||
+|text|text||
 
 ### Association
 - belongs_to :social_profile
@@ -184,17 +185,6 @@
 |birth_year|integer||
 |birth_month|integer||
 |birth_year|integer||
-
-### Association
-- belongs_to :user_detail
-
-## profilesテーブル
-
-|column|Type|Options|
-|------|----|-------|
-|user_detail_id|integer|null: false, foreign_key: true|
-|image|text||
-|text|text||
 
 ### Association
 - belongs_to :user_detail
