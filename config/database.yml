@@ -47,7 +47,7 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-development:
+production:
   <<: *default
   adapter: mysql2
   encoding: utf8
