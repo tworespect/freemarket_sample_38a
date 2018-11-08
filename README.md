@@ -90,6 +90,26 @@
 - belongs_to :user
 - belongs_to :user_detail
 
+## user_detailsテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|first_name_kanji|string||
+|last_name_kanji|string||
+|first_name_kana|string||
+|last_name_kana|string||
+|payment|integer||
+
+### Association
+- belongs_to :user
+- belongs_to :deposit
+- belongs_to :credit_card
+- belongs_to :point
+- belongs_to :address
+- belongs_to :profile
+- has_many :rates
+
 
 
 This README would normally document whatever steps are necessary to get the
