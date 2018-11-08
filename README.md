@@ -216,6 +216,23 @@
 - has_many :product_page_comments
 - has_many :likes
 
+## product_detailsテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|product_id|integer|null: false, foreign_key: true|
+|state_of_goods|text||
+|freight|integer||
+|description|text||
+|size|string||
+
+### Association
+- belongs_to :product
+- belongs_to :delivery
+- belongs_to :image
+- belongs_to :product_detail_brand
+- belongs_to :product_detail_category
+
 
 
 This README would normally document whatever steps are necessary to get the
