@@ -269,6 +269,15 @@
 - belongs_to :product_detail
 - belongs_to :brand
 
+## brandsテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|name|string|null: false, index: true|
+
+### Association
+- has_many :product_detail_brands
+
 
 
 This README would normally document whatever steps are necessary to get the
