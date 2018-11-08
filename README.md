@@ -110,6 +110,17 @@
 - belongs_to :profile
 - has_many :rates
 
+## depositsテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|proceeds|integer||
+
+### Association
+- belongs_to :user_detail
+- belongs_to :banks
+
 
 
 This README would normally document whatever steps are necessary to get the
