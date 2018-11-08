@@ -1,5 +1,20 @@
 # README
 
+## social_profilesテーブル
+
+|column|Type|Options|
+|------|----|-------|
+|provider|string||
+|uid|string||
+|token|string||
+|nickname|string||
+|email|varchar||
+
+### Association
+- has_many :users
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
