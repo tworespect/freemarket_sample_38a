@@ -102,10 +102,10 @@
 |column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|first_name_kanji|string|ull: false|
-|last_name_kanji|string|ull: false|
-|first_name_kana|string|ull: false|
-|last_name_kana|string|ull: false|
+|first_name_kanji|string|null: false|
+|last_name_kanji|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
 |payment|integer||
 
 ### Association
