@@ -1,0 +1,97 @@
+.footer {
+  .bottom_banner {
+    height: 260px;
+    &__inner {
+      width: 750px;
+      margin: 0 auto;
+      position: relative;
+      &--left {
+        color: white;
+        float: left;
+        position: absolute;
+        top: 50%;
+        transform: translate(0,-50%);
+        &__bold_text {
+          font-weight: bold;
+          font-size: 24px;
+        }
+        &__download_text {
+          font-size:35px;
+        }
+        &__apps {
+          &--mercari {
+            float: left;
+            img {
+              height: 68px;
+            }
+          }
+          &--app {
+            float: left;
+            margin: 14px 0 0 20px;
+          }
+          &--google {
+            float: left;
+            margin: 14px 0 0 20px;
+          }
+        }
+      }
+      &--right img {
+        height: 260px;
+        float: right;
+      }
+    }
+  }
+
+  .footer_text {
+    height: auto;
+    width: 100vw;
+    background-color: #212121;
+    padding: 60px 0;
+    color: white;
+    .bottom_links {
+      width: ( 255px * 4 );
+      margin: 0 auto;
+      &__block {
+        float: left;
+        width: 235px;
+        margin: 0 20px 0 0;
+        text-align: center;
+        &__title {
+          font-size: 16px;
+          font-weight: bold;
+          padding: 0 0 11px 0;
+        }
+        &__cell {
+          font-size: 14px;
+          line-height: 14px;
+          padding: 16px 0 0 0;
+        }
+        &__cell_country {
+          &--foreign {
+            opacity: 0.3;
+          }
+          &__name{
+            line-height: 30px;
+            vertical-align: super;
+            padding: 0 0 0 5px;
+          }
+          &__flag img {
+            line-height: 30px;
+            height: 22px;
+          }
+        }
+      }
+    }
+    .top_page_link {
+      padding: 40px 0 0 calc(( 1440px - 124px) / 2);
+      height: 33px;
+      clear: both;
+    }
+    .footer_mercari {
+      margin: 8px 0 0 0;
+      font-size: 13px;
+      text-align: center;
+      clear: both;
+    }
+  }
+}

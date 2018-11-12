@@ -1,0 +1,185 @@
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.wrapper{
+  background-color: #F5F5F5;
+  .top_banner {
+    height: 390px;
+    width: 100vw;
+    .banner_content {
+      position: relative;
+      &__left {
+        color: #212121;
+        float: left;
+        position: absolute;
+        top: 50px;
+        left: 300px;
+        &--main {
+          font-size: 60px;
+          line-height: 80px;
+          font-weight: bold;
+        }
+        &--sub {
+          font-size: 18px;
+          line-height: 36px;
+          margin: 16px 0;
+        }
+      }
+      &__right img {
+        height: 390px;
+        float: left;
+        position: absolute;
+        left: 700px;
+      }
+    }
+  }
+
+  .main {
+    padding: 0 250px;
+    .pickup {
+      padding: 40px;
+      .category {
+        font-size: 28px;
+        font-weight: bold;
+        text-align: center;
+        &__name {
+          line-height: 22px;
+          color: #0099e8;
+          font-size: 22px;
+          padding: 26px 0;
+        }
+        &__items{
+          margin-left: calc(((( 100vw - 250px * 2 ) - 100%) / 2) * -1);
+          height: 330px;
+          width: 940px;
+          &--each{
+            height: 330px;
+            width: 213px;
+            background-color: white;
+            float: left;
+            margin: 0 0 0 20px;
+            &__img{
+              height: 213px;
+              width: 213px;
+            }
+            &__detail{
+              padding: 16px;
+              &__top-name{
+                font-size: 16px;
+                font-weight: normal;
+                line-height: 1.5;
+              }
+              &__middle{
+                &--price{
+                  font-size: 20px;
+                  float: left;
+                }
+                &--heart{
+                  float: right;
+                  &__mark{
+                    float: left;
+                    opacity: 0.3;
+                    line-height: 2em;
+                    font-size: 0.5em;
+                  }
+                  &__num{
+                    font-size: 16px;
+                    font-weight: normal;
+                    padding: 3px;
+                    float: left;
+                  }
+                }
+              }
+              &__bottom-tax{
+                font-size: 10px;
+                font-weight: normal;
+                text-align: left;
+                clear: both;
+              }
+            }
+          }
+        }
+        &__link_to_all {
+          font-size: 12px;
+          font-weight: normal;
+          text-align: right;
+          color: #0099e8;
+          padding: 20px 0 30px 0;
+        }
+      }
+
+      .brand {
+        font-size: 28px;
+        font-weight: bold;
+        text-align: center;
+        &__name {
+          line-height: 22px;
+          color: #0099e8;
+          font-size: 22px;
+          padding: 26px 0;
+        }
+        &__items{
+          height: 330px;
+          width: 940px;
+          margin-left: calc(((( 100vw - 250px * 2 ) - 100%) / 2) * -1);
+          &--each{
+            height: 330px;
+            width: 213px;
+            background-color: white;
+            float: left;
+            margin: 0 0 0 20px;
+            &__img{
+              height: 213px;
+              width: 213px;
+            }
+            &__detail{
+              padding: 16px;
+              &__top-name{
+                font-size: 16px;
+                font-weight: normal;
+                line-height: 1.5;
+              }
+              &__middle{
+                &--price{
+                  font-size: 20px;
+                  float: left;
+                }
+                &--heart{
+                  float: right;
+                  &__mark{
+                    float: left;
+                    opacity: 0.3;
+                    line-height: 2em;
+                    font-size: 0.5em;
+                  }
+                  &__num{
+                    font-size: 16px;
+                    font-weight: normal;
+                    padding: 3px;
+                    float: left;
+                  }
+                }
+              }
+              &__bottom-tax{
+                font-size: 10px;
+                font-weight: normal;
+                text-align: left;
+              }
+            }
+          }
+        }
+        &__link_to_all {
+          font-size: 12px;
+          font-weight: normal;
+          text-align: right;
+          color: #0099e8;
+          padding: 20px 0 30px 0;
+          clear: both;
+        }
+      }
+    }
+  }
+}
