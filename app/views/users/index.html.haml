@@ -1,31 +1,35 @@
 #account-page.account-page
   .account-page__inner
     %h1.single-head--center
-      %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1016580576"}/
+      = link_to root_path do
+        = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1016580576", alt: "mercari" )
     .signin-page__inner--center
       .account-page__inner--center
         %h2.secound-head 新規会員登録
         .account-page__inner--right.user-form
         .login-form-inner-index
-          %button#mail-login.btn-custum.btn-sns.btn-mail{:onclick => "location.href='/users/sign_up'"}
-            %i.far.fa-envelope{ style: "font-size: 20px;" }
-            メールアドレスで登録
-          %button#facebook-login.btn-custum.btn-sns.btn-sns-facebook{:onclick => "location.href='/users/sign_up'"}
-            %i.fab.fa-facebook.custum{ style: "font-size: 20px;" }
-            Facebookで登録
-          %button#google-login.btn-custum.btn-sns.btn-sns-google{:onclick => "location.href='/users/sign_up'"}
-            %i.fab.fa-google-plus-g.custum{ style: "font-size: 20px;" }
-            Google登録
+          = link_to "/users/sign_up" do
+            %button#mail-login.btn-custum.btn-sns.btn-mail
+              %i.far.fa-envelope{ style: "font-size: 20px;" }
+              メールアドレスで登録
+          = link_to "" do
+            %button#facebook-login.btn-custum.btn-sns.btn-sns-facebook
+              %i.fab.fa-facebook.custum{ style: "font-size: 20px;" }
+              Facebookで登録
+          = link_to "" do
+            %button#google-login.btn-custum.btn-sns.btn-sns-google
+              %i.fab.fa-google-plus-g.custum{ style: "font-size: 20px;" }
+              Google登録
     %footer.single-footer
       %nav.footer-bar
         %ul.clearfix
           %li
-            %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+            = link_to "プライバシーポリシー","https://www.mercari.com/jp/privacy/"
           %li
-            %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+            = link_to "メルカリ利用規約","https://www.mercari.com/jp/tos/"
           %li
-            %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
-      %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
-        %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?1016580576", :width => "80"}/
+            = link_to "特定商取引に関する表記","https://www.mercari.com/jp/tokutei/"
+      = link_to root_path, class: 'single-footer-logo' do
+        = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?1016580576", alt: "mercari", height: "65", width: "80")
       %p
         %small © 2018 Mercari
