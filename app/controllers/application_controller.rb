@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
 
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+    end
+
   private
 
   def production?

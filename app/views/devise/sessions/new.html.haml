@@ -1,0 +1,48 @@
+#account-page.account-page
+  .signin-page__inner
+    %h1.single-head--center
+      = link_to root_path do
+        = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1016580576", alt: "mercari" )
+    .signin-page__inner--center
+      .login-no-account
+        %p アカウントをお持ちでない方はこちら
+        = link_to "新規会員登録", users_path
+      .login-form-inner
+        = link_to  do
+          = button_tag id: "facebook-login", class: "btn-default btn-sns btn-sns-facebook" do
+            %i.fab.fa-facebook{ style: "font-size: 18px;" }
+            Facebookでログイン
+        = link_to  do
+          = button_tag id: "google-login", class: "btn-default btn-sns btn-sns-google" do
+            %i.fab.fa-google-plus-g{ style: "font-size: 18px;" }
+            Googleでログイン
+      .signin-page__inner--right.user-form
+        = form_for(resource, as: resource_name, url: session_path(resource_name))  do |f|
+          = devise_error_messages!
+          .field
+            .field-label__email--sign
+            .field-input__sign
+              = f.email_field :email, placeholder: 'メールアドレス'
+          .field
+            .field-label__password--sign
+              %i
+            .field-input__sign
+              = f.password_field :password, autocomplete: "off", placeholder: 'パスワード'
+          .actions
+            = f.submit "ログイン", class: 'btn'
+            %input{name: "login_callback", type: "hidden", value: "https://www.mercari.com/jp/signin/"}/
+          .password-forget
+            = link_to "パスワードをお忘れの方","https://www.mercari.com/jp/password/reset/start/"
+    %footer.single-footer
+      %nav.footer-bar
+        %ul.clearfix
+          %li
+            = link_to "プライバシーポリシー","https://www.mercari.com/jp/privacy/"
+          %li
+            = link_to "メルカリ利用規約","https://www.mercari.com/jp/tos/"
+          %li
+            = link_to "特定商取引に関する表記","https://www.mercari.com/jp/tokutei/"
+      = link_to root_path, class: 'single-footer-logo' do
+        = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?1016580576", alt: "mercari", height: "65", width: "80")
+      %p
+        %small © 2018 Mercari

@@ -1,0 +1,35 @@
+#account-page.account-page
+  .account-page__inner
+    %h1.single-head--center
+      = link_to root_path do
+        = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1016580576", alt: "mercari" )
+    .signin-page__inner--center
+      .account-page__inner--center
+        %h2.secound-head 新規会員登録
+        .account-page__inner--right.user-form
+        .login-form-inner-index
+          = link_to new_user_registration_path do
+            = button_tag id: "mail-login", class: "btn-custum btn-sns btn-mail" do
+              %i.far.fa-envelope{ style: "font-size: 20px;" }
+              メールアドレスで登録
+          = link_to  do
+            = button_tag id: "facebook-login", class: "btn-custum btn-sns btn-sns-facebook" do
+              %i.fab.fa-facebook.custum{ style: "font-size: 20px;" }
+              Facebookで登録
+          = link_to  do
+            = button_tag id: "google-login", class: "btn-custum btn-sns btn-sns-google" do
+              %i.fab.fa-google-plus-g.custum{ style: "font-size: 20px;" }
+              Google登録
+    %footer.single-footer
+      %nav.footer-bar
+        %ul.clearfix
+          %li
+            = link_to "プライバシーポリシー","https://www.mercari.com/jp/privacy/"
+          %li
+            = link_to "メルカリ利用規約","https://www.mercari.com/jp/tos/"
+          %li
+            = link_to "特定商取引に関する表記","https://www.mercari.com/jp/tokutei/"
+      = link_to root_path, class: 'single-footer-logo' do
+        = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?1016580576", alt: "mercari", height: "65", width: "80")
+      %p
+        %small © 2018 Mercari
