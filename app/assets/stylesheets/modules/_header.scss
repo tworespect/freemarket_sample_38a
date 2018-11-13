@@ -1,0 +1,89 @@
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.wrapper{
+  width: 100vw;
+  .header {
+    height: 90px;
+    margin: 0 210px;
+    .header_top {
+      height: 36px;
+      padding: 8px 0 0 0;
+      &__title {
+        height: 36px;
+        float: left;
+        &--logo img {
+          height: 36px;
+          float: left;
+        }
+      }
+      &__form {
+        height: 36px;
+        float: left;
+        margin: 0 0 0 16px;
+        &--input-box {
+          position: relative;
+          &__text {
+            height: 36px;
+            width: 870px;
+            padding: 9px 32px 9px 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+          }
+          &__btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+          }
+        }
+      }
+    }
+
+    .header_bottom {
+      height: 38px;
+      font-size: 14px;
+      line-height: 38px;
+      margin: 8px 0 0 0;
+      color: #333;
+      &__category_search {
+        float: left;
+      }
+      &__brand_search {
+        float: left;
+        margin: 0 0 0 16px;
+      }
+      &__right{
+        float: right;
+        &__my_page_link {
+          float: left;
+          &--left img {
+            border-radius: 50%;
+            height: 32px;
+            width: 32px;
+          }
+          &--right {
+            vertical-align: top;
+          }
+        }
+        &__notices {
+          margin: 0 0 0 10px;
+          float: left;
+        }
+        &__todo_lists {
+          margin: 0 0 0 10px;
+          float: left;
+        }
+        &__login {
+          float: left;
+        }
+        &__new {
+          float: left;
+          color: #0099e8;
+        }
+      }
+    }
+  }
+}
