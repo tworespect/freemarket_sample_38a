@@ -1,9 +1,10 @@
 .exhibit_btn {
   .fa.fa-circle {
-    color: red;
+    color: #ea352d;
     position: fixed;
     right: 32px;
-    bottom: 20px;
+    bottom: 32px;
+    font-size: 160px;
   }
 
   .exhibit_btn__text {
@@ -11,15 +12,16 @@
     font-size: 22px;
     font-weight: bold;
     position: fixed;
-    right: 105px;
+    right: calc( 32px + ( 160px - 44px ) / 2 );
     bottom: 130px;
   }
 
   .fa.fa-camera {
     color: white;
     position: fixed;
-    right: 97px;
-    bottom: 67px;
+    right: calc( 32px + ( 160px - 60px ) / 2 );
+    bottom: 70px;
+    font-size: 60px;
   }
 }
 
