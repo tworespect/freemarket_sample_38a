@@ -1,0 +1,42 @@
+/ ヘッター
+/ .wrapper
+/   = render partial: "share/header"
+.main
+  .mypage
+    = render "sidebar"
+
+    .mypage-right
+      .mypage-user-icon
+        = link_to root_path, class: 'mypage-user-icon__link' do
+          .mypage-user-icon-image
+          .mypage-user-icon-name なまえ
+          .mypage-number
+            評価 ０　 出品数 ０
+
+      .mypage-tab-container
+        %ul.mypage-tabs
+          %li やることリスト
+          %li__active お知らせ
+        .mypage-item-list
+          %ul.mypage-tab-todo
+
+            %li.mypage-item
+              現在、お知らせはありません
+
+      .mypage-tab-container-second
+        %h2.mypage-tab-head
+          購入した商品
+        %ul.mypage-tabs
+          %li 過去の取引
+          %li__active 取引中
+        .mypage-item-list
+          %ul.mypage-tab-todo
+            %li.mypage-item
+              取引中の商品がありません
+/ フッター
+/ = render partial: "share/footer"
+/  = link_to '出品', class: 'exhibit_btn' do
+/    = fa_icon "circle"
+/    .exhibit_btn__text
+/      出品
+/    = fa_icon "camera"

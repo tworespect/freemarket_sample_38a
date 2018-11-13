@@ -1,0 +1,161 @@
+.main {
+  background-color: #f5f5f5;
+  padding-bottom: 40px;
+  .mypage {
+    width: 1020px;
+    height: 1292px;
+    margin: 0 auto 0;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+
+    &-right {
+      width: 700px;
+      float: left;
+      margin-top: 40px;
+      .mypage-user-icon {
+        width: 700px;
+        height: 155px;
+        padding-top: 45px;
+        background-image: url('https://www.mercari.com/assets/img/mypage/user-bg.jpg');
+        &__link {
+          width: 700px;
+          height: 111px;
+          color: #333;
+          display: block;
+          text-decoration: none;
+          .mypage-user-icon-image {
+            border-radius: 30px;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto;
+            background-size: contain;
+            background-image: url('https://static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png')
+          }
+          .mypage-user-icon-name {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 8px;
+          }
+          .mypage-number {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 8px;
+          }
+        }
+
+      }
+      .mypage-tab-container {
+        width: 700px;
+        height: 310px;
+        background: #eee;
+        color: #333;
+        ul.mypage-tabs {
+          li {
+            width: 350px;
+            height: 74px;
+            float: right;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 74px;
+            background: #eee;
+            &__active {
+              width: 350px;
+              height: 74px;
+              float: right;
+              font-size: 16px;
+              font-weight: bold;
+              text-align: center;
+              border-top: 2px solid #ea352d;
+              line-height: 74px;
+              background: #fff;
+            }
+          }
+        }
+        .mypage-item-list {
+          width: 700px;
+          height: 236px;
+          background: white;
+          padding-top: 74px;
+          ul.mypage-tab-todo {
+            background-position: center 40px;
+            background-size: 78px 85px;
+            background-repeat: no-repeat;
+            background-image: url('https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?87816870');
+            li.mypage-item {
+              padding: 156px 0 56px;
+              text-align: center;
+              font-size: 16px;
+              font-weight: 600;
+              color: #ccc;
+
+            }
+          }
+        }
+      }
+      .mypage-tab-container-second {
+        width: 700px;
+        height: 382px;
+        margin-top: 40px;
+        background: #fff;
+        color: #333;
+        .mypage-tab-head {
+          width: 700px;
+          height: 72px;
+          font-size: 16px;
+          font-weight: 600;
+          padding: 0 16px;
+          line-height: 72px;
+          background: #fafafa;
+          }
+        ul.mypage-tabs {
+          height: 74px;
+          background: #eee;
+          li {
+            width: 350px;
+            height: 74px;
+            float: right;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 74px;
+            &__active {
+              width: 350px;
+              height: 74px;
+              float: right;
+              font-size: 16px;
+              font-weight: bold;
+              border-top: 2px solid #ea352d;
+              text-align: center;
+              line-height: 74px;
+              background: #fff;
+            }
+          }
+        }
+        .mypage-item-list {
+          width: 700px;
+          height: 236px;
+          background: #fff;
+          .mypage-tab-head {
+
+          }
+          ul.mypage-tab-todo {
+            background-position: center 40px;
+            background-size: 78px 85px;
+            background-repeat: no-repeat;
+            background-image: url('https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?87816870');
+            li.mypage-item {
+              padding: 156px 0 56px;
+              text-align: center;
+              font-size: 16px;
+              font-weight: 600;
+              color: #ccc;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
