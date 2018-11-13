@@ -1,63 +1,150 @@
 .main
   .mypage
     .mypage-left
-      %ul.mypage-list
-        %li.mypage-list__item
-          = link_to root_path, class: 'mypage-list__item--link' do
-            = 'マイページ'
-            = fa_icon 'angle-right', class: 'angle-icon'
-        %li.mypage-list__item
-          お知らせ
-        %li.mypage-list__item
-          やることリスト
-        %li.mypage-list__item
-          いいね！一覧
-        %li.mypage-list__item
-          出品する
-        %li.mypage-list__item
-          出品した商品-出品中
-        %li.mypage-list__item
-          出品した商品-取引中
-        %li.mypage-list__item
-          出品した商品-売却済み
-        %li.mypage-list__item
-          購入した商品-取引中
-        %li.mypage-list__item
-          購入した商品-過去の取引
-        %li.mypage-list__item
-          ニュース一覧
-        %li.mypage-list__item
-          評価一覧
-        %li.mypage-list__item
-          ガイド
-        %li.mypage-list__item
-          お問い合わせ
+      %ul.mypage-list.clearfix
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = 'マイページ'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
+
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = 'お知らせ'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
+
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = 'やることリスト'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
+
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = 'いいね！一覧'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
+
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = '出品する'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
+
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = '出品した商品-出品中'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
+
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = '出品した商品-取引中'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
+
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = '出品した商品-売却済み'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
+
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = '購入した商品-取引中'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
+
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = '購入した商品-過去の取引'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
+
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = 'ニュース一覧'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
+
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = '評価一覧'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
+
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = 'ガイド'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
+
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = 'お問い合わせ'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
 
         %h3.mypage-head
           売上・ポイント
-        %li.mypage-list__item
-          売上・振込申請
-        %li.mypage-list__item
-          ポイント
+
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = '売上・振込申請'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
+
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = 'ポイント'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
+
         %h3.mypage-head
           設定
-        %li.mypage-list__item
-          プロフィール
-        %li.mypage-list__item
-          住所変更
-        %li.mypage-list__item
-          支払い方法
-        %li.mypage-list__item
-          メール/パスワード
-        %li.mypage-list__item
-          本人情報
-        %li.mypage-list__item
-          電話番号の確認
-        %li.mypage-list__item
-          ログアウト
 
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = 'プロフィール'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
 
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = '住所変更'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
 
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = '支払い方法'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
+
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = 'メール/パスワード'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
+
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = '本人情報'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
+
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = '電話番号の確認'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
+
+        = link_to root_path, class: 'mypage-list__link' do
+          %li.mypage-list__link__item.clearfix
+            .mypage-list__link__item__text
+              = 'ログアウト'
+            = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
 
     .mypage-right
       .mypage-user-icon
@@ -87,21 +174,3 @@
           %ul.mypage-tab-todo
             %li.mypage-item
               取引中の商品がありません
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

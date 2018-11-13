@@ -11,31 +11,27 @@
       margin: 40px 40px 0 0 ;
       background-color: #fff;
       .mypage-list {
+        &__link {
+          height: 48px;
+          display: block;
+          &__item {
+            height: 46px;
+            border: 1px solid #f5f5f5;
 
-        &__item {
-          height: 47px;
-          padding-right: 40px;
-          font-size: 14px;
-          line-height: 47px;
-          border: 1px solid #f5f5f5;
-          position: relative;
-          text-decoration: none;
-          &--link {
-            width: 248px;
-            height: 16px;
-            padding: 0 16px;
-            padding-bottom: 20px;
-            color: #333;
-            position: absolute;
-            margin: auto;
-            text-decoration: none;
-          }
-          .angle-icon {
-            text-align: right;
-            font-size: 16px;
-            float: right;
-            right: 16px;
-            top: 16px;
+            &__text {
+              height: 16px;
+              float: left;
+              font-size: 14px;
+              line-height: 16px;
+              padding: 15px;
+              color: #333;
+            }
+            &__icon {
+              font-size: 26px;
+              padding: 10px 16px 0 0;
+              float: right;
+              color: #ccc;
+            }
           }
         }
         .mypage-head {
@@ -45,6 +41,7 @@
         }
         h3 {
           font-weight: bold;
+          padding-bottom: 5px;
         }
       }
     }
