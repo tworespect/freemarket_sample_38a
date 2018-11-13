@@ -6,14 +6,14 @@
     .signin-page__inner--center
       .login-no-account
         %p アカウントをお持ちでない方はこちら
-        = link_to "新規会員登録", "/users"
+        = link_to "新規会員登録", users_path
       .login-form-inner
-        = link_to "" do
-          %button#facebook-login.btn-default.btn-sns.btn-sns-facebook
+        = link_to  do
+          = button_tag id: "facebook-login", class: "btn-default btn-sns btn-sns-facebook" do
             %i.fab.fa-facebook{ style: "font-size: 18px;" }
             Facebookでログイン
-        = link_to "" do
-          %button#google-login.btn-default.btn-sns.btn-sns-google
+        = link_to  do
+          = button_tag id: "google-login", class: "btn-default btn-sns btn-sns-google" do
             %i.fab.fa-google-plus-g{ style: "font-size: 18px;" }
             Googleでログイン
       .signin-page__inner--right.user-form

@@ -8,16 +8,16 @@
         %h2.secound-head 新規会員登録
         .account-page__inner--right.user-form
         .login-form-inner-index
-          = link_to "/users/sign_up" do
-            %button#mail-login.btn-custum.btn-sns.btn-mail
+          = link_to new_user_registration_path do
+            = button_tag id: "mail-login", class: "btn-custum btn-sns btn-mail" do
               %i.far.fa-envelope{ style: "font-size: 20px;" }
               メールアドレスで登録
-          = link_to "" do
-            %button#facebook-login.btn-custum.btn-sns.btn-sns-facebook
+          = link_to  do
+            = button_tag id: "facebook-login", class: "btn-custum btn-sns btn-sns-facebook" do
               %i.fab.fa-facebook.custum{ style: "font-size: 20px;" }
               Facebookで登録
-          = link_to "" do
-            %button#google-login.btn-custum.btn-sns.btn-sns-google
+          = link_to  do
+            = button_tag id: "google-login", class: "btn-custum btn-sns btn-sns-google" do
               %i.fab.fa-google-plus-g.custum{ style: "font-size: 20px;" }
               Google登録
     %footer.single-footer
