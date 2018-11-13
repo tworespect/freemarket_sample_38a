@@ -1,6 +1,10 @@
-/*
- *= require font-awesome
- */
+@import "font-awesome";
 @import "./reset";
 @import "./mixin/basic";
+@import "./user";
+@import "./modules/exhibit_btn";
+@import "./modules/footer";
+@import "./modules/header";
+@import "./modules/top_page";
 @import "./mypage";
+@import "./sidebar";
