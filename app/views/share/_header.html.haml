@@ -19,8 +19,9 @@
         .header_bottom__right__my_page_link
           %span.header_bottom__right__my_page_link--left
             = image_tag('https://static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png')
-          %span.header_bottom__right__my_page_link--right
-            マイページ
+          = link_to user_path(current_user) do
+            %span.header_bottom__right__my_page_link--right
+              マイページ
         .header_bottom__right__notices
           %span.header_bottom__right__notices--left
             = fa_icon "bell"

@@ -1,6 +1,6 @@
 .mypage-left
   %ul.mypage-list.clearfix
-    = link_to root_path, class: 'mypage-list__link' do
+    = link_to user_path(current_user), class: 'mypage-list__link' do
       %li.mypage-list__link__item.clearfix
         .mypage-list__link__item__text
           マイページ
