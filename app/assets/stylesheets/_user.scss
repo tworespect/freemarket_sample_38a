@@ -214,6 +214,73 @@
 }
 
 // registrations
+
+.field_with_errors {
+  display: inline;
+   }
+
+.no-match-error{
+  display: none;
+  color: $red;
+  text-align: center;
+  font-size: 14px;
+  padding-top: 4px;
+  padding-bottom: 38px;
+}
+
+.already-taken{
+  display: none;
+  color: $red;
+  width: 325px;
+  margin: 0 auto;
+  font-size: 14px;
+  padding-top: 4px;
+  padding-bottom: 38px;
+}
+
+.name-error{
+  display: none;
+  color: $red;
+  padding-right: 190px;
+  font-size: 14px;
+  padding-top: 4px;
+}
+
+.email-error{
+  display: none;
+  color: $red;
+  padding-right: 190px;
+  font-size: 14px;
+  padding-top: 4px;
+}
+
+.password-error{
+  display: none;
+  color: $red;
+  padding-right: 190px;
+  font-size: 14px;
+  padding-top: 4px;
+}
+
+.password-error-message{
+  display: none;
+  color: #ea352d;
+    width: 296px;
+    margin: 0 auto;
+    padding-right: 8px;
+    font-size: 13px;
+    padding-top: 4px;
+    text-align: -webkit-auto;
+}
+
+.password_confirmation-error{
+  display: none;
+  color: $red;
+  padding-right: 190px;
+  font-size: 14px;
+  padding-top: 4px;
+}
+
 .single-head{
   padding: 38px 16px;
   img{
@@ -231,7 +298,7 @@
 }
 
 li.red{
-  color: #ea352d;
+  color: $red;
 }
 
 .progress-status{
@@ -246,7 +313,7 @@ li.red{
     width: 12px;
     height: 12px;
     margin: 8px auto 0;
-    background: #ea352d;
+    background: $red;
     border-radius: 50%;
 }
 
@@ -297,6 +364,7 @@ li.red{
   color: #fff;
   font-size: 12px;
   vertical-align: top;
+  line-height: 20px;
 }
 
 footer{
@@ -474,4 +542,8 @@ small{
 
 .account-page .field-input .field_with_errors:after {
     display: none;
+}
+
+body{
+      font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
 }
