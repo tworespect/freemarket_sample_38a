@@ -23,6 +23,8 @@
     .account-page__inner--center
       %h2.secound-head 会員情報入力
       .account-page__inner--right.user-form
+        .no-match-error パスワードとパスワード（確認）が一致しません。
+        .already-taken メールアドレスに誤りがあります。ご確認いただき、正しく変更してください。
         = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
           = devise_error_messages!
           .field
@@ -31,12 +33,14 @@
               %span.form-require 必須
             .field-input
               = f.text_field :name, autofocus: true, placeholder: '例) メルカリ太郎'
+              .name-error 入力してください
           .field
             .field-label__email
               = f.label :email, ('メールアドレス')
               %span.form-require 必須
             .field-input
               = f.email_field :email, placeholder: 'PC・携帯どちらでも可'
+              .email-error 入力してください
           .field
             .field-label__password
               = f.label :password, ('パスワード')
@@ -44,12 +48,15 @@
               %i
             .field-input
               = f.password_field :password, autocomplete: "off", placeholder: '6文字以上'
+              .password-error 入力してください
+              .password-error-message パスワードは6文字以上128文字以下で入力してください
           .field
             .field-label__password_confirmation
               = f.label :password_confirmation, ('パスワード(確認)')
               %span.form-require 必須
             .field-input
               = f.password_field :password_confirmation, autocomplete: "off", placeholder: '6文字以上'
+              .password_confirmation-error 入力してください
           .actions
             = f.submit "会員登録", class: 'btn'
     = render partial: "users/footer"
