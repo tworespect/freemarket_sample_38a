@@ -8,7 +8,8 @@
       .mypage-user-icon
         = link_to root_path, class: 'mypage-user-icon__link' do
           .mypage-user-icon-image
-          .mypage-user-icon-name なまえ
+          .mypage-user-icon-name
+            = current_user.name
           .mypage-number
             評価 ０   出品数 ０
 
