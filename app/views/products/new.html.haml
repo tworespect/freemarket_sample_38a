@@ -1,0 +1,145 @@
+.products_new
+  = render "users/header"
+
+  / = form_for [@first_image, @second_image, @third_image, @forth_image, @name, @description, @state_of_goods, @category, @brand, @size, @freight, @ship_rom_location, @ship_day, @hip_method, @price, @proceeds]
+  .main_product_new
+    .title
+      商品の情報を入力
+    .block
+      .block--images.clearfix
+        .block--images__title.clearfix
+          .block--images__title--normal
+            出品画像
+          .block--images__title--red
+            必須
+        .block--images__text
+          最大４枚までアップロードできます
+        .block--images__box
+          .block--images__box__text
+            ドラッグアンドドロップ
+            %br
+            またはクリックしてファイルをアップロード
+
+    .block
+      .block--product
+        .block--product__name
+          .sub_title.clearfix
+            .sub_title__name
+              商品名
+            .sub_title__required
+              必須
+          .block--product__name__text_box
+        .block--product__description
+          .sub_title.clearfix.clearfix.clearfix
+            .sub_title__name
+              商品の説明
+            .sub_title__required
+              必須
+          .block--product__description__text_box
+
+    .block
+      .block--product_detail.clearfix
+        .block--product_detail--left
+          商品の詳細
+          = link_to "/products/new" do
+            = fa_icon "question-circle", class: 'block--product_detail--left__question_circle'
+        .block--product_detail--right
+          .block--product_detail--right__title
+            .sub_title.clearfix.clearfix
+              .sub_title__name
+                カテゴリー
+              .sub_title__required
+                必須
+            .block--product_detail--right__title__select_box
+          .block--product_detail--right__status
+            .sub_title.clearfix
+              .sub_title__name
+                商品の状態
+              .sub_title__required
+                必須
+            .block--product_detail--right__status__select_box
+
+    .block
+      .block--about_ship.clearfix
+        .block--about_ship--left
+          配送について
+          = link_to "/products/new" do
+            = fa_icon "question-circle", class: 'block--about_ship--left__question_circle'
+        .block--about_ship--right
+          .block--about_ship--right__freight
+            .sub_title.clearfix
+              .sub_title__name
+                配送料の負担
+              .sub_title__required
+                必須
+            .block--about_ship--right__freight__select_box
+          .block--about_ship--right__from_location
+            .sub_title.clearfix
+              .sub_title__name
+                発送元の地域
+              .sub_title__required
+                必須
+            .block--about_ship--right__from_location__select_box
+          .block--about_ship--right__day
+            .sub_title.clearfix
+              .sub_title__name
+                発送までの日数
+              .sub_title__required
+                必須
+            .block--about_ship--right__day__select_box
+
+    .block
+      .block--price.clearfix
+        .block--price--left
+          販売価格(300〜9,999,999)
+          = link_to "/products/new" do
+            = fa_icon "question-circle", class: 'block--price--left__question_circle'
+        .block--price--right
+          .block--price--right__input.clearfix
+            .block--price--right__input--left.clearfix
+              .block--price--right__input--left--normal
+                価格
+              .block--price--right__input--left--red
+                必須
+            .block--price--right__input--right.clearfix
+              .block--price--right__input--right__mark
+                ￥
+              .block--price--right__input--right__box
+          .block--price--right__commissions.clearfix
+            .block--price--right__commissions--left
+              販売手数料（10％）
+            .block--price--right__commissions--right
+          .block--price--right__proceeds.clearfix
+            .block--price--right__proceeds--left
+              販売利益
+            .block--price--right__proceeds--right
+              一
+
+    .block
+      .block--bottom
+        .block--bottom__note
+          = link_to "/products/new", class: "block--bottom__note__attention" do
+            禁止されている出品
+          、
+          = link_to "/products/new", class: "block--bottom__note__attention" do
+            行為
+          を必ずご確認ください。
+          %br
+          またブランド品でシリアルナンバー等がある場合はご記載ください。
+          = link_to "/products/new", class: "block--bottom__note__attention" do
+            偽ブランドの販売
+          は犯罪であり処罰される可能性があります。
+          %br
+          また、出品をもちまして
+          = link_to "/products/new", class: "block--bottom__note__attention" do
+            加盟店規約
+          に同意したことになります。
+        .block--bottom__btns
+          = link_to "/products/new" do
+            = button_tag class: "block--bottom__btns__confirm" do
+              出品する
+          = link_to root_path do
+            = button_tag class: "block--bottom__btns__back" do
+              戻る
+
+  = render "users/footer"
