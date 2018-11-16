@@ -1,5 +1,5 @@
 .exhibit_btn {
-  .fa.fa-circle {
+  &__circle {
     color: #ea352d;
     position: fixed;
     right: 32px;
@@ -7,7 +7,7 @@
     font-size: 160px;
   }
 
-  .exhibit_btn__text {
+  &__text {
     color: white;
     font-size: 22px;
     position: fixed;
@@ -15,7 +15,7 @@
     bottom: 130px;
   }
 
-  .fa.fa-camera {
+  &__camera {
     color: white;
     position: fixed;
     right: calc( 32px + ( 160px - 60px ) / 2 );
