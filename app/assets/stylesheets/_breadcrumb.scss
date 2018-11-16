@@ -1,0 +1,26 @@
+.gretel {
+  height: 49px;
+  border-top: 1px solid #eee;
+  position:relative;
+  z-index:2;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  font-size: 14px;
+  &-item {
+    width: 1020px;
+    height: 49px;
+    margin: auto;
+    .breadcrumbs {
+      padding-top: 16px;
+      a {
+        color: rgb(51, 51, 51);
+      }
+      i {
+        color: #888;
+      }
+      span {
+        color: rgb(51, 51, 51);
+        font-weight: 600;
+      }
+    }
+  }
+}

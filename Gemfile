@@ -87,4 +87,4 @@ gem 'haml-rails'
 gem 'font-awesome-rails'
 gem 'rails-i18n'
 gem 'devise'
-gem "gretel"
+gem 'gretel'
