@@ -47,6 +47,11 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'faker'
+  gem 'capistrano'
 end
 
 group :development do
@@ -82,4 +87,7 @@ gem 'haml-rails'
 gem 'font-awesome-rails'
 gem 'rails-i18n'
 gem 'devise'
-gem "gretel"
+gem 'gretel'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
