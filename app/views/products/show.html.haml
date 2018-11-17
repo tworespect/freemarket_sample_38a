@@ -122,9 +122,11 @@
         %span.item-price ¥3,600
         %span.item-tax (税込)
         %span.item-shipping-fee 送料込み
-
-      %a.item-buy-btn.f18-24 購入画面に進む
-      %a.item-btn-client
+      - if user_signed_in?
+        %a.item-buy-btn 購入画面に進む
+        %a.item-btn-client
+      -else
+        %a.item-buy-btn.f18-24 売り切れました
 
       /出品者記入項目
       .item-description.f14
