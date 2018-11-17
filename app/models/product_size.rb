@@ -1,5 +1,5 @@
 class ProductSize < ApplicationRecord
-  celongs_to :product
+  belongs_to :product
   belongs_to :size
 
   validates :product_id, presence: true

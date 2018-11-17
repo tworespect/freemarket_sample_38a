@@ -1,5 +1,5 @@
 class ProductCategory < ApplicationRecord
-  celongs_to :product
+  belongs_to :product
   belongs_to :category
 
   validates :product_id,  presence: true
