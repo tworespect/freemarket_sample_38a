@@ -32,7 +32,6 @@
             = fa_icon "check"
           %span.header_bottom__right__todo_lists--right
             やることリスト
-          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
       - else
         = link_to "ログイン", new_user_session_path, class: 'header_bottom__right__users_index_btn'
         = link_to "新規会員登録", users_path, class: 'header_bottom__right__users_new_btn'
