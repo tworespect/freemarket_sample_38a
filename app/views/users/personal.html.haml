@@ -1,0 +1,52 @@
+.wrapper
+  %body
+    .main-contents
+      .header-content
+        = render partial: "share/header"
+      .default-main
+        .default-main-content
+          .chapter-container
+            %h2.chapter-container__chapter-head 本人情報の登録
+            %p.chapter-container__text-center お客さまのあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております。
+            .chapter-single-inner
+              .form-group
+                %label 住所
+                %span.form-default-content 必須
+                .address-info
+                  %address
+                    %p 〒111-0000
+                    %p.add-main 京都府京都市上京区智恵光院通り芦山寺上る西入る西社町198-1
+                    %p.add-main 大東漆木工
+                  %a 編集
+                .clearfix
+              .form-group.form-group-select
+                %label 生年月日
+                %span.form-default-content 必須
+                %br
+                .birthday-select-wrap
+                  .select-wrap
+                    = select_tag 'selectyear', options_for_select([["--","0"],["1983","1"], ["1984","2"], ["1985","3"], ["1986","4"], ["1987","5"], ["1988","6"], ["1989","7"], ["1990","8"], ["1991","9"], ["1992","10"], ["1993","11"], ["1994","12"], ["1995","13"], ["1996","14"], ["1997","15"], ["1998","16"], ["1999","17"], ["2000","18"], ["2001","19"], ["2002","20"], ["2003","21"], ["2004","22"], ["2005","23"], ["2006","24"], ["2007","25"], ["2008","26"], ["2009","27"], ["2010","28"], ["2011","29"], ["2012","30"], ["2013","31"], ["2014","32"], ["2015","33"], ["2016","34"], ["2017","35"], ["2018","36"]], selected: "0")
+                    .i.fas.fa-angle-down
+                  %span 年
+                .birthday-select-wrap
+                  .select-wrap.select-wrap__month
+                    = select_tag 'selectyear', options_for_select([["--","0"],["1","1"], ["2","2"], ["3","3"], ["4","4"], ["5","5"], ["6","6"], ["7","7"], ["8","8"], ["9","9"], ["10","10"], ["11","11"], ["12","12"]], selected: "0")
+                    .i.fas.fa-angle-down
+                  %span 月
+                .birthday-select-wrap
+                  .select-wrap.select-wrap__day
+                    = select_tag 'selectyear', options_for_select([["--","0"],["1","1"], ["2","2"], ["3","3"], ["4","4"], ["5","5"], ["6","6"], ["7","7"], ["8","8"], ["9","9"], ["10","10"], ["11","11"], ["12","12"], ["13","13"], ["14","14"], ["15","15"], ["16","16"], ["17","17"], ["18","18"], ["19","19"], ["20","20"], ["21","21"], ["22","22"], ["23","23"], ["24","24"], ["25","25"], ["26","26"], ["27","27"], ["28","28"], ["29","29"], ["30","30"], ["31","31"]], selected: "0")
+                    .i.fas.fa-angle-down
+                  %span 日
+                %p.form-info.text ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
+                .clearfix
+              .btn-default.btn-red 登録する
+              .form-group.text-right
+                %p
+                  = link_to "/products/new", class: "text-right-bt" do
+                    本人情報の登録について
+                    %i.fas.fa-angle-right
+        .dedault-main-side
+          = render partial: "users/sidebar"
+    = render partial: "share/footer"
+    = render partial: "share/exhibit_btn"

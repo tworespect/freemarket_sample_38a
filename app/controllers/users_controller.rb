@@ -7,4 +7,8 @@ class UsersController < ApplicationController
 
   end
 
+  def personal
+
+  end
+
 end
