@@ -1,16 +1,17 @@
 .brand__items--each
-  .brand__items--each__img
-    = image_tag('Pic1.jpg')
-  .brand__items--each__detail
-    .brand__items--each__detail__top-name
-      オーバーウォール
-    .brand__items--each__detail__middle.clearfix
-      .brand__items--each__detail__middle--price
-        ￥13,000
-      .brand__items--each__detail__middle--heart.clearfix
-        .brand__items--each__detail__middle--heart__mark
-          %i.far.fa-heart.small
-        .brand__items--each__detail__middle--heart__num
-          2
-    .brand__items--each__detail__bottom-tax
-      (税込)
+  = link_to "/products/show" do
+    .brand__items--each__img
+      = image_tag('Pic1.jpg')
+    .brand__items--each__detail
+      .brand__items--each__detail__top-name
+        オーバーウォール
+      .brand__items--each__detail__middle.clearfix
+        .brand__items--each__detail__middle--price
+          ￥13,000
+        .brand__items--each__detail__middle--heart.clearfix
+          .brand__items--each__detail__middle--heart__mark
+            %i.far.fa-heart.small
+          .brand__items--each__detail__middle--heart__num
+            2
+      .brand__items--each__detail__bottom-tax
+        (税込)
