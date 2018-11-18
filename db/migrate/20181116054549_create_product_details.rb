@@ -5,7 +5,6 @@ class CreateProductDetails < ActiveRecord::Migration[5.2]
       t.integer  :freight,         null: false
       t.text     :state_of_goods,  null: false
       t.text     :description,     null: false
-      t.string   :size
       t.timestamps
     end
   end
