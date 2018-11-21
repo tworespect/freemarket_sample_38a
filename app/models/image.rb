@@ -6,3 +6,6 @@ class Image < ApplicationRecord
   mount_uploader :third_image,  ImageUploader
   mount_uploader :forth_image,  ImageUploader
 end
+
+
+

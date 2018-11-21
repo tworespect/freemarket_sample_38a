@@ -16,8 +16,7 @@ class ProductsController < ApplicationController
 
   def buy
   end
-
-
+  
 
   private
 
