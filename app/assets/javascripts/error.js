@@ -56,14 +56,14 @@ $(function() {
       $('.password-login-error-message').css('display','none');
     }
   });
-  $('form').on('submit', function(e) {
-    e.preventDefault();
-    if (login_pass.length() < 6 ) {
-      $('.password-login-error-message').css('display','inherit');
-    }else{
-      $('.password-login-error-message').css('display','none');
-    }
-  });
+  // $('form').on('submit', function(e) {
+  //   e.preventDefault();
+  //   if (login_pass.length() < 6 ) {
+  //     $('.password-login-error-message').css('display','inherit');
+  //   }else{
+  //     $('.password-login-error-message').css('display','none');
+  //   }
+  // });
   $('.btn').hover(function(){
     $(this).prop( "disabled", false );
     });
