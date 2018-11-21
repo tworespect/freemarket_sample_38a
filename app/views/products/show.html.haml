@@ -123,8 +123,9 @@
         %span.item-tax (税込)
         %span.item-shipping-fee 送料込み
       - if user_signed_in?
-        %a.item-buy-btn 購入画面に進む
-        %a.item-btn-client
+        = link_to products_buy_path do
+          .item-buy-btn 購入画面に進む
+          .item-btn-client
       -else
         %a.item-buy-btn.f18-24 売り切れました
 

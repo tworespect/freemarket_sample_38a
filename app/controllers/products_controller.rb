@@ -19,7 +19,9 @@ class ProductsController < ApplicationController
     redirect_to ''
   end
 
-
+  def buy
+  end
+  
   private
 
   def product_params

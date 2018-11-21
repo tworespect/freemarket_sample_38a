@@ -1,0 +1,51 @@
+.buy
+  = render "users/header"
+  .buy-main
+    .buy-container
+      .buy-head
+        購入を確定しますか？
+      .buy-item
+        .buy-item-inner
+          .buy-item-inner__image
+            .img
+          .buy-item-inner__name
+            林田真尋たん(一晩)
+          .buy-form
+            .buy-price
+              ¥230,000
+              .item-shipping
+                送料込み
+            .buy-accordion
+              ポイントはありません
+            .buy-price-table
+              .buy-price-table__text
+                支払い金額
+              .buy-price-table__pay
+                ¥230,000
+            .buy-button
+              購入する
+
+      .buy-street-address
+        .buy-street-address__inner
+          配送先
+          .buy-street-address__inner__text
+            %br 〒578-0937
+            %br 大阪府 東大阪市 花園本町1-1-11
+            %br 小山 大輔
+          = link_to root_path do
+            .buy-street-address__inner__change
+              変更する
+              = fa_icon 'angle-right'
+      .buy-user-card
+        .buy-user-card-content
+          .buy-user-card-content__inner
+            支払い方法
+            .buy-user-card-content__inner__text
+              %br ************0507
+              %br 09 / 21
+            .buy-user-card-content__inner__image
+            = link_to root_path do
+              .buy-user-card-content__inner__change
+                変更する
+                = fa_icon 'angle-right'
+  = render "users/footer"
