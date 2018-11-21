@@ -1,6 +1,8 @@
 class Image < ApplicationRecord
-  belongs_to :product
+  belongs_to :product, dependent: :destroy
 
-  validates :product_id,  presence: true
-  validates :first_image, presence: true
+  mount_uploader :first_image,  ImageUploader
+  mount_uploader :second_image, ImageUploader
+  mount_uploader :third_image,  ImageUploader
+  mount_uploader :forth_image,  ImageUploader
 end
