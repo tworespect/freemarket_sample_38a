@@ -102,7 +102,7 @@
     %h3.mypage-head
       設定
 
-    = link_to root_path, class: 'mypage-list__link' do
+    = link_to edit_user_path(current_user), class: 'mypage-list__link' do
       %li.mypage-list__link__item.clearfix
         .mypage-list__link__item__text
           プロフィール
