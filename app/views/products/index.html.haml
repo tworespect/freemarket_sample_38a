@@ -20,17 +20,15 @@
       .category.clearfix
         ピックアップカテゴリー
         .category__name
-          メンズ新着アイテム
+          レディース新着アイテム
         .category__items.clearfix
-          - 4.times do
-            = render partial: "product-category"
+          = render partial: "product-ladies"
         .category__link_to_all
           全ての商品を見る
         .category__name
           キッズ新着アイテム
         .category__items.clearfix
-          - 4.times do
-            = render partial: "product-category"
+          = render partial: "product-kids"
         .category__link_to_all
           全ての商品を見る
     .pickup.clearfix
@@ -39,15 +37,13 @@
         .brand__name
           ユニクロ新着アイテム
         .brand__items.clearfix
-          - 4.times do
-            = render partial: "product-brand"
+          = render partial: "product-random"
         .brand__link_to_all
           全ての商品を見る
         .brand__name
           ZARA新着アイテム
         .brand__items.clearfix
-          - 4.times do
-            = render partial: "product-brand"
+          = render partial: "product-random"
         .brand__link_to_all
           全ての商品を見る
   = render partial: "share/footer"
