@@ -9,14 +9,22 @@ class ProductsController < ApplicationController
   end
 
   def create
+    binding.pry
     @product  = Product.new(product_params)
-    @product.save!
-    redirect_to ''
+    # if @product.save
+    #   respond_to do |format|
+    #     format.js
+    #   end
+    # else
+    #   render :new
+    # end
+    @product.save
+    render :new
   end
 
   def buy
   end
-  
+
 
   private
 
