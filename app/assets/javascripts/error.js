@@ -44,7 +44,7 @@ $(function() {
 
     var login_pass = $("#user_password").val();
 
-    console.log(login_pass);
+    // console.log(login_pass);
 
   $('form').on('submit', function(e) {
     e.preventDefault();
