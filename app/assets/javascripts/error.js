@@ -42,6 +42,19 @@ $(function() {
   //   });
 
 
+    // console.log(login_pass);
+
+  $('form').on('submit', function(e) {
+    e.preventDefault();
+    if (login_pass == "" )  {
+      $('.password-login-error').css('display','inherit');
+      $('.password-login-error-message').css('display','inherit');
+    }else{
+      $('.password-login-error').css('display','none');
+      $('.password-login-error-message').css('display','none');
+    }
+  });
+
   // $('form').on('submit', function(e) {
   //   e.preventDefault();
   //   if (login_pass == "" )  {
