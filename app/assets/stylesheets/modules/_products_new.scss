@@ -2,6 +2,7 @@
   font-weight: bold;
   &__name {
     font-size: 14px;
+    line-height: 25px;
     float: left;
   }
   &__required{
@@ -13,7 +14,7 @@
     border-radius: 3px;
     background-color: $red;
     margin: 0 0 0 8px;
-    padding: 2px 4px;
+    padding: 5px 4px;
     float: left;
   }
   &__non_required{
@@ -25,7 +26,7 @@
     border-radius: 3px;
     background-color: #ccc;
     margin: 0 0 0 8px;
-    padding: 2px 4px;
+    padding: 5px 4px;
     float: left;
   }
 }
@@ -46,6 +47,14 @@
     border-radius: 5px;
     background-color: $white;
   }
+  &--brand{
+    height: 46px;
+    width: 400px;
+    margin: 8px 0 0 0;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    border-color: #ccc;
+  }
   &__text {
     height: 26px;
     width: 380px;
@@ -56,11 +65,55 @@
 }
 
 .medium_box_error {
-  display: none;
-  color: $red;
-  padding-right: 190px;
-  font-size: 14px;
-  padding-top: 8px;
+  &--category{
+    display: none;
+    color: $red;
+    padding-right: 190px;
+    font-size: 14px;
+    padding-top: 8px;
+  }
+  &--size{
+    display: none;
+    color: $red;
+    padding-right: 190px;
+    font-size: 14px;
+    padding-top: 8px;
+  }
+  &--state_of_goods{
+    display: none;
+    color: $red;
+    padding-right: 190px;
+    font-size: 14px;
+    padding-top: 8px;
+  }
+  &--freight{
+    display: none;
+    color: $red;
+    padding-right: 190px;
+    font-size: 14px;
+    padding-top: 8px;
+  }
+  &--ship_method{
+    display: none;
+    color: $red;
+    padding-right: 190px;
+    font-size: 14px;
+    padding-top: 8px;
+  }
+  &--ship_from_location{
+    display: none;
+    color: $red;
+    padding-right: 190px;
+    font-size: 14px;
+    padding-top: 8px;
+  }
+  &--ship_day{
+    display: none;
+    color: $red;
+    padding-right: 190px;
+    font-size: 14px;
+    padding-top: 8px;
+  }
 }
 
 .products_new_select_list_icon {
@@ -134,12 +187,21 @@
             border-color: #eee;
           }
         }
-        &__error{
-          display: none;
-          color: $red;
-          padding-right: 190px;
-          font-size: 14px;
-          padding-top: 8px;
+        &__error {
+          &--1 {
+            display: none;
+            color: $red;
+            padding-right: 190px;
+            font-size: 14px;
+            padding-top: 8px;
+          }
+          &--2 {
+            display: none;
+            color: $red;
+            padding-right: 190px;
+            font-size: 14px;
+            padding-top: 8px;
+          }
         }
       }
 
@@ -211,19 +273,32 @@
           &__categories {
             &--first{}
             &--second{
-              // display: none;
+              display: none;
             }
             &--third{
-              // display: none;
+              display: none;
             }
           }
           &__size {
-            // display: none;
+            display: none;
             margin: 40px 0 0 0;
           }
           &__brand {
             // display: none;
             margin: 40px 0 0 0;
+            &__candidate {
+              max-height: 280px;
+              width: 400px;
+              border: 0.5px solid transparent;
+              border-color: $gray;
+              display: none;
+              &__list {
+                height: 16px;
+                width: auto;
+                padding: 16px 8px;
+                color: $black;
+              }
+            }
           }
           &__status {
             margin: 40px 0 0 0;
@@ -248,7 +323,7 @@
           &__freight {
           }
           &__method {
-            // display: none;
+            display: none;
             margin: 40px 0 0 0;
           }
           &__from_location {
@@ -324,6 +399,7 @@
                     border: none;
                     border-radius: 5px;
                     text-align: right;
+                    vertical-align: top;
                   }
                 }
               }
