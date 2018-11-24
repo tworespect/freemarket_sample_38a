@@ -67,21 +67,21 @@
                 .sub_title__required
                   必須
               .block--product_detail--right__categories
-                .block--product_detail--right__categories--first
-                  .medium_box.clearfix
-                    = f.fields_for :product_categories do |category|
-                      = category.select :category_id, options_for_select([["---","0"], ["レディース","1"], ["メンズ","2"], ["ベビー・キッズ","3"], ["インテリア・住まい・小物","4"], ["本・音楽・ゲーム","5"], ["おもちゃ・ホビー・グッズ","6"], ["コスメ・香水・美容","7"], ["家電・スマホ・カメラ","8"], ["スポーツ・レジャー","9"], ["ハンドメイド","10"], ["チケット","11"], ["自動車・オートバイ","12"], ["その他","13"]]), {}, {class: 'medium_box__select'}
-                      = fa_icon 'angle-down', class: 'products_new_select_list_icon'
-                .block--product_detail--right__categories--second
-                  .medium_box.clearfix
-                    = f.fields_for :product_categories do |category|
-                      = category.select :category_id,  options_for_select([["---","0"], ["トップス","14"], ["ジャケット/アウター","15"], ["パンツ","16"], ["靴","17"], ["バッグ","18"]],:selected=>"0"), {}, {class: 'medium_box__select'}
-                      = fa_icon 'angle-down', class: 'products_new_select_list_icon'
-                .block--product_detail--right__categories--third
-                  .medium_box.clearfix
-                    = f.fields_for :product_categories do |category|
-                      = category.select :category_id,  options_for_select([["---","0"], ["Tシャツ","19"], ["シャツ","20"], ["ポロシャツ","21"]],:selected=>"0"), {}, {class: 'medium_box__select'}
-                      = fa_icon 'angle-down', class: 'products_new_select_list_icon'
+                / .block--product_detail--right__categories--first
+                /   .medium_box.clearfix
+                /     = f.fields_for :product_categories do |category|
+                /       = category.select :category_id, options_for_select([["---","0"], ["レディース","1"], ["メンズ","2"], ["ベビー・キッズ","3"], ["インテリア・住まい・小物","4"], ["本・音楽・ゲーム","5"], ["おもちゃ・ホビー・グッズ","6"], ["コスメ・香水・美容","7"], ["家電・スマホ・カメラ","8"], ["スポーツ・レジャー","9"], ["ハンドメイド","10"], ["チケット","11"], ["自動車・オートバイ","12"], ["その他","13"]]), {}, {class: 'medium_box__select'}
+                /       = fa_icon 'angle-down', class: 'products_new_select_list_icon'
+                / .block--product_detail--right__categories--second
+                /   .medium_box.clearfix
+                /     = f.fields_for :product_categories do |category|
+                /       = category.select :category_id,  options_for_select([["---","0"], ["トップス","14"], ["ジャケット/アウター","15"], ["パンツ","16"], ["靴","17"], ["バッグ","18"]],:selected=>"0"), {}, {class: 'medium_box__select'}
+                /       = fa_icon 'angle-down', class: 'products_new_select_list_icon'
+                / .block--product_detail--right__categories--third
+                /   .medium_box.clearfix
+                /     = f.fields_for :product_categories do |category|
+                /       = category.select :category_id,  options_for_select([["---","0"], ["Tシャツ","19"], ["シャツ","20"], ["ポロシャツ","21"]],:selected=>"0"), {}, {class: 'medium_box__select'}
+                /       = fa_icon 'angle-down', class: 'products_new_select_list_icon'
                 .medium_box_error--category
                   選択してください
             .block--product_detail--right__size
