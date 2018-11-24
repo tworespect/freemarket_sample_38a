@@ -1,0 +1,23 @@
+-number = 0
+- @products.each do |product|
+  - if (product.category_ids[0] == 3)
+    - number += 1
+    - if (number <= 4)
+      = link_to "/products/show" do
+        .category__items--each
+          .category__items--each__img
+            = image_tag product.images[0].first_image.url
+          .category__items--each__detail
+            .category__items--each__detail__top-name
+              = product.name
+            .category__items--each__detail__middle.clearfix
+              .category__items--each__detail__middle--price
+                ¥
+                = number_with_delimiter(product.price)
+              .category__items--each__detail__middle--heart.clearfix
+                .category__items--each__detail__middle--heart__mark
+                  %i.far.fa-heart.small
+                .category__items--each__detail__middle--heart__num
+                  2
+            .category__items--each__detail__bottom-tax
+              (税込)

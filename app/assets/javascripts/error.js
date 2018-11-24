@@ -27,22 +27,20 @@ $(function() {
   if(list.includes("Password is invalid")){
       $('.no-number-only').css('display','inherit');
   }
-  $('form').on('submit', function(e) {
-    e.preventDefault();
+  $('form').on('submit', function() {
     if($("#user_email").val() == "") {
       $('.email-login-error').css('display','inherit');
     }else{
       $('.email-login-error').css('display','none');
     }
   });
-  $('.btn').hover(function(){
-    $(this).prop( "disabled", false );
-    });
-  $('.field-input__sign').hover(function(){
-    $('.btn').removeAttr( "disabled");
-    });
+  // $('.btn').hover(function(){
+  //   $(this).prop( "disabled", false );
+  //   });
+  // $('.field-input__sign').hover(function(){
+  //   $('.btn').removeAttr( "disabled");
+  //   });
 
-    var login_pass = $("#user_password").val();
 
     // console.log(login_pass);
 
@@ -56,19 +54,33 @@ $(function() {
       $('.password-login-error-message').css('display','none');
     }
   });
+
   // $('form').on('submit', function(e) {
   //   e.preventDefault();
-  //   if (login_pass.length() < 6 ) {
+  //   if (login_pass == "" )  {
+  //     $('.password-login-error').css('display','inherit');
   //     $('.password-login-error-message').css('display','inherit');
   //   }else{
+  //     $('.password-login-error').css('display','none');
   //     $('.password-login-error-message').css('display','none');
   //   }
   // });
-  $('.btn').hover(function(){
-    $(this).prop( "disabled", false );
-    });
-  $('.field-input__sign').hover(function(){
-    $('.btn').removeAttr( "disabled");
-    });
+  // // $('form').on('submit', function(e) {
+  // //   e.preventDefault();
+  // //   if (login_pass.length() < 6 ) {
+  // //     $('.password-login-error-message').css('display','inherit');
+  // //   }else{
+  // //     $('.password-login-error-message').css('display','none');
+  // //   }
+  // // });
+  // $('.btn').hover(function(){
+  //   $(this).prop( "disabled", false );
+  //   });
+  // $('.field-input__sign').hover(function(){
+  //   $('.btn').removeAttr( "disabled");
+  //   });
+  // $('.field-input').hover(function(){
+  //   $('.btn').removeAttr( "disabled");
+  //   });
 });
 

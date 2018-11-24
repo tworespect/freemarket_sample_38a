@@ -1,5 +1,9 @@
 class ProductsController < ApplicationController
 
+  def index
+    @products = Product.order("id DESC").includes(:images, :categories)
+  end
+
   def new
     @product  = Product.new
     @product.product_sizes.build
@@ -24,7 +28,6 @@ class ProductsController < ApplicationController
 
   def buy
   end
-
 
   private
 
