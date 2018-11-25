@@ -1,0 +1,214 @@
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+  .main-contenttop {
+    .headcontent-center {
+    }
+    .bread-top-center {
+    }
+    .main-categorys {
+      position: static;
+      padding: 40px 0 0;
+      background-color: #f5f5f5;
+      .defaults-main-content.clearfix {
+        margin: 0 auto;
+        width: 1020px;
+        height: 1252px;
+        padding: 0 0 40px;
+        .defaults-main-content-right {
+          background: #fff;
+          float: right;
+          width: 700px;
+          .chapter-containers2 {
+            &__chapter-top {
+              font-weight: bold;
+              font-size: 24px;
+              padding: 8px 24px;
+              text-align: center;
+              border-bottom: 1px solid #f5f5f5;
+            }
+            #add-card-form.l-single-inner {
+              padding: 65px;
+              margin: 0 64px;
+              border-top: 1px solid #f5f5f5;
+              .l-single-content {
+                max-width: 320px;
+                margin: 0 auto;
+                .form-groups {
+                  margin: 0;
+                  label {
+                    font-weight: 600;
+                    display: inline-block;
+                  }
+                  span.form-require-1 {
+                    background: #ea352d;
+                    margin: 0 0 0 8px;
+                    padding: 2px 4px;
+                    border-radius: 2px;
+                    color: #fff;
+                    font-size: 12px;
+                    vertical-align: top;
+                  }
+                  #payment_card_no.input-default {
+                    width: 89%;
+                    margin: 8px 0 0;
+                    height: 28px;
+                    padding: 10px 16px 8px;
+                    border-radius: 4px;
+                    border: 1px solid #ccc;
+                    background: #fff;
+                    line-height: 1.5;
+                    font-size: 16px;
+                  }
+                    ul#card-no-error-wrapper.has-error-text {
+                      color: #ea352d;
+                      line-height: 1.5;
+                      font-size: 14px;
+                    }
+                    ul.signup-card-list {
+                      font-size: 0;
+                      display: inline-block;
+                      li {
+                        margin: 0;
+                        display: inline-block;
+                        vertical-align: middle;
+                      }
+                      li {
+                        display: inline-block;
+                      }
+                      li {
+                      }
+                      li {
+                      }
+                      li {
+                      }
+                      li.image4 {
+                        float: right;
+                      }
+                    }
+                    .form-groups.signup-form-expire {
+                      margin: 40px 0 0;
+                      label {
+                      }
+                      span.form-require-1 {
+                      }
+                      .select-wrap-1 {
+                        display: inline-block;
+                        width: 35%;
+                        margin: 8px 0 0;
+                        position: relative;
+                        background: #fff;
+                        #exp_month {
+                          width: 100%;
+                          position: relative;
+                          z-index: 2;
+                          height: 48px;
+                          padding: 0 16px;
+                          border-radius: 4px;
+                          border: 1px solid #ccc;
+                          background: 0;
+                          font-size: 16px;
+                          line-height: 1.5;
+                          cursor: pointer;
+                          -webkit-appearance: none;
+                        }
+                        #exp_year {
+                          width: 100%;
+                          position: relative;
+                          z-index: 2;
+                          height: 48px;
+                          padding: 0 16px;
+                          border-radius: 4px;
+                          border: 1px solid #ccc;
+                          background: 0;
+                          font-size: 16px;
+                          line-height: 1.5;
+                          cursor: pointer;
+                          -webkit-appearance: none;
+                        }
+                        i.fas.fa-angle-down {
+                          position: absolute;
+                          right: 12px;
+                          top: 20%;
+                          color: #888;
+                          font-size: 30px;
+                        }
+                      }
+                      span {
+                        margin: 0 8px;
+                      }
+                      ul#expire-error-wrapper.has-error-text {
+                      }
+                      .select-wrap-1 {
+                        .payment-card-expire {
+                        }
+                        i.fas.fa-angle-down {
+                        }
+                      }
+                      span {
+                      }
+                      ul#expire-error-wrapper.has-error-text {
+                      }
+                    }
+                    .form-groups {
+                      margin: 40px 0 0;
+                      label {
+                      }
+                      span.form-require-1 {
+                      }
+                      input#payment_card_security_code.input-default {
+                        width: 89%;
+                        margin: 8px 0 0;
+                        height: 28px;
+                        padding: 10px 16px 8px;
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                        line-height: 1.5;
+                        font-size: 16px;
+                      }
+                      ul#expire-error-wrapper.has-error-text {
+                      }
+                      .signup-seqcode {
+                        position: relative;
+                        margin: 8px 0 0;
+                        .signup-seqcode-text {
+                          text-align: right;
+                          color: #0099e8;
+                          i.fas.fa-question-circle {
+                          }
+                          p {
+                            float: right;
+                          }
+                        }
+                        .signup-seqcode-info {
+                        }
+                      }
+                    }
+                    p#primary-error.has-error-text {
+                    }
+                    #submit-button-l.btn-default-red {
+                      margin: 40px 0 0;
+                      background: #ea352d;
+                      border: 1px solid #ea352d;
+                      color: #fff;
+                      display: block;
+                      width: 100%;
+                      line-height: 48px;
+                      font-size: 14px;
+                      text-align: center;
+                    }
+                }
+              }
+            }
+          }
+        }
+        .defaults-main-sidetop {
+          float: left;
+          margin: -40px 0 0 0;
+        }
+      }
+    }
+  }
