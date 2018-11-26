@@ -82,16 +82,18 @@
         }
       }
     }
-    .top_page_link {
-      padding: 40px 0 0 calc(( 1440px - 124px) / 2);
-      height: 33px;
-      clear: both;
-    }
-    .footer_mercari {
-      margin: 8px 0 0 0;
-      font-size: 13px;
+    .footer_mark {
       text-align: center;
       clear: both;
+      &__top_page_link {
+        height: 33px;
+        width: 132px;
+        clear: both;
+      }
+      &__mercari {
+        margin: 8px 0 0 0;
+        font-size: 13px;
+      }
     }
   }
 }

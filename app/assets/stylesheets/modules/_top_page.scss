@@ -9,13 +9,14 @@
     height: 390px;
     width: 100vw;
     .banner_content {
+      height: 390px;
+      width: 860px;
+      margin: 0 auto;
       position: relative;
       &__left {
         color: #212121;
         float: left;
-        position: absolute;
-        top: 50px;
-        left: 300px;
+        margin: 50px 0 0 0;
         &--main {
           font-size: 60px;
           line-height: 80px;
@@ -31,7 +32,7 @@
         height: 390px;
         float: left;
         position: absolute;
-        left: 700px;
+        left: 400px;
       }
     }
   }
