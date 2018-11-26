@@ -15,20 +15,21 @@
                 .chapter-single-content
                   %h3.chapter-sub-head クレジットカード一覧
                   - if @mycard.present?
-                    %p= @mycard.last4
+                    %p= "************" + @mycard.last4
                     %p= @mycard.exp_year
                     %p= @mycard.exp_month
                     %p= @mycard.brand
 
+
                 %ul.settings-payment-list
               %section.settings-add-card
                 .chapter-single-content
-                  = link_to "/users/:user_id/card/new", class: "btn-defaults btn-reds submits-button" do
+                  = link_to new_user_card_path, class: "btn-defaults btn-reds submits-button" do
                     %i.far.fa-credit-card
                     クレジットカードを追加する
               .form-group.text-right
                 %p
-                  = link_to "/products/new", class: "text-right-bt" do
+                  = link_to new_product_path, class: "text-right-bt" do
                     支払い方法について
                     %i.fas.fa-angle-right
         .defaults-main-sidetop
