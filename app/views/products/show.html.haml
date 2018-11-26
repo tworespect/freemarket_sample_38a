@@ -1,13 +1,14 @@
+.wrapper
+  = render partial: "share/header"
+- breadcrumb :products, @product
+= render "share/breadcrumb"
+
 %body
   /商品見出しから、いいね機能もここに
   .default-container
     %section.item-box-container.l-single-container
-      %h1.item-name 正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
-      %p.item-wording
-        『正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ』は、524回の取引実績を持つ
-        %a hogehogeさんから出品されました。
-        %a チャネル(ショルダーバッグ/レディース
-        %a )の商品で、ロシアから2~3日で発送されます。
+      %h1.item-name
+        = @product.name
 
       /商品画像、詳細box
       .item-main-content.clearfix
@@ -20,7 +21,7 @@
               .owl-stage
                 .owl-item.active
                   .owl-item-inner
-                    = image_tag "Pic1.jpg", size: "300x300", alt: "シャネル"
+                    = image_tag @product.images[0].first_image.url
                 .owl-item
                   .owl-item-inner
                 .owl-item
@@ -28,44 +29,24 @@
                 .owl-item
                   .owl-item-inner.is-higher-width
 
-            /?
-            .owl-nav.disabred
             /hoverイベントをかける画像４枚
-            .owl-dots
+            .owl-dots.clearfix
               .owl-dot
-                %span
                 .owl-dot-inner
-                  = image_tag "Pic1.jpg", size: "75x75", alt: "シャネル"
+                  - if @product.images[0].forth_image.url.present?
+                    = image_tag @product.images[0].forth_image.url
               .owl-dot
-                %span
                 .owl-dot-inner
-                  = image_tag "Pic1.jpg", size: "75x75", alt: "シャネル"
-
+                  - if @product.images[0].third_image.url.present?
+                    = image_tag @product.images[0].third_image.url
               .owl-dot
-                %span
                 .owl-dot-inner
-                  = image_tag "Pic1.jpg", size: "75x75", alt: "シャネル"
-
+                  - if @product.images[0].second_image.url.present?
+                    = image_tag @product.images[0].second_image.url
               .owl-dot
-                %span
                 .owl-dot-inner
-                  = image_tag "Pic1.jpg", size: "75x75", alt: "シャネル"
-            /画像、説明書きここまで
-
-        /値段表示
-        .item-price-box.text-center.visible-sp
-          %span.item-price
-          %span.item-tax
-          %span.item-shipping-fee
-        /購入画面へjump
-        %section.visible-sp
-          %a.item-buy-btn.f18-24
-          /jumpパターンが２つ??
-          / %a.item-btn-client{:href => "https://www.mercari.com/jp/login/?login_callback=https%3A%2F%2Fwww.mercari.com%2Fjp%2Ftransaction%2Fbuy%2Fm70068440240%2F"}
-          /   %div{"data-client" => "visible"}
-          /     購入画面に進む
-          / %a.item-action-text{"data-action" => "item/openDetail", "data-adjust-url" => "http://app.adjust.io/xio2ii?campaign=iOS&adgroup=items.buy_button1", "data-key" => "id=m70068440240", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://"}
-          /     アプリで購入
+                  = image_tag @product.images[0].first_image.url
+                /画像、説明書きここまで
 
         /商品詳細
         %table.item-detail-table
@@ -73,7 +54,8 @@
             %tr
               %th 出品者
               %td
-                %a{href: "https://www.merucari.com/jp/u/387561164/"} koyama
+                %a{href: "https://www.merucari.com/jp/u/387561164/"}
+                  = @product.user.name
                 %div
                   .item-user-ratings
                     %i.fas.fa-grin.smile
@@ -87,92 +69,104 @@
             %tr
               %th カテゴリー
               %td
-                %a レディース
+                %a
+                  = @category_1.name
                 %a
                   .item-detail-table-sub-category
                     %i.fas.fa-angle-right.right
-                    バッグ
+                    = @category_2.name
                 %a
                   .item-detail-table-sub-sub-category
                     %i.fas.fa-angle-right.right
-                    ショルダーバッグ
+                    = @category_3.name
             %tr
               %th ブランド
               %td
-                %a{href: "https://www.merucari.com/jp/u/387561164/"} シャネル
+                %a{href: "https://www.merucari.com/jp/u/387561164/"}
+                  = @brand.name
             %tr
               %th 商品の状態
-              %td やや臭いあり
+              %td
+                - if @product.freight == 1
+                  新品、未使用
+                - elsif @product.freight == 2
+                  未使用に近い
+                - elsif @product.freight == 3
+                  目立った傷や汚れなし
+                - elsif @product.freight == 4
+                  やや傷や汚れあり
+                - elsif @product.freight == 5
+                  傷や汚れあり
+                - else
+                  全体的に状態が悪い
             %tr
               %th 配送料の負担
-              %td 送料込み(出品者負担)
+              %td
+                - if @product.freight == 1
+                  送料込み(出品者負担)
+                - else
+                  着払い(購入者負担)
             %tr
               %th 配送の方法
-              %td 未定
+              %td
+                - if @product.ship_method == 1
+                  未定
+                - elsif @product.ship_method == 2
+                  らくらくメルカリ便
+                - elsif @product.ship_method == 3
+                  ゆうメール
+                - elsif @product.ship_method == 4
+                  レターパック
+                - elsif @product.ship_method == 5
+                  普通郵便(定形、定形外)
+                - elsif @product.ship_method == 6
+                  クロネコヤマト
+                - elsif @product.ship_method == 7
+                  ゆうパック
+                - elsif @product.ship_method == 8
+                  クリックポスト
+                - else
+                  ゆうパケット
             %tr
               %th 配送元地域
               %td
-                %a{href: "https://www.merucari.com/jp/u/387561164/"} ロシア
+                %a{href: "https://www.merucari.com/jp/u/387561164/"}
+                  = render "ship_from_location"
             %tr
               %th 発送日の目安
-              %td 1~2日で発送
+              %td
+                - if @product.ship_day == 1
+                  1〜2日で発送
+                - elsif @product.ship_day == 2
+                  2〜3日で発送
+                - else
+                  4〜7日で発送
 
       /値段表示
       .item-price-box.text-center
-        %span.item-price ¥3,600
+        %span.item-price
+          ¥
+          = number_with_delimiter(@product.price)
         %span.item-tax (税込)
-        %span.item-shipping-fee 送料込み
-      - if user_signed_in?
-        = link_to products_buy_path do
-          .item-buy-btn 購入画面に進む
-          .item-btn-client
-      -else
-        %a.item-buy-btn.f18-24 売り切れました
+        %span.item-shipping-fee
+          - if @product.freight == 1
+            送料込み
+          - else
+            着払い
+
+      - unless current_user.id == @product.user_id
+        - if @product.status.to_i == 1
+          = link_to "buy" do
+            .item-buy-btn 購入画面に進む
+            .item-btn-client
+        - else
+          .item-buy-btn.f18-24 売り切れました
 
       /出品者記入項目
       .item-description.f14
         %p.item-description-inner
-          ■商品ご覧頂き、誠にありがとうございます。
-          ※今だけ、フォロワーになって下さった方に、300円のお値引きサービス中！！
+          = @product.description
 
-          私の商品検索は、
-          Boon・バッグ
-          検索してください。
-
-          質問がありましたらコメントでよろしくお願いします！
-          ■ 商品説明 ■
-          まずはプロフを確認してください☆
-
-          ■ 商品詳細 ■
-          シンプルな落ち着いたお色味でどんな場面にも合い、
-          どんな服にも合わせやすいお鞄です。使用感有！角擦れはございませんが
-          多少の汚れはあります。内側はとても綺麗です☆
-          使わなくなったのでどなたか使っていただける方お願いします。
-          製造番号  H2K-9294
-
-          【ブランド】
-          COACH コーチ
-
-          【商品名】
-          コーチ大き目シンプル
-
-          【仕様】
-          外ポケット１ 内ポケット４
-
-          【サイズ】
-          縦：32
-          横：31
-          幅：7
-          紐：130 多少調節可能
-
-          ＊他にも数多くの商品を出品しているので、ぜひご覧ください。
-          ＊複数購入、お取り置き(５日まで)もできるので、お気軽にお声がけくださいませ。
-          ＊中古品になりますので、予めご理解いただきますよう、お願い致します^_^
-          ※自宅保管、素人検品、素人寸法の誤差などにご理解がない方、神経質な方、完璧な物が欲しい方は購入お控えください。
-          、お願い致します^_^
-          ※自宅保管、素人検品、素人寸法の誤差などにご理解がない方、神経質な方、完璧な物が欲しい方は購入お控えください。
-
-          シンプル #かわいい #大き目 #かばん #バッグ
 
       /いいね機能、報告url、取り組みurl
       .item-button-container.clearfix
@@ -192,8 +186,21 @@
             %span あんしん・あんぜんへの取り組み
 
 
-    /コメント表示
+    - if current_user.id == @product.user_id
+      .item-edit-box
+        = button_tag class: "item-edit-box__edit-btn__btn" do
+          商品の編集
+        .item-edit-box__text
+          or
+        = button_tag class: "item-edit-box__stop-btn__btn" do
+          出品を一旦停止する
+        = link_to "/products/#{@product.id}", method: :delete, class: "item-edit-box__delete-btn__btn" do
+          この商品を削除する
+
+
+    /コメント表示（箱）
     .item-detail-message
+      / コメント枠
       .message-container
         .message-content.clearfix
           %ul.message-items
@@ -212,11 +219,23 @@
                     = link_to "https://item.mercari.com/jp/m96620691686/", class: 'flag-link' do
                       = button_tag type: "submit", class: 'flag-btn' do
                         %i.far.fa-flag
-
-    .item-detail-message
-      .message-container
-        .message-content-box
-
+          / .message-submit
+          /   = form_for @page_comments do
+          /     .message-submit__attension
+          /       相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          /     = f.text_field :text, class: 'message-submit__text'
+          /     .message-submit__btns
+          /       = f.submit 'コメントする', class: 'message-submit__btns__confirm'
+        .message-content
+          .message-content__attension
+            相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          .message-content__text
+          .message-content__btns
+            .message-content__btns__confirm
+              - if @product.status == 1
+                コメントする
+              - else
+                売り切れのためコメントできません
 
     /別商品詳細ページリンク
     %ul.nav-item-link-prev-next.clearfix
@@ -237,8 +256,6 @@
       %span
 
 
-
-
       /snsリンク
       %ul.social-media-box
         %li
@@ -253,39 +270,40 @@
         %li
           %a.share-btn
             %i.fab.fa-pinterest-square.custum{ style: "font-size: 44px;" }
-    .items-in-user-profile
-      %section.items-box-container.clearfix.items-box-overflow.items-in-user-profile
-        %h2.item-box.head
-          = link_to href: "https://item.mercari.com/jp/m96620691686/", class: 'user-page-pro' do
-            koyamaさんのその他の出品
-        .items-box-content.clearfix
-          .item-box
-            = render partial: "product-category"
-          .item-box2
-            = render partial: "product-category"
-          .item-box3
-            = render partial: "product-category"
-          .item-box4
-            = render partial: "product-category"
-          .item-box5
-            = render partial: "product-category"
-          .item-box6
-            = render partial: "product-category"
-      %section.items-box-container.clearfix.items-box-overflow.items-in-user-profile
-        %h2.item-box.head
-          = link_to href: "https://item.mercari.com/jp/m96620691686/", class: 'user-page-pro' do
-            koyamaさんのその他の出品
-        .items-box-content.clearfix
-          .item-box
-            = render partial: "product-category"
-          .item-box2
-            = render partial: "product-category"
-          .item-box3
-            = render partial: "product-category"
-          .item-box4
-            = render partial: "product-category"
-          .item-box5
-            = render partial: "product-category"
-          .item-box6
-            = render partial: "product-category"
+    / .items-in-user-profile
+    /   %section.items-box-container.clearfix.items-box-overflow.items-in-user-profile
+    /     %h2.item-box.head
+    /       = link_to href: "https://item.mercari.com/jp/m96620691686/", class: 'user-page-pro' do
+    /         koyamaさんのその他の出品
+    /     .items-box-content.clearfix
+    /       .item-box
+    /         = render partial: "product-category"
+    /       .item-box2
+    /         = render partial: "product-category"
+    /       .item-box3
+    /         = render partial: "product-category"
+    /       .item-box4
+    /         = render partial: "product-category"
+    /       .item-box5
+    /         = render partial: "product-category"
+    /       .item-box6
+    /         = render partial: "product-category"
+    /   %section.items-box-container.clearfix.items-box-overflow.items-in-user-profile
+    /     %h2.item-box.head
+    /       = link_to href: "https://item.mercari.com/jp/m96620691686/", class: 'user-page-pro' do
+    /         koyamaさんのその他の出品
+    /     .items-box-content.clearfix
+    /       .item-box
+    /         = render partial: "product-category"
+    /       .item-box2
+    /         = render partial: "product-category"
+    /       .item-box3
+    /         = render partial: "product-category"
+    /       .item-box4
+    /         = render partial: "product-category"
+    /       .item-box5
+    /         = render partial: "product-category"
+    /       .item-box6
+    /         = render partial: "product-category"
 
+= render partial: "share/footer"
