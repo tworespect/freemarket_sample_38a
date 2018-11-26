@@ -1,5 +1,5 @@
 - if user_signed_in?
-  = link_to 'products/new', class: 'exhibit_btn' do
+  = link_to new_product_path, class: 'exhibit_btn' do
     = fa_icon "circle", class: 'exhibit_btn__circle'
     .exhibit_btn__text
       出品

@@ -88,6 +88,7 @@ GEM
     chromedriver-helper (2.1.0)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
+    coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -240,6 +241,12 @@ GEM
     orm_adapter (0.5.0)
     payjp (0.0.6)
       rest-client (~> 2.0)
+    pry (0.12.2)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-byebug (3.6.0)
+      byebug (~> 10.0)
+      pry (~> 0.10)
     public_suffix (3.0.3)
     puma (3.12.0)
     rack (2.0.5)
@@ -403,6 +410,7 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-google-oauth2
   payjp
+  pry-byebug
   puma (~> 3.11)
   rails (~> 5.2.0)
   rails-controller-testing

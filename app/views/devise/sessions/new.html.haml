@@ -21,14 +21,17 @@
             .field-label__email--sign
             .field-input__sign
               = f.email_field :email, placeholder: 'メールアドレス'
+              .email-login-error 入力してください
           .field
             .field-label__password--sign
               %i
             .field-input__sign
               = f.password_field :password, autocomplete: "off", placeholder: 'パスワード'
+              .password-login-error 入力してください
+              .password-login-error-message パスワードは6文字以上128文字以下で入力してください
           .actions
             = f.submit "ログイン", class: 'btn'
-            %input{name: "login_callback", type: "hidden", value: "https://www.mercari.com/jp/signin/"}/
+            %input{name: "login_callback", type: "hidden"}/
           .password-forget
             = link_to "パスワードをお忘れの方","https://www.mercari.com/jp/password/reset/start/"
     = render partial: "users/footer"

@@ -24,6 +24,7 @@
       %h2.secound-head 会員情報入力
       .account-page__inner--right.user-form
         .no-match-error パスワードとパスワード（確認）が一致しません。
+        .no-number-only 数字のみのパスワードは設定できません
         .already-taken メールアドレスに誤りがあります。ご確認いただき、正しく変更してください。
         = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
           = devise_error_messages!

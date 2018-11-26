@@ -64,8 +64,15 @@
             &__img{
               height: 213px;
               width: 213px;
+              vertical-align: middle;
+              display: table-cell;
+              img {
+                max-height: 213px;
+                max-width: 213px;
+              }
             }
             &__detail{
+              color: $black;
               padding: 16px;
               &__top-name{
                 font-size: 16px;
@@ -88,7 +95,7 @@
                   &__num{
                     font-size: 16px;
                     font-weight: normal;
-                    padding: 3px;
+                    padding: 6px 0 0 10px;
                     float: left;
                   }
                 }
@@ -136,6 +143,7 @@
               width: 213px;
             }
             &__detail{
+              color: $black;
               padding: 16px;
               &__top-name{
                 font-size: 16px;
