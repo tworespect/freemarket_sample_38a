@@ -11,3 +11,8 @@ crumb :users_logout do
   link "ログアウト"
   parent :users
 end
+
+crumb :products do |product|
+  link "#{ product.name }"
+  parent :root
+end

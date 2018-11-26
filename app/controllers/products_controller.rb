@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product  = Product.new
+    @product = Product.new
     @product.product_sizes.build
     @product.product_brands.build
     @product.product_categories.build
@@ -14,15 +14,23 @@ class ProductsController < ApplicationController
 
   def create
     @product  = Product.new(product_params)
-    # if @product.save
-    #   respond_to do |format|
-    #     format.js
-    #   end
-    # else
-    #   render :new
-    # end
-    @product.save
-    render :new
+    @product.save!
+    redirect_to ''
+  end
+
+  def show
+    @product = Product.find(params[:id])
+    @images = @product.images
+    @category_1 = @product.categories[0]
+    @category_2 = @product.categories[1]
+    @category_3 = @product.categories[2]
+    @brand = @product.brands[0]
+    # @page_comments = @product.page_comments.includes(:user)
+  end
+
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy
   end
 
   def buy

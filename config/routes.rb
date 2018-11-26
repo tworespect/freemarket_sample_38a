@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get "users/logout", to: "users#logout"
   resources :users, only: [:index, :show, :edit, :update, :new]
 
-  resources :products
+  resources :products do
+    resources :page_comments, only: [:create]
+  end
   root "products#index"
   get "products/buy", to: "products#buy"
 
