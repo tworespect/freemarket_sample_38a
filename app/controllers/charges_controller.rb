@@ -4,7 +4,7 @@ class ChargesController < ApplicationController
   end
 
   def pay
-    Payjp.api_key = 'PAYJP_PRIVATE_KEY'
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     charge = Payjp::Charge.create(
     :amount => 3500,
     :card => params['payjp-token'],

@@ -1,6 +1,7 @@
 class CardController < ApplicationController
 
   def index
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     @mycard = Payjp::Customer.retrieve(current_user.payments.first.payjp_customer_id).cards.data[0] if current_user.payments.present?
   end
 
@@ -10,7 +11,7 @@ class CardController < ApplicationController
 
   def create
     unless current_user.payments.present?
-      Payjp.api_key = PAYJP_SECRET_KEY
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
 
       year = "20" + params[:exp_year]
       token = Payjp::Token.create({
