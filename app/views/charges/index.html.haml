@@ -1,0 +1,3 @@
+= form_tag(action: :pay, method: :post) do
+  %script.payjp-button{"data-key" => ENV["PAYJP_PUBLIC_KEY"], "data-submit-text" => "カード番号を登録して閉じる", :src => "https://checkout.pay.jp/", :type => "text/javascript"}
+

@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :products
 
+  has_many :payments
   validates :name, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }

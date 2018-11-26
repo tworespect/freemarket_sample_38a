@@ -91,4 +91,6 @@ gem 'gretel'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'payjp'
 gem 'pry-byebug'
+
