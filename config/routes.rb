@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update, :new] do
     resources :card, only: [:index, :new, :create]
   end
-  root 'charges#index'
+
   get 'charges' => 'charges#index'
   post 'charges/pay' => 'charges#pay'
   get 'charges/pay' => 'charges#pay'

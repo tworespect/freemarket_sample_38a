@@ -21,6 +21,7 @@ end
 crumb :users_card_new do
   link "クレジットカード情報入力"
   parent :users_card
+end
 
 crumb :products do |product|
   link "#{ product.name }"
