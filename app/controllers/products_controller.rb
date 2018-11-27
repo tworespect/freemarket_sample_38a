@@ -23,9 +23,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def edit
     @product_categories = @product.product_categories
   end
@@ -39,7 +36,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    product.destroy
+    @product.destroy
     redirect_to ''
   end
 
