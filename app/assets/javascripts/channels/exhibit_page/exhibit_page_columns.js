@@ -1,6 +1,6 @@
 $(function(){
 
-  $('.block--bottom__btns__confirm').on('mouseover', function(e){
+  $('.block--bottom__btns__confirm').on('click', function(e){
     e.preventDefault();
     if($('#product_images_attributes_0_first_image').val() == "" ){
       $('.block--images__error--1').css('display','inherit');
@@ -37,7 +37,7 @@ $(function(){
     if( num == "" || num < 300 || num >= 10000000 ){
       $('.block--price--right__input__bottom_error').css('display','inherit');
     }
-    $(".js-form").removeAttr("disabled");
+    $(".block--bottom__btns__confirm").removeAttr("disabled");
   })
 
   $('.block--product_detail--right__categories--first').on('change', function(){
