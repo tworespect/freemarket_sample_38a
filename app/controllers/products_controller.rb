@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+include Charge
+  before_action :set_product, only: [:show, :destroy, :buy, :pay, :completion]
 
   def index
     @products = Product.order("id DESC").includes(:images, :categories)
@@ -19,7 +21,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
     @images = @product.images
     @category_1 = @product.categories[0]
     @category_2 = @product.categories[1]
@@ -29,17 +30,29 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    product = Product.find(params[:id])
     product.destroy
   end
 
   def buy
   end
 
+  def pay
+    @payment = Payment.find_by(user_id: current_user.id)
+    create_charge(@product.price, @payment.payjp_customer_id)
+  end
+
+  def completion
+    @product.status == 1
+  end
+
   private
 
   def product_params
     params.require(:product).permit(:name, :price, :freight, :state_of_goods, :description, :ship_method, :ship_from_location, :ship_day, product_sizes_attributes:[:id, :size_id], product_brands_attributes:[], product_categories_attributes:[:id, :category_id], images_attributes:[:id, :first_image, :second_image, :third_image, :forth_image]).merge(status: 0, user_id: current_user.id)
+  end
+
+  def set_product
+    @product = Product.find(params[:product_id])
   end
 
 end
