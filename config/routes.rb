@@ -1,23 +1,22 @@
 Rails.application.routes.draw do
   devise_for :users
-  get "users/logout", to: "users#logout"
+  root "products#index"
+
+  get  "users/logout"  => "users#logout"
+  get  "brands/index"  => "brands#index"
+  get  'charges'       => 'charges#index'
+  get  'charges/pay'   => 'charges#pay'
+  post 'charges/pay'   => 'charges#pay'
 
   resources :users, only: [:index, :show, :edit, :update, :new] do
     resources :card, only: [:index, :new, :create]
   end
-  root 'charges#index'
-  get 'charges' => 'charges#index'
-  post 'charges/pay' => 'charges#pay'
-  get 'charges/pay' => 'charges#pay'
-  resources :products
-
 
   resources :products do
     resources :page_comments, only: [:create]
+    get   "buy"        => "products#buy"
+    post  "buy"        => "products#pay", as: 'pay'
+    get   "completion"  => "products#completion"
   end
 
-  root "products#index"
-  get "products/buy", to: "products#buy"
-
-  get  "brands/index"  =>  "brands#index"
 end
