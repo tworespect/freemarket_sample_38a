@@ -4,9 +4,6 @@ Rails.application.routes.draw do
 
   get  "users/logout"  => "users#logout"
   get  "brands/index"  => "brands#index"
-  get  'charges'       => 'charges#index'
-  get  'charges/pay'   => 'charges#pay'
-  post 'charges/pay'   => 'charges#pay'
 
   resources :users, only: [:index, :show, :edit, :update, :new] do
     resources :card, only: [:index, :new, :create]
