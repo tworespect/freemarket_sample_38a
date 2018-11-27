@@ -58,8 +58,7 @@
         .block--product_detail.clearfix
           .block--product_detail--left
             商品の詳細
-            = link_to "/products/new" do
-              = fa_icon "question-circle", class: 'block--product_detail--left__question_circle'
+            = fa_icon "question-circle", class: 'block--product_detail--left__question_circle'
           .block--product_detail--right
             .block--product_detail--right__category
               .sub_title.clearfix.clearfix
@@ -71,17 +70,17 @@
                 .block--product_detail--right__categories--first
                   .medium_box.clearfix
                     = f.fields_for :product_categories do |category|
-                      = category.select :category_id, options_for_select([["---","0"], ["レディース","1"], ["メンズ","2"], ["ベビー・キッズ","3"], ["インテリア・住まい・小物","4"], ["本・音楽・ゲーム","5"], ["おもちゃ・ホビー・グッズ","6"], ["コスメ・香水・美容","7"], ["家電・スマホ・カメラ","8"], ["スポーツ・レジャー","9"], ["ハンドメイド","10"], ["チケット","11"], ["自動車・オートバイ","12"], ["その他","13"]]), {}, {class: 'medium_box__select'}
+                      = category.select :category_id, options_for_select([["---","0"], ["衣服","1"], ["ホビー","2"], ["家電","3"]], selected: 0), {}, {class: 'medium_box__select'}
                       = fa_icon 'angle-down', class: 'products_new_select_list_icon'
                 .block--product_detail--right__categories--second
                   .medium_box.clearfix
                     = f.fields_for :product_categories do |category|
-                      = category.select :category_id,  options_for_select([["---","0"], ["トップス","14"], ["ジャケット/アウター","15"], ["パンツ","16"], ["靴","17"], ["バッグ","18"]],:selected=>"0"), {}, {class: 'medium_box__select'}
+                      = category.select :category_id,  options_for_select([["---","0"], ["レディース","4"], ["メンズ","5"], ["キッズ","6"], ["おもちゃ","7"], ["スポーツ","8"], ["乗り物","9"], ["PC","10"], ["生活家電","11"], ["カメラ","12"]], selected: 0), {}, {class: 'medium_box__select'}
                       = fa_icon 'angle-down', class: 'products_new_select_list_icon'
                 .block--product_detail--right__categories--third
                   .medium_box.clearfix
                     = f.fields_for :product_categories do |category|
-                      = category.select :category_id,  options_for_select([["---","0"], ["Tシャツ","19"], ["シャツ","20"], ["ポロシャツ","21"]],:selected=>"0"), {}, {class: 'medium_box__select'}
+                      = category.select :category_id,  options_for_select([["---","0"], ["トップ","13"], ["パンツ","14"], ["小物","15"], ["人形・プラモ","16"], ["ラジコン","17"], ["楽器","18"], ["野球","19"], ["サッカー","20"], ["バスケ","21"], ["車","22"], ["自動車","23"], ["バイク","24"], ["タブレット","25"], ["ノートPC","26"], ["パーツ","27"], ["電子レンジ","28"], ["TV","29"], ["洗濯機","30"], ["デジカメ","31"], ["ビデオカメラ","32"], ["レンズ","33"]],selected: 0), {}, {class: 'medium_box__select'}
                       = fa_icon 'angle-down', class: 'products_new_select_list_icon'
                 .medium_box_error--category
                   選択してください
@@ -93,7 +92,7 @@
                   必須
               .medium_box.clearfix
                 = f.fields_for :product_sizes do |size|
-                  = size.select :size_id, options_for_select([["---","0"], ["S","1"], ["M","2"], ["L","3"], ["XL","4"], ["その他","5"], ["","6"], ["","7"], ["","8"], ["","9"], ["","10"], ["","11"], ["","12"], ["","13"]],:selected=>"0"), {}, {class: 'medium_box__select'}
+                  = size.select :size_id, options_for_select([["---","0"], ["S","1"], ["M","2"], ["L","3"]],:selected=>"0"), {}, {class: 'medium_box__select'}
                   = fa_icon 'angle-down', class: 'products_new_select_list_icon'
               .medium_box_error--size
                 選択してください
@@ -105,7 +104,8 @@
                   任意
               .medium_box--brand
                 = f.fields_for :product_brands do |brand|
-                  = brand.text_field :brand_id, class: 'medium_box__text', placeholder: '例）シャネル'
+                  %input.medium_box__text{ placeholder: '例）シャネル', type: "text" }
+                    %input{ :name => "@product[brands][]", :type => "hidden", value: "#{@product.brands[0]}" }
               .block--product_detail--right__brand__candidate
             .block--product_detail--right__status
               .sub_title.clearfix
@@ -124,8 +124,7 @@
         .block--about_ship.clearfix
           .block--about_ship--left
             配送について
-            = link_to "/products/new" do
-              = fa_icon "question-circle", class: 'block--about_ship--left__question_circle'
+            = fa_icon "question-circle", class: 'block--about_ship--left__question_circle'
           .block--about_ship--right
             .block--about_ship--right__freight
               .sub_title.clearfix
@@ -177,8 +176,7 @@
         .block--price.clearfix
           .block--price--left
             販売価格(300〜9,999,999)
-            = link_to "/products/new" do
-              = fa_icon "question-circle", class: 'block--price--left__question_circle'
+            = fa_icon "question-circle", class: 'block--price--left__question_circle'
           .block--price--right
             .block--price--right__input
               .block--price--right__input__top.clearfix
@@ -209,25 +207,26 @@
       .block
         .block--bottom
           .block--bottom__note
-            = link_to "/products/new", class: "block--bottom__note__attention" do
+            %span.block--bottom__note__attention
               禁止されている出品
             、
-            = link_to "/products/new", class: "block--bottom__note__attention" do
+            %span.block--bottom__note__attention
               行為
             を必ずご確認ください。
             %br
             またブランド品でシリアルナンバー等がある場合はご記載ください。
-            = link_to "/products/new", class: "block--bottom__note__attention" do
+            %span.block--bottom__note__attention
               偽ブランドの販売
             は犯罪であり処罰される可能性があります。
             %br
             また、出品をもちまして
-            = link_to "/products/new", class: "block--bottom__note__attention" do
+            %span.block--bottom__note__attention
               加盟店規約
             に同意したことになります。
           .block--bottom__btns
             = f.submit '出品する', class: 'block--bottom__btns__confirm'
             = button_tag class: "block--bottom__btns__back" do
               戻る
+
 
   = render "users/footer"
