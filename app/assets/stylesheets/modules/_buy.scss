@@ -87,18 +87,19 @@
               width: 122px;
               padding: 16px 0;
             }
-
           }
-          .buy-button {
-            height: 50px;
-            background: #ea352d;
-            color: #fff;
-            font-size: 14px;
-            font-weight: 600;
-            text-align: center;
-            line-height: 48px;
-            margin-top: 16px;
-          }
+        }
+        .buy-button-pay-btn {
+          width: 320px;
+          height: 50px;
+          background: #ea352d;
+          color: #fff;
+          font-size: 14px;
+          font-weight: 600;
+          text-align: center;
+          line-height: 48px;
+          margin-top: 16px;
+          cursor: pointer;
         }
       }
     }
