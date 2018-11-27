@@ -22,8 +22,8 @@
                 支払い金額
               .buy-price-table__pay
                 ¥230,000
-            .buy-button
-              購入する
+          = form_with model: @product, url: product_pay_path, method: :post, local: true do |f|
+            = f.submit '購入する', class: 'buy-button-pay-btn'
 
       .buy-street-address
         .buy-street-address__inner
