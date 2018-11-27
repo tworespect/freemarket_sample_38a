@@ -36,8 +36,12 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.destroy
-    redirect_to products_path
+    binding.pry
+    if @product.destroy
+      redirect_to products_path
+    else
+      redirect_to product_path
+    end
   end
 
   def buy
