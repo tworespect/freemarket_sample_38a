@@ -169,6 +169,16 @@
     border: none;
     border-radius: 2px;
   }
+  .btn-signin {
+    display: inline-block;
+    height: 50px;
+    padding: 0 30px;
+    line-height: 50px;
+    letter-spacing: 1px;
+    text-align: center;
+    border: none;
+    border-radius: 2px;
+  }
 
   input[type='submit'] {
     margin-top: 40px;
@@ -402,6 +412,10 @@ small{
 }
 
 // sessions
+.email-pass-error{
+  display: none;
+}
+
 .single-head--center{
   padding: 38px 16px;
   text-align: center;

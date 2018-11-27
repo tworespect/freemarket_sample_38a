@@ -5,6 +5,9 @@
       .login-no-account
         %p アカウントをお持ちでない方はこちら
         = link_to "新規会員登録", users_path
+        - if flash[:alert].present?
+          .email-pass-error
+            = flash[:alert]
       .login-form-inner
         = link_to  do
           = button_tag id: "facebook-login", class: "btn-default btn-sns btn-sns-facebook" do
@@ -16,11 +19,11 @@
             Googleでログイン
       .signin-page__inner--right.user-form
         = form_for(resource, as: resource_name, url: session_path(resource_name))  do |f|
-          = devise_error_messages!
           .field
             .field-label__email--sign
             .field-input__sign
               = f.email_field :email, placeholder: 'メールアドレス'
+              = devise_error_messages!
               .email-login-error 入力してください
           .field
             .field-label__password--sign
@@ -30,7 +33,7 @@
               .password-login-error 入力してください
               .password-login-error-message パスワードは6文字以上128文字以下で入力してください
           .actions
-            = f.submit "ログイン", class: 'btn'
+            = f.submit "ログイン", class: 'btn-signin'
             %input{name: "login_callback", type: "hidden"}/
           .password-forget
             = link_to "パスワードをお忘れの方","https://www.mercari.com/jp/password/reset/start/"
