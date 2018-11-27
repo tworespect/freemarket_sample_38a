@@ -3,7 +3,7 @@
   - if (product.category_ids[0] == 1)
     - number += 1
     - if (number <= 4)
-      = link_to "/products/show" do
+      = link_to "/products/#{product.id}" do
         .category__items--each
           .category__items--each__img
             = image_tag product.images[0].first_image.url
