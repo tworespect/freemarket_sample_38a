@@ -174,9 +174,13 @@ body {
                 width: 39%;
                 text-align: left;
                 font-weight: 400;
+                padding: 8px;
                 background: #fafafa;
+                border: 1px solid #f5f5f5;
               }
               td {
+                padding: 8px;
+                border: 1px solid #f5f5f5;
                 a {
                   margin: 0;
                 }
@@ -524,12 +528,11 @@ body {
                     border-color: #eef0f4;
                     .flag-link {
                       border-style: hidden;
-                    background-color: #eef0f4;
+                      background-color: #eef0f4;
                       .flag-btn {
                         border-style: hidden;
                         background-color: #eef0f4;
                         .far.fa-flag {
-                          color: #aaa;
                           font-size: 13px;
                         }
                       }
