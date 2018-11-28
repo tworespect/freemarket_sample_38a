@@ -58,7 +58,7 @@ include Charge
   end
 
   def completion
-    @product.status == 1
+    @product.status = 1
   end
 
   private
