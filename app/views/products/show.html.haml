@@ -92,15 +92,15 @@
             %tr
               %th 商品の状態
               %td
-                - if @product.freight == 1
+                - if @product.freight.to_i == 1
                   新品、未使用
-                - elsif @product.freight == 2
+                - elsif @product.freight.to_i == 2
                   未使用に近い
-                - elsif @product.freight == 3
+                - elsif @product.freight.to_i == 3
                   目立った傷や汚れなし
-                - elsif @product.freight == 4
+                - elsif @product.freight.to_i == 4
                   やや傷や汚れあり
-                - elsif @product.freight == 5
+                - elsif @product.freight.to_i == 5
                   傷や汚れあり
                 - else
                   全体的に状態が悪い
@@ -114,21 +114,21 @@
             %tr
               %th 配送の方法
               %td
-                - if @product.ship_method == 1
+                - if @product.ship_method.to_i == 1
                   未定
-                - elsif @product.ship_method == 2
+                - elsif @product.ship_method.to_i == 2
                   らくらくメルカリ便
-                - elsif @product.ship_method == 3
+                - elsif @product.ship_method.to_i == 3
                   ゆうメール
-                - elsif @product.ship_method == 4
+                - elsif @product.ship_method.to_i == 4
                   レターパック
-                - elsif @product.ship_method == 5
+                - elsif @product.ship_method.to_i == 5
                   普通郵便(定形、定形外)
-                - elsif @product.ship_method == 6
+                - elsif @product.ship_method.to_i == 6
                   クロネコヤマト
-                - elsif @product.ship_method == 7
+                - elsif @product.ship_method.to_i == 7
                   ゆうパック
-                - elsif @product.ship_method == 8
+                - elsif @product.ship_method.to_i == 8
                   クリックポスト
                 - else
                   ゆうパケット
@@ -140,9 +140,9 @@
             %tr
               %th 発送日の目安
               %td
-                - if @product.ship_day == 1
+                - if @product.ship_day.to_i == 1
                   1〜2日で発送
-                - elsif @product.ship_day == 2
+                - elsif @product.ship_day.to_i == 2
                   2〜3日で発送
                 - else
                   4〜7日で発送
@@ -154,7 +154,7 @@
           = number_with_delimiter(@product.price)
         %span.item-tax (税込)
         %span.item-shipping-fee
-          - if @product.freight == 1
+          - if @product.freight.to_i == 1
             送料込み
           - else
             着払い
