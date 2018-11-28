@@ -1,6 +1,6 @@
 -number = 0
 - @products.sort_by{rand}.first(4).each do |product|
-  = link_to "/products/show" do
+  = link_to product_path(product.id) do
     .category__items--each
       .category__items--each__img
         = image_tag product.images[0].first_image.url

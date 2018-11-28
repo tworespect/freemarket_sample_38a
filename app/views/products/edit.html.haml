@@ -2,7 +2,7 @@
 
   = render "users/header"
 
-  = form_for @product ,class: 'exhibit-form', remote: true do |f|
+  = form_for @product ,class: 'js-form'  do |f|
     .main_product_new
       .title
         商品の情報を入力
@@ -18,7 +18,7 @@
           .block--images__box
             = f.fields_for :images do |image|
               = image.label :first_image do
-                = image.file_field :first_image, class: 'block--images__box__field'
+                = image.file_field :first_image, class: 'block--images__box__field', value: @product.images[0].first_image.url
                 .block--images__box__text
                   ドラッグアンドドロップ
                   %br
@@ -38,7 +38,7 @@
               .sub_title__required
                 必須
             .block--product__name__text_box
-              = f.text_field :name, class: 'block--product__name__text_box__text', placeholder: '商品名（必須40文字まで）'
+              = f.text_field :name, class: 'block--product__name__text_box__text', placeholder: '商品名（必須40文字まで）', value: @product.name
             .block--product__name__error
               入力してください
           .block--product__description
@@ -48,7 +48,7 @@
               .sub_title__required
                 必須
             .block--product__description__text_box
-              = f.text_area :description, class: 'block--product__description__text_box__text', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
+              = f.text_area :description, class: 'block--product__description__text_box__text', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', value: @product.description
             .block--product__description__error
               入力してください
 
@@ -68,22 +68,22 @@
               .block--product_detail--right__categories
                 .block--product_detail--right__categories--first
                   .medium_box.clearfix
-                    = f.fields_for :product_categories do |category|
-                      = category.select :category_id, options_for_select([["---","0"], ["衣服","1"], ["ホビー","2"], ["家電","3"]], selected: 0), {}, {class: 'medium_box__select'}
+                    = f.fields_for :product_categories, @product_categories[0] do |category|
+                      = category.select :category_id, options_for_select([["---","0"], ["衣服","1"], ["ホビー","2"], ["家電","3"]], selected: @product.categories[0].id), {}, {class: 'medium_box__select'}
                       = fa_icon 'angle-down', class: 'products_new_select_list_icon'
-                .block--product_detail--right__categories--second
+                .block--product_detail--right__categories--second-edit
                   .medium_box.clearfix
-                    = f.fields_for :product_categories do |category|
-                      = category.select :category_id,  options_for_select([["---","0"], ["レディース","4"], ["メンズ","5"], ["キッズ","6"], ["おもちゃ","7"], ["スポーツ","8"], ["乗り物","9"], ["PC","10"], ["生活家電","11"], ["カメラ","12"]], selected: 0), {}, {class: 'medium_box__select'}
+                    = f.fields_for :product_categories, @product_categories[1] do |category|
+                      = category.select :category_id,  options_for_select([["---","0"], ["レディース","4"], ["メンズ","5"], ["キッズ","6"], ["おもちゃ","7"], ["スポーツ","8"], ["乗り物","9"], ["PC","10"], ["生活家電","11"], ["カメラ","12"]], selected: @product.categories[1].id), {}, {class: 'medium_box__select'}
                       = fa_icon 'angle-down', class: 'products_new_select_list_icon'
-                .block--product_detail--right__categories--third
+                .block--product_detail--right__categories--third-edit
                   .medium_box.clearfix
-                    = f.fields_for :product_categories do |category|
-                      = category.select :category_id,  options_for_select([["---","0"], ["トップ","13"], ["パンツ","14"], ["小物","15"], ["人形・プラモ","16"], ["ラジコン","17"], ["楽器","18"], ["野球","19"], ["サッカー","20"], ["バスケ","21"], ["車","22"], ["自動車","23"], ["バイク","24"], ["タブレット","25"], ["ノートPC","26"], ["パーツ","27"], ["電子レンジ","28"], ["TV","29"], ["洗濯機","30"], ["デジカメ","31"], ["ビデオカメラ","32"], ["レンズ","33"]],selected: 0), {}, {class: 'medium_box__select'}
+                    = f.fields_for :product_categories, @product_categories[2] do |category|
+                      = category.select :category_id,  options_for_select([["---","0"], ["トップ","13"], ["パンツ","14"], ["小物","15"], ["人形・プラモ","16"], ["ラジコン","17"], ["楽器","18"], ["野球","19"], ["サッカー","20"], ["バスケ","21"], ["車","22"], ["自動車","23"], ["バイク","24"], ["タブレット","25"], ["ノートPC","26"], ["パーツ","27"], ["電子レンジ","28"], ["TV","29"], ["洗濯機","30"], ["デジカメ","31"], ["ビデオカメラ","32"], ["レンズ","33"]],selected: @product.categories[2].id), {}, {class: 'medium_box__select'}
                       = fa_icon 'angle-down', class: 'products_new_select_list_icon'
                 .medium_box_error--category
                   選択してください
-            .block--product_detail--right__size
+            .block--product_detail--right__size-edit
               .sub_title.clearfix.clearfix
                 .sub_title__name
                   サイズ
@@ -91,11 +91,11 @@
                   必須
               .medium_box.clearfix
                 = f.fields_for :product_sizes do |size|
-                  = size.select :size_id, options_for_select([["---","0"], ["S","1"], ["M","2"], ["L","3"]],:selected=>"0"), {}, {class: 'medium_box__select'}
+                  = size.select :size_id, options_for_select([["---","0"], ["S","1"], ["M","2"], ["L","3"], ["XL","4"], ["その他","5"], ["","6"], ["","7"], ["","8"], ["","9"], ["","10"], ["","11"], ["","12"], ["","13"]], selected: @product.sizes[0].id), {}, {class: 'medium_box__select'}
                   = fa_icon 'angle-down', class: 'products_new_select_list_icon'
               .medium_box_error--size
                 選択してください
-            .block--product_detail--right__brand
+            .block--product_detail--right__brand-edit
               .sub_title.clearfix
                 .sub_title__name
                   ブランド
@@ -103,8 +103,7 @@
                   任意
               .medium_box--brand
                 = f.fields_for :product_brands do |brand|
-                  %input.medium_box__text{ placeholder: '例）シャネル', type: "text" }
-                    %input{ :name => "@product[brands][]", :type => "hidden", value: "#{@product.brands[0]}" }
+                  = brand.text_field :brand_id, class: 'medium_box__text', placeholder: '例）シャネル', value: @product.brands[0].name
               .block--product_detail--right__brand__candidate
             .block--product_detail--right__status
               .sub_title.clearfix
@@ -113,7 +112,7 @@
                 .sub_title__required
                   必須
               .medium_box
-                = f.select :state_of_goods, options_for_select([["---","0"], ["新品、未使用","1"], ["未使用に近い","2"], ["目立った傷や汚れなし","3"], ["やや傷や汚れあり","4"], ["傷や汚れあり","5"], ["全体的に状態が悪い","6"]],:selected=>"0"), {}, {class: 'medium_box__select'}
+                = f.select :state_of_goods, options_for_select([["---","0"], ["新品、未使用","1"], ["未使用に近い","2"], ["目立った傷や汚れなし","3"], ["やや傷や汚れあり","4"], ["傷や汚れあり","5"], ["全体的に状態が悪い","6"]], selected: @product.state_of_goods), {}, {class: 'medium_box__select'}
                 = fa_icon 'angle-down', class: 'products_new_select_list_icon'
               .medium_box_error--state_of_goods
                 選択してください
@@ -132,18 +131,18 @@
                 .sub_title__required
                   必須
               .medium_box
-                = f.select :freight, options_for_select([["---","0"], ["送料込み(出品者負担)","1"], ["着払い(購入者負担)","2"]],:selected=>"0"), {}, {class: 'medium_box__select'}
+                = f.select :freight, options_for_select([["---","0"], ["送料込み(出品者負担)","1"], ["着払い(購入者負担)","2"]], selected: @product.freight), {}, {class: 'medium_box__select'}
                 = fa_icon 'angle-down', class: 'products_new_select_list_icon'
               .medium_box_error--freight
                 選択してください
-            .block--about_ship--right__method
+            .block--about_ship--right__method-edit
               .sub_title.clearfix
                 .sub_title__name
                   配送の方法
                 .sub_title__required
                   必須
               .medium_box
-                = f.select :ship_method, options_for_select([["---","0"], ["未定","1"], ["らくらくメルカリ便","2"], ["ゆうメール","3"], ["レターパック","4"], ["普通郵便(定形、定形外)","5"], ["クロネコヤマト","6"], ["ゆうパック","7"], ["クリックポスト","8"], ["ゆうパケット","9"]],:selected=>"0"), {}, {class: 'medium_box__select'}
+                = f.select :ship_method, options_for_select([["---","0"], ["未定","1"], ["らくらくメルカリ便","2"], ["ゆうメール","3"], ["レターパック","4"], ["普通郵便(定形、定形外)","5"], ["クロネコヤマト","6"], ["ゆうパック","7"], ["クリックポスト","8"], ["ゆうパケット","9"]], selected: @product.ship_method), {}, {class: 'medium_box__select'}
                 = fa_icon 'angle-down', class: 'products_new_select_list_icon'
               .medium_box_error--ship_method
                 選択してください
@@ -154,7 +153,7 @@
                 .sub_title__required
                   必須
               .medium_box
-                = f.select :ship_from_location, options_for_select([["---","0"], ["北海道","1"], ["青森県","2"], ["岩手県","3"], ["宮城県","4"], ["秋田県","5"], ["山形県","6"], ["福島県","7"], ["茨城県","8"], ["栃木県","9"], ["群馬県","10"], ["埼玉県","11"], ["千葉県","12"], ["東京都","13"], ["神奈川県","14"], ["新潟県","15"], ["富山県","16"], ["石川県","17"], ["福井県","18"], ["山梨県","19"], ["長野県","20"], ["岐阜県","21"], ["静岡県","22"], ["愛知県","23"], ["三重県","24"], ["滋賀県","25"], ["京都府","26"], ["大阪府","27"], ["兵庫県","28"], ["奈良県","29"], ["和歌山県","30"], ["鳥取県","31"], ["島根県","32"], ["岡山県","33"], ["広島県","34"], ["山口県","35"], ["徳島県","36"], ["香川県","37"], ["愛媛県","38"], ["高知県","39"], ["福岡県","40"], ["佐賀県","41"], ["長崎県","42"], ["熊本県","43"], ["大分県","44"], ["宮城県","45"], ["鹿児島県","46"], ["沖縄県","47"], ["未定","48"]],:selected=>"0"), {}, {class: 'medium_box__select'}
+                = f.select :ship_from_location, options_for_select([["---","0"], ["北海道","1"], ["青森県","2"], ["岩手県","3"], ["宮城県","4"], ["秋田県","5"], ["山形県","6"], ["福島県","7"], ["茨城県","8"], ["栃木県","9"], ["群馬県","10"], ["埼玉県","11"], ["千葉県","12"], ["東京都","13"], ["神奈川県","14"], ["新潟県","15"], ["富山県","16"], ["石川県","17"], ["福井県","18"], ["山梨県","19"], ["長野県","20"], ["岐阜県","21"], ["静岡県","22"], ["愛知県","23"], ["三重県","24"], ["滋賀県","25"], ["京都府","26"], ["大阪府","27"], ["兵庫県","28"], ["奈良県","29"], ["和歌山県","30"], ["鳥取県","31"], ["島根県","32"], ["岡山県","33"], ["広島県","34"], ["山口県","35"], ["徳島県","36"], ["香川県","37"], ["愛媛県","38"], ["高知県","39"], ["福岡県","40"], ["佐賀県","41"], ["長崎県","42"], ["熊本県","43"], ["大分県","44"], ["宮城県","45"], ["鹿児島県","46"], ["沖縄県","47"], ["未定","48"]], selected: @product.ship_from_location), {}, {class: 'medium_box__select'}
                 = fa_icon 'angle-down', class: 'products_new_select_list_icon'
               .medium_box_error--ship_from_location
                 選択してください
@@ -165,7 +164,7 @@
                 .sub_title__required
                   必須
               .medium_box
-                = f.select :ship_day, options_for_select([["---","0"], ["1~2日で発送","1"], ["2~3日で発送","2"], ["4~7日で発送","3"]],:selected=>"0"), {}, {class: 'medium_box__select'}
+                = f.select :ship_day, options_for_select([["---","0"], ["1~2日で発送","1"], ["2~3日で発送","2"], ["4~7日で発送","3"]], selected: @product.ship_day), {}, {class: 'medium_box__select'}
                 = fa_icon 'angle-down', class: 'products_new_select_list_icon'
               .medium_box_error--ship_day
                 選択してください
@@ -175,7 +174,7 @@
         .block--price.clearfix
           .block--price--left
             販売価格(300〜9,999,999)
-            = fa_icon "question-circle", class: 'block--price--left__question_circle'
+            = fa_icon "question-circle", class: 'block--price--left__question_circle', value: "#{@product.price}"
           .block--price--right
             .block--price--right__input
               .block--price--right__input__top.clearfix
@@ -226,6 +225,5 @@
             = f.submit '出品する', class: 'block--bottom__btns__confirm'
             = button_tag class: "block--bottom__btns__back" do
               戻る
-
 
   = render "users/footer"

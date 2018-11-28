@@ -39,9 +39,9 @@
 
   .main {
     background-color: #F5F5F5;
-    padding: 0 250px;
+    width: 100vw;
     .pickup {
-      padding: 40px;
+      max-padding: 40px;
       .category {
         font-size: 28px;
         font-weight: bold;
@@ -53,7 +53,7 @@
           padding: 26px 0;
         }
         &__items{
-          margin-left: calc(((( 100vw - 250px * 2 ) - 100%) / 2) * -1);
+          margin: 0 auto;
           height: 330px;
           width: 940px;
           &--each{
