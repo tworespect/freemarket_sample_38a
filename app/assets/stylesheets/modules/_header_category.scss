@@ -1,0 +1,91 @@
+// 衣類・レディース、メンズ、キッズ
+$parent_name: humans_category;
+$hover_name: human;
+$children_name: clothes_content;
+.header_category {
+  @include first_content;
+  .#{$parent_name} {
+    @include second_content;
+    .#{$children_name} {
+      @include third_content;
+    }
+  }
+}
+// ホビー・おもしろ
+$parent_name: hobbies_category;
+$hover_name: hobbies;
+$children_name: hobby_content;
+.header_category {
+  @include first_content;
+  .#{$parent_name} {
+    @include second_content;
+    .#{$children_name} {
+      @include third_content;
+    }
+  }
+}
+// ホビー・スポーツ
+$parent_name: hobbies_category;
+$hover_name: sports;
+$children_name: sport_content;
+.header_category {
+  @include first_content;
+  .#{$parent_name} {
+    @include second_content;
+    .#{$children_name} {
+      @include third_content;
+    }
+  }
+}
+// ホビー・乗り物
+$parent_name: hobbies_category;
+$hover_name: vehicles;
+$children_name: vehicle_content;
+.header_category {
+  @include first_content;
+  .#{$parent_name} {
+    @include second_content;
+    .#{$children_name} {
+      @include third_content;
+    }
+  }
+}
+// 家電・PC
+$parent_name: electronics_category;
+$hover_name: computers;
+$children_name: computer_content;
+.header_category {
+  @include first_content;
+  .#{$parent_name} {
+    @include second_content;
+    .#{$children_name} {
+      @include third_content;
+    }
+  }
+}
+// 家電・生活家電
+$parent_name: electronics_category;
+$hover_name: electronics;
+$children_name: electronic_content;
+.header_category {
+  @include first_content;
+  .#{$parent_name} {
+    @include second_content;
+    .#{$children_name} {
+      @include third_content;
+    }
+  }
+}
+// 家電・カメラ
+$parent_name: electronics_category;
+$hover_name: cameras;
+$children_name: camera_content;
+.header_category {
+  @include first_content;
+  .#{$parent_name} {
+    @include second_content;
+    .#{$children_name} {
+      @include third_content;
+    }
+  }
+}
