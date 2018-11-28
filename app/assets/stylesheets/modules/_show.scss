@@ -68,6 +68,8 @@ body {
                     padding: 0 0 100%;
                     position: relative;
                     img {
+                      vertical-align: middle;
+                      display: table-cell;
                     }
                     .owl-sold {
                       .owl-sold-mark {
