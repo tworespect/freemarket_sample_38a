@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+include Charge
+  before_action :set_product, only: [:show, :destroy, :completion]
 
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
@@ -36,7 +38,6 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     if @product.destroy
       redirect_to products_path
     else
@@ -45,6 +46,19 @@ class ProductsController < ApplicationController
   end
 
   def buy
+    @product = Product.find(params[:product_id])
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    @mycard = Payjp::Customer.retrieve(current_user.payments.first.payjp_customer_id).cards.data[0] if current_user.payments.present?
+  end
+
+  def pay
+    @product = Product.find(params[:product_id])
+    @payment = Payment.find_by(user_id: current_user.id)
+    create_charge(@product.price, @payment.payjp_customer_id)
+  end
+
+  def completion
+    @product.status == 1
   end
 
   private

@@ -8,22 +8,34 @@
         .buy-item-inner
           .buy-item-inner__image
             .img
+              = image_tag @product.images[0].first_image.url
           .buy-item-inner__name
-            林田真尋たん(一晩)
+            = @product.name
           .buy-form
             .buy-price
-              ¥230,000
+              ¥
+              = number_with_delimiter(@product.price)
               .item-shipping
-                送料込み
+                - if @product.freight == 1
+                  %p.shipping-price 送料込み
+                - else
+                  %p.shipping-price 着払い
             .buy-accordion
               ポイントはありません
             .buy-price-table
               .buy-price-table__text
                 支払い金額
               .buy-price-table__pay
-                ¥230,000
-            .buy-button
-              購入する
+                %p ¥
+                = number_with_delimiter(@product.price)
+          = form_with model: @product, url: product_pay_path, method: :post, local: true do |f|
+            - if @mycard.present?
+              = f.submit '購入する', class: 'buy-button-pay-btn'
+            - else
+              %p.buy-no-text
+                配送先と支払い方法の入力を完了してください。
+              %p.buy-button-pay-no
+                購入する
 
       .buy-street-address
         .buy-street-address__inner
@@ -32,7 +44,7 @@
             %br 〒578-0937
             %br 大阪府 東大阪市 花園本町1-1-11
             %br 小山 大輔
-          = link_to root_path do
+          = link_to new_user_path(current_user) do
             .buy-street-address__inner__change
               変更する
               = fa_icon 'angle-right'
@@ -41,10 +53,13 @@
           .buy-user-card-content__inner
             支払い方法
             .buy-user-card-content__inner__text
-              %br ************0507
-              %br 09 / 21
+              - if @mycard.present?
+                %br= "************" + @mycard.last4
+                %br= @mycard.exp_year
+                %br= @mycard.exp_month
+                %br= @mycard.brand
             .buy-user-card-content__inner__image
-            = link_to root_path do
+            = link_to user_card_index_path(current_user) do
               .buy-user-card-content__inner__change
                 変更する
                 = fa_icon 'angle-right'
