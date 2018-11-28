@@ -76,19 +76,19 @@
                 .owl-sold-mark {
                   height: 0px;
                   width: 0px;
-                  border-top: 120px solid red;
-                  border-right: 120px solid transparent;
+                  border-top: 100px solid red;
+                  border-right: 100px solid transparent;
                   position: absolute;
                   top: 0px;
                   left: 0px;
                   .owl-sold-text {
                     color: $white;
-                    font-size: 28px;
+                    font-size: 26px;
                     font-weight: bold;
                     position: absolute;
                     transform: rotate(-45deg);
-                    top: -90px;
-                    left: 0px;
+                    top: -80px;
+                    left: -2px;
                   }
                 }
               }
