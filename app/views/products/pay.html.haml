@@ -14,11 +14,15 @@
     .done-image
       .done-image__content
       .done-image__name
-        林田真尋たん(一晩)
+        = @product.name
     .done-price
-      ¥230,000
+      ¥
+      = number_with_delimiter(@product.price)
       .done-price__postage
-        送料込み
+        - if @product.freight == 1
+          送料込み
+        - else
+          着払い
     .done-address
       .done-address__title
         発送先
