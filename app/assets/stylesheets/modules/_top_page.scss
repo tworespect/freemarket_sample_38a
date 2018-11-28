@@ -41,7 +41,7 @@
     background-color: #F5F5F5;
     width: 100vw;
     .pickup {
-      max-padding: 40px;
+      padding: 40px 0;
       .category {
         font-size: 28px;
         font-weight: bold;
@@ -67,9 +67,30 @@
               width: 213px;
               vertical-align: middle;
               display: table-cell;
+              position: relative;
               img {
                 max-height: 213px;
                 max-width: 213px;
+              }
+              .owl-sold {
+                .owl-sold-mark {
+                  height: 0px;
+                  width: 0px;
+                  border-top: 120px solid red;
+                  border-right: 120px solid transparent;
+                  position: absolute;
+                  top: 0px;
+                  left: 0px;
+                  .owl-sold-text {
+                    color: $white;
+                    font-size: 28px;
+                    font-weight: bold;
+                    position: absolute;
+                    transform: rotate(-45deg);
+                    top: -90px;
+                    left: 0px;
+                  }
+                }
               }
             }
             &__detail{
@@ -111,8 +132,10 @@
           }
         }
         &__link_to_all {
+          width: 940px;
           font-size: 12px;
           font-weight: normal;
+          margin: 0 auto;
           text-align: right;
           color: #0099e8;
           padding: 20px 0 30px 0;
@@ -181,12 +204,13 @@
           }
         }
         &__link_to_all {
+          width: 940px;
           font-size: 12px;
           font-weight: normal;
+          margin: 0 auto;
           text-align: right;
           color: #0099e8;
           padding: 20px 0 30px 0;
-          clear: both;
         }
       }
     }
