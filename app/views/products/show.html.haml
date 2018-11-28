@@ -14,11 +14,7 @@
       .item-main-content.clearfix
         /商品画像部分
         .item-photo
-          .owl-carousel.owl-loaded.owl-drag
-            - unless @product.status.to_i == 0
-              .owl-sold
-                .owl-sold-text
-                  SOLD
+          .owl-carousel.owl-loaded.owl-drag.clearfix
             /メイン画像
             .owl-stage-outer
               /hoverイベントで使う
@@ -26,6 +22,11 @@
                 .owl-item.active
                   .owl-item-inner
                     = image_tag @product.images[0].first_image.url
+                    - unless @product.status.to_i == 0
+                      .owl-sold
+                        .owl-sold-mark
+                          .owl-sold-text
+                            SOLD
                 .owl-item
                   .owl-item-inner
                 .owl-item
