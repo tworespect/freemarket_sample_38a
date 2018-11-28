@@ -4,35 +4,62 @@
   clear: both;
 }
 
+
+.owl-sold {
+  .owl-sold-mark {
+    height: 0px;
+    width: 0px;
+    border-top: 100px solid red;
+    border-right: 100px solid transparent;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    .owl-sold-text {
+      color: $white;
+      font-size: 26px;
+      font-weight: bold;
+      position: absolute;
+      transform: rotate(-45deg);
+      top: -80px;
+      left: -2px;
+    }
+  }
+}
+
+
 .wrapper{
-  .top_banner {
+  .siema {
     height: 390px;
     width: 100vw;
-    .banner_content {
+    &__top_banner {
       height: 390px;
-      width: 860px;
-      margin: 0 auto;
-      position: relative;
-      &__left {
-        color: #212121;
-        float: left;
-        margin: 50px 0 0 0;
-        &--main {
-          font-size: 60px;
-          line-height: 80px;
-          font-weight: bold;
-        }
-        &--sub {
-          font-size: 18px;
-          line-height: 36px;
-          margin: 16px 0;
-        }
-      }
-      &__right img {
+      width: 100vw;
+      &__banner_content {
         height: 390px;
-        float: left;
-        position: absolute;
-        left: 400px;
+        width: 860px;
+        margin: 0 auto;
+        position: relative;
+        &__left {
+          color: #212121;
+          float: left;
+          margin: 50px 0 0 0;
+          &--main {
+            font-size: 60px;
+            line-height: 80px;
+            font-weight: bold;
+          }
+          &--sub {
+            font-size: 18px;
+            line-height: 36px;
+            margin: 16px 0;
+          }
+        }
+        &__right img {
+          height: 390px;
+          float: left;
+          position: absolute;
+          left: 400px;
+        }
       }
     }
   }
@@ -71,26 +98,6 @@
               img {
                 max-height: 213px;
                 max-width: 213px;
-              }
-              .owl-sold {
-                .owl-sold-mark {
-                  height: 0px;
-                  width: 0px;
-                  border-top: 100px solid red;
-                  border-right: 100px solid transparent;
-                  position: absolute;
-                  top: 0px;
-                  left: 0px;
-                  .owl-sold-text {
-                    color: $white;
-                    font-size: 26px;
-                    font-weight: bold;
-                    position: absolute;
-                    transform: rotate(-45deg);
-                    top: -80px;
-                    left: -2px;
-                  }
-                }
               }
             }
             &__detail{
@@ -153,9 +160,9 @@
           padding: 26px 0;
         }
         &__items{
+          margin: 0 auto;
           height: 330px;
           width: 940px;
-          margin-left: calc(((( 100vw - 250px * 2 ) - 100%) / 2) * -1);
           &--each{
             height: 330px;
             width: 213px;
@@ -165,6 +172,13 @@
             &__img{
               height: 213px;
               width: 213px;
+              vertical-align: middle;
+              display: table-cell;
+              position: relative;
+              img {
+                max-height: 213px;
+                max-width: 213px;
+              }
             }
             &__detail{
               color: $black;
