@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 include Charge
-  before_action :set_product, only: [:show, :destroy, :buy, :pay, :completion]
+  before_action :set_product, only: [:show, :destroy, :completion]
 
   def index
     @products = Product.order("id DESC").includes(:images, :categories)
@@ -16,7 +16,8 @@ include Charge
 
   def create
     @product  = Product.new(product_params)
-    @product.save!
+    # binding.pry
+    @product.save
     redirect_to ''
   end
 
@@ -34,9 +35,13 @@ include Charge
   end
 
   def buy
+    @product = Product.find(params[:product_id])
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    @mycard = Payjp::Customer.retrieve(current_user.payments.first.payjp_customer_id).cards.data[0] if current_user.payments.present?
   end
 
   def pay
+    @product = Product.find(params[:product_id])
     @payment = Payment.find_by(user_id: current_user.id)
     create_charge(@product.price, @payment.payjp_customer_id)
   end
@@ -52,7 +57,7 @@ include Charge
   end
 
   def set_product
-    @product = Product.find(params[:product_id])
+    @product = Product.find(params[:id])
   end
 
 end
