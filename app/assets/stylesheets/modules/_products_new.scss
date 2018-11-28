@@ -275,16 +275,37 @@
             &--second{
               display: none;
             }
+            &--second-edit {}
             &--third{
               display: none;
             }
+            &third-edit {}
           }
           &__size {
             display: none;
             margin: 40px 0 0 0;
           }
+          &__size-edit {
+            margin: 40px 0 0 0;
+          }
           &__brand {
             // display: none;
+            margin: 40px 0 0 0;
+            &__candidate {
+              max-height: 280px;
+              width: 400px;
+              border: 0.5px solid transparent;
+              border-color: $gray;
+              display: none;
+              &__list {
+                height: 16px;
+                width: auto;
+                padding: 16px 8px;
+                color: $black;
+              }
+            }
+          }
+          &__brand-edit {
             margin: 40px 0 0 0;
             &__candidate {
               max-height: 280px;
@@ -324,6 +345,9 @@
           }
           &__method {
             display: none;
+            margin: 40px 0 0 0;
+          }
+          &__method-edit {
             margin: 40px 0 0 0;
           }
           &__from_location {
@@ -448,6 +472,7 @@
           &__attention {
             border-bottom: 1px solid transparent;
             border-bottom-color: #0099e8;
+            color: #0099e8;
           }
         }
         &__btns {

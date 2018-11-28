@@ -1,12 +1,17 @@
 -number = 0
 - @products.each do |product|
-  - if (product.category_ids[0] == 1)
+  - if (product.category_ids[1] == 4)
     - number += 1
     - if (number <= 4)
-      = link_to "/products/show" do
+      = link_to product_path(product.id) do
         .category__items--each
           .category__items--each__img
             = image_tag product.images[0].first_image.url
+            - unless product.status.to_i == 0
+              .owl-sold
+                .owl-sold-mark
+                  .owl-sold-text
+                    SOLD
           .category__items--each__detail
             .category__items--each__detail__top-name
               = product.name

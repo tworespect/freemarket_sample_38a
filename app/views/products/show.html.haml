@@ -14,7 +14,7 @@
       .item-main-content.clearfix
         /商品画像部分
         .item-photo
-          .owl-carousel.owl-loaded.owl-drag
+          .owl-carousel.owl-loaded.owl-drag.clearfix
             /メイン画像
             .owl-stage-outer
               /hoverイベントで使う
@@ -22,6 +22,11 @@
                 .owl-item.active
                   .owl-item-inner
                     = image_tag @product.images[0].first_image.url
+                    - unless @product.status.to_i == 0
+                      .owl-sold
+                        .owl-sold-mark
+                          .owl-sold-text
+                            SOLD
                 .owl-item
                   .owl-item-inner
                 .owl-item
@@ -65,37 +70,37 @@
                     %span 50
                   .item-user-ratings
                     %i.fas.fa-tired.bad
-                    %span 50
+                    %span 0
             %tr
               %th カテゴリー
               %td
                 %a
-                  = @category_1.name
+                  = @product.categories[0].name
                 %a
                   .item-detail-table-sub-category
                     %i.fas.fa-angle-right.right
-                    = @category_2.name
+                    = @product.categories[1].name
                 %a
                   .item-detail-table-sub-sub-category
                     %i.fas.fa-angle-right.right
-                    = @category_3.name
+                    = @product.categories[2].name
             %tr
               %th ブランド
               %td
                 %a{href: "https://www.merucari.com/jp/u/387561164/"}
-                  = @brand.name
+                  = @product.brands.name
             %tr
               %th 商品の状態
               %td
-                - if @product.freight == 1
+                - if @product.freight.to_i == 1
                   新品、未使用
-                - elsif @product.freight == 2
+                - elsif @product.freight.to_i == 2
                   未使用に近い
-                - elsif @product.freight == 3
+                - elsif @product.freight.to_i == 3
                   目立った傷や汚れなし
-                - elsif @product.freight == 4
+                - elsif @product.freight.to_i == 4
                   やや傷や汚れあり
-                - elsif @product.freight == 5
+                - elsif @product.freight.to_i == 5
                   傷や汚れあり
                 - else
                   全体的に状態が悪い
@@ -109,21 +114,21 @@
             %tr
               %th 配送の方法
               %td
-                - if @product.ship_method == 1
+                - if @product.ship_method.to_i == 1
                   未定
-                - elsif @product.ship_method == 2
+                - elsif @product.ship_method.to_i == 2
                   らくらくメルカリ便
-                - elsif @product.ship_method == 3
+                - elsif @product.ship_method.to_i == 3
                   ゆうメール
-                - elsif @product.ship_method == 4
+                - elsif @product.ship_method.to_i == 4
                   レターパック
-                - elsif @product.ship_method == 5
+                - elsif @product.ship_method.to_i == 5
                   普通郵便(定形、定形外)
-                - elsif @product.ship_method == 6
+                - elsif @product.ship_method.to_i == 6
                   クロネコヤマト
-                - elsif @product.ship_method == 7
+                - elsif @product.ship_method.to_i == 7
                   ゆうパック
-                - elsif @product.ship_method == 8
+                - elsif @product.ship_method.to_i == 8
                   クリックポスト
                 - else
                   ゆうパケット
@@ -135,9 +140,9 @@
             %tr
               %th 発送日の目安
               %td
-                - if @product.ship_day == 1
+                - if @product.ship_day.to_i == 1
                   1〜2日で発送
-                - elsif @product.ship_day == 2
+                - elsif @product.ship_day.to_i == 2
                   2〜3日で発送
                 - else
                   4〜7日で発送
@@ -149,7 +154,7 @@
           = number_with_delimiter(@product.price)
         %span.item-tax (税込)
         %span.item-shipping-fee
-          - if @product.freight == 1
+          - if @product.freight.to_i == 1
             送料込み
           - else
             着払い
@@ -187,16 +192,17 @@
 
 
     - if current_user.id == @product.user_id
-      .item-edit-box
-        = button_tag class: "item-edit-box__edit-btn__btn" do
-          商品の編集
-        .item-edit-box__text
-          or
-        = button_tag class: "item-edit-box__stop-btn__btn" do
-          出品を一旦停止する
-        = link_to "/products/#{@product.id}", method: :delete, class: "item-edit-box__delete-btn__btn" do
-          この商品を削除する
-
+      - if @product.status.to_i == 0
+        .item-edit-box
+          = link_to edit_product_path, class: "item-edit-box__edit-btn__btn" do
+            商品の編集
+          .item-edit-box__text
+            or
+          = button_tag class: "item-edit-box__stop-btn__btn" do
+            出品を一旦停止する
+          = link_to "/products/#{@product.id}", method: :delete, class: "item-edit-box__delete-btn__btn" do
+            この商品を削除する
+      - else
 
     /コメント表示（箱）
     .item-detail-message
@@ -219,20 +225,13 @@
                     = link_to "https://item.mercari.com/jp/m96620691686/", class: 'flag-link' do
                       = button_tag type: "submit", class: 'flag-btn' do
                         %i.far.fa-flag
-          / .message-submit
-          /   = form_for @page_comments do
-          /     .message-submit__attension
-          /       相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          /     = f.text_field :text, class: 'message-submit__text'
-          /     .message-submit__btns
-          /       = f.submit 'コメントする', class: 'message-submit__btns__confirm'
         .message-content
           .message-content__attension
             相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
           .message-content__text
           .message-content__btns
             .message-content__btns__confirm
-              - if @product.status == 1
+              - if @product.status.to_i == 0
                 コメントする
               - else
                 売り切れのためコメントできません
@@ -253,9 +252,6 @@
       .text-center
         .fb-save.fb_iframe_widget
 
-      %span
-
-
       /snsリンク
       %ul.social-media-box
         %li
@@ -270,40 +266,10 @@
         %li
           %a.share-btn
             %i.fab.fa-pinterest-square.custum{ style: "font-size: 44px;" }
-    / .items-in-user-profile
-    /   %section.items-box-container.clearfix.items-box-overflow.items-in-user-profile
-    /     %h2.item-box.head
-    /       = link_to href: "https://item.mercari.com/jp/m96620691686/", class: 'user-page-pro' do
-    /         koyamaさんのその他の出品
-    /     .items-box-content.clearfix
-    /       .item-box
-    /         = render partial: "product-category"
-    /       .item-box2
-    /         = render partial: "product-category"
-    /       .item-box3
-    /         = render partial: "product-category"
-    /       .item-box4
-    /         = render partial: "product-category"
-    /       .item-box5
-    /         = render partial: "product-category"
-    /       .item-box6
-    /         = render partial: "product-category"
-    /   %section.items-box-container.clearfix.items-box-overflow.items-in-user-profile
-    /     %h2.item-box.head
-    /       = link_to href: "https://item.mercari.com/jp/m96620691686/", class: 'user-page-pro' do
-    /         koyamaさんのその他の出品
-    /     .items-box-content.clearfix
-    /       .item-box
-    /         = render partial: "product-category"
-    /       .item-box2
-    /         = render partial: "product-category"
-    /       .item-box3
-    /         = render partial: "product-category"
-    /       .item-box4
-    /         = render partial: "product-category"
-    /       .item-box5
-    /         = render partial: "product-category"
-    /       .item-box6
-    /         = render partial: "product-category"
+    .items-in-user-profile
+      %section.items-box-container.clearfix.items-box-overflow.items-in-user-profile
+        %h2.item-box.head
+          = link_to href: "https://item.mercari.com/jp/m96620691686/", class: 'user-page-pro' do
+            koyamaさんのその他の出品
 
 = render partial: "share/footer"

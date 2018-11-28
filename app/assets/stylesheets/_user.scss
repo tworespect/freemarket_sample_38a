@@ -169,6 +169,16 @@
     border: none;
     border-radius: 2px;
   }
+  .btn-signin {
+    display: inline-block;
+    height: 50px;
+    padding: 0 30px;
+    line-height: 50px;
+    letter-spacing: 1px;
+    text-align: center;
+    border: none;
+    border-radius: 2px;
+  }
 
   input[type='submit'] {
     margin-top: 40px;
@@ -388,12 +398,13 @@ a {
 }
 
 .footer-bar{
-  margin-left: 520px;
+  width: 450px;
+  margin: 0 auto;
 }
 
 nav.footer-bar li{
   float: left;
-  padding: 40px 20px 60px 0;
+  padding: 40px 20px 60px 14px;
   }
 
 small{
@@ -401,6 +412,10 @@ small{
 }
 
 // sessions
+.email-pass-error{
+  display: none;
+}
+
 .single-head--center{
   padding: 38px 16px;
   text-align: center;

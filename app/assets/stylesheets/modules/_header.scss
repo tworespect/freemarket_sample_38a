@@ -55,6 +55,10 @@
       color: #333;
       &__category_search {
         float: left;
+        cursor: pointer;
+      }
+      &__category_search:hover .header_category{
+        display: block;
       }
       &__brand_search {
         float: left;

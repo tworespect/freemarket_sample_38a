@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
 include Charge
   before_action :set_product, only: [:show, :destroy, :completion]
 
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
+
   def index
     @products = Product.order("id DESC").includes(:images, :categories)
   end
@@ -15,23 +17,32 @@ include Charge
   end
 
   def create
-    @product  = Product.new(product_params)
-    # binding.pry
-    @product.save
-    redirect_to ''
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to products_path
+    else
+      redirect_to new_product_path
+    end
   end
 
-  def show
-    @images = @product.images
-    @category_1 = @product.categories[0]
-    @category_2 = @product.categories[1]
-    @category_3 = @product.categories[2]
-    @brand = @product.brands[0]
-    # @page_comments = @product.page_comments.includes(:user)
+  def edit
+    @product_categories = @product.product_categories
+  end
+
+  def update
+    if @product.update(product_params)
+      redirect_to products_path
+    else
+      redirect_to edit_product_path
+    end
   end
 
   def destroy
-    product.destroy
+    if @product.destroy
+      redirect_to products_path
+    else
+      redirect_to product_path
+    end
   end
 
   def buy

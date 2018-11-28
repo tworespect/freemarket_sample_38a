@@ -23,7 +23,8 @@ set :default_env, {
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
 }
 
-set :linked_files, %w{ config/secrets.yml }
+# set :linked_files, %w{ config/secrets.yml }
+set :linked_files, fetch(:linked_files, []).push("config/master.key")
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
@@ -31,13 +32,14 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 
-  desc 'upload secrets.yml'
+
+  # desc 'upload secrets.yml'
   task :upload do
     on roles(:app) do |host|
       if test "[ ! -d #{shared_path}/config ]"
         execute "mkdir -p #{shared_path}/config"
       end
-      upload!('config/secrets.yml', "#{shared_path}/config/secrets.yml")
+      # upload!('config/secrets.yml', "#{shared_path}/config/secrets.yml")
     end
   end
   before :starting, 'deploy:upload'
