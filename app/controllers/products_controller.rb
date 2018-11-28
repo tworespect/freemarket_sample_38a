@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
     else
       redirect_to new_product_path
     end
+  end
 
   def show
     @pre_product = Product.order("RAND()").limit(1)
