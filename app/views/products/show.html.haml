@@ -223,9 +223,8 @@
                     %i.far.fa-clock
                     %span 13 日前
                   .message-icon-right
-                    %a
-                      = button_tag type: "submit", class: 'flag-btn' do
-                        %i.far.fa-flag
+                    = button_tag type: "submit", class: 'flag-btn' do
+                      %i.far.fa-flag
         .message-content
           .message-content__attension
             相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
@@ -240,12 +239,12 @@
     /別商品詳細ページリンク
     %ul.nav-item-link-prev-next.clearfix
       %li.nav-item-link-prev
-        %a
+        = link_to product_path(@pre_product[0].id) do
           %i.fas.fa-angle-left
-          ディズニーヴィランズ 2個セット バッジ バッチ Villains 2018
+          = @pre_product[0].name
       %li.nav-item-link-next
-        %a
-          バーにかかってきた電話/東 直己
+        = link_to product_path(@post_product[0].id) do
+          = @post_product[0].name
           %i.fas.fa-angle-right.right
 
     /facebook,twitter,pinterest?アイコン
