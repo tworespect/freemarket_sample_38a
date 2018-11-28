@@ -28,15 +28,15 @@
         height: 445px;
         margin: auto;
         &__image {
-          width:234px;
+          width: 148px;
           height: 148px;
-          padding-left: 86px;
-          .img {
-            width:148px;
+          padding: 0 86px;
+          img {
+            width: 148px;
             height:148px;
             background-size: cover;
             border-style:none;
-            background-image: url('https://pbs.twimg.com/media/DrU6Zi1WwAENywP.jpg')
+            // background-image: url('https://pbs.twimg.com/media/DrU6Zi1WwAENywP.jpg')
           }
         }
         &__name {
@@ -54,7 +54,7 @@
             height: 42px;
             padding-top: 8px;
             margin: 0 auto;
-            font-size: 22px;
+            font-size: 28px;
             font-weight: 600;
             text-align: center;
           }
@@ -66,6 +66,10 @@
             font-size: 12px;
             font-weight: 400;
             float: right;
+            .shipping-price {
+              font-size: 15px;
+              margin: 5px 0 0 0;
+            }
           }
           .buy-accordion {
             height: 48px;
@@ -84,8 +88,12 @@
               padding: 16px 0
             }
             &__pay {
+              text-align: right;
               width: 122px;
               padding: 16px 0;
+              p {
+                float: left;
+              }
             }
           }
         }
@@ -100,6 +108,20 @@
           line-height: 48px;
           margin-top: 16px;
           cursor: pointer;
+        }
+        .buy-no-text {
+          margin: 8px 0 0 0;
+          font-size: 14px;
+          color: red;
+          text-align: center;
+        }
+        p.buy-button-pay-no {
+            height: 48px;
+            margin-top: 16px;
+            background-color: #ccc;
+            font-size: 14px;
+            text-align: center;
+            line-height: 48px;
         }
       }
     }
@@ -146,7 +168,7 @@
             height: 15px;
             margin-top: 5px;
             background-size: cover;
-            background-image: url('https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?392262853');
+            // background-image: url('https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?392262853');
             img {
               background-color: transparent;
               border: 0px!important;
