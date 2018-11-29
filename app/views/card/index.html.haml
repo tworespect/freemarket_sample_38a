@@ -15,15 +15,16 @@
                 .chapter-single-content
                   %h3.chapter-sub-head クレジットカード一覧
                   - if @mycard.present?
-                    %p= "************" + @mycard.last4
-                    %p= @mycard.exp_year
-                    %p= @mycard.exp_month
-                    %p= @mycard.brand
-
+                    %p.card= "************" + @mycard.last4
+                    %p.card= @mycard.exp_month.to_s + " / " + @mycard.exp_year.to_s[2, 2]
+                    %p.card= @mycard.brand
+                    = link_to "/users/#{@payment.user_id}/card/#{@payment.id}", class: "delete-mycard", method: :delete do
+                      %p.delete 削除する
 
                 %ul.settings-payment-list
               %section.settings-add-card
                 .chapter-single-content
+                - unless @mycard.present?
                   = link_to new_user_card_path, class: "btn-defaults btn-reds submits-button" do
                     %i.far.fa-credit-card
                     クレジットカードを追加する
