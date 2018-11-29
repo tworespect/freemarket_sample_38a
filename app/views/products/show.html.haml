@@ -14,44 +14,32 @@
       .item-main-content.clearfix
         /商品画像部分
         .item-photo
-          .owl-carousel.owl-loaded.owl-drag.clearfix
-            /メイン画像
-            .owl-stage-outer
-              /hoverイベントで使う
-              .owl-stage
-                .owl-item.active
-                  .owl-item-inner
-                    = image_tag @product.images[0].first_image.url
-                    - unless @product.status.to_i == 0
-                      .owl-sold
-                        .owl-sold-mark
-                          .owl-sold-text
-                            SOLD
-                .owl-item
-                  .owl-item-inner
-                .owl-item
-                  .owl-item-inner.is-higher-width
-                .owl-item
-                  .owl-item-inner.is-higher-width
+          /メイン画像
+          .owl-item
+            = image_tag @product.images[0].first_image.url
+            - unless @product.status.to_i == 0
+              .owl-sold
+                .owl-sold-mark
+                  .owl-sold-text
+                    SOLD
 
-            /hoverイベントをかける画像４枚
-            .owl-dots.clearfix
-              .owl-dot
-                .owl-dot-inner
-                  - if @product.images[0].forth_image.url.present?
-                    = image_tag @product.images[0].forth_image.url
-              .owl-dot
-                .owl-dot-inner
-                  - if @product.images[0].third_image.url.present?
-                    = image_tag @product.images[0].third_image.url
-              .owl-dot
-                .owl-dot-inner
-                  - if @product.images[0].second_image.url.present?
-                    = image_tag @product.images[0].second_image.url
-              .owl-dot
-                .owl-dot-inner
-                  = image_tag @product.images[0].first_image.url
-                /画像、説明書きここまで
+          .owl-dots.clearfix
+            .owl-dot
+              .owl-dot-inner
+                - if @product.images[0].forth_image.url.present?
+                  = image_tag @product.images[0].forth_image.url
+            .owl-dot
+              .owl-dot-inner
+                - if @product.images[0].third_image.url.present?
+                  = image_tag @product.images[0].third_image.url
+            .owl-dot
+              .owl-dot-inner
+                - if @product.images[0].second_image.url.present?
+                  = image_tag @product.images[0].second_image.url
+            .owl-dot
+              .owl-dot-inner
+                = image_tag @product.images[0].first_image.url
+              /画像、説明書きここまで
 
         /商品詳細
         %table.item-detail-table
@@ -168,6 +156,7 @@
               .item-btn-client
           - else
             .item-buy-btn.f18-24 売り切れました
+        - else
       - else
         = link_to new_user_session_path do
           .item-buy-btn 購入画面に進む
