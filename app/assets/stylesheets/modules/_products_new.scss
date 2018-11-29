@@ -61,6 +61,7 @@
     padding:  10px;
     border: none;
     border-radius: 5px;
+    position: relative;
   }
 }
 
@@ -289,19 +290,21 @@
             margin: 40px 0 0 0;
           }
           &__brand {
-            // display: none;
+            display: none;
             margin: 40px 0 0 0;
             &__candidate {
-              max-height: 280px;
               width: 400px;
               border: 0.5px solid transparent;
               border-color: $gray;
               display: none;
               &__list {
-                height: 16px;
-                width: auto;
+                height: 14px;
+                width: 382px;
                 padding: 16px 8px;
-                color: $black;
+                margin: 1px;
+                &__each {
+                  color: $black;
+                }
               }
             }
           }
