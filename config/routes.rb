@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get  "brands/index"  => "brands#index"
 
   resources :users, only: [:index, :show, :edit, :update, :new] do
-    resources :card, only: [:index, :new, :create]
+    resources :card, only: [:index, :new, :create, :destroy]
   end
 
   resources :products do
