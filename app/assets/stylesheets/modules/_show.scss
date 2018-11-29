@@ -55,105 +55,79 @@ body {
           min-height: 375px;
           margin: 0 auto;
           background: #fafafa;
-          .owl-carousel {
-            .owl-stage-outer {
-              overflow:hidden;
-              .owl-stage {
-                .owl-item.active {
-                  width: 300px;
-                  float: left;
-                  .owl-item-inner {
-                    width: 100%;
-                    height: 0;
-                    padding: 0 0 100%;
-                    position: relative;
-                    img {
-                      vertical-align: middle;
-                      display: table-cell;
-                    }
-                    .owl-sold {
-                      .owl-sold-mark {
-                        height: 0px;
-                        width: 0px;
-                        border-top: 120px solid red;
-                        border-right: 120px solid transparent;
-                        position: absolute;
-                        top: 0px;
-                        left: 0px;
-                        .owl-sold-text {
-                          color: $white;
-                          font-size: 28px;
-                          font-weight: bold;
-                          position: absolute;
-                          transform: rotate(-45deg);
-                          top: -90px;
-                          left: 0px;
-                        }
-                      }
-                    }
-                  }
-                }
-                .owl-item {
-                  width: 300px;
-                  float: left;
-                  .owl-item-inner {
-                    width: 100%;
-                    height: 0;
-                  }
-                }
-                .owl-item {
-                  float: left;
-                  .owl-item-inner {
-                  }
-                }
-                .owl-item {
-                  float: left;
-                  .owl-item-inner {
-                  }
+          .owl-item {
+            height: 300px;
+            width: 300px;
+            vertical-align: middle;
+            display: table-cell;
+            text-align: center;
+            img {
+              max-height: 300px;
+              max-width: 300px;
+            }
+            .owl-sold {
+              .owl-sold-mark {
+                height: 0px;
+                width: 0px;
+                border-top: 120px solid red;
+                border-right: 120px solid transparent;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                .owl-sold-text {
+                  color: $white;
+                  font-size: 28px;
+                  font-weight: bold;
+                  position: absolute;
+                  transform: rotate(-45deg);
+                  top: -90px;
+                  left: 0px;
                 }
               }
             }
-            .owl-nav.disabred {
+          }
+
+          .owl-dots {
+            .owl-dot {
+              height: 75px;
+              width: 75px;
+              display: inline-block;
+              overflow: hidden;
+              float: left;
+              span {
+              }
+              .owl-dot-inner {
+                vertical-align: middle;
+                display: table-cell;
+                img {
+                  height: 75px;
+                  width: 75px;
+                }
+              }
             }
-            .owl-dots {
-              .owl-dot {
-                height: 75px;
-                width: 75px;
-                display: inline-block;
-                overflow: hidden;
-                float: left;
-                span {
-                }
-                .owl-dot-inner {
-                  img {
-                    height: 75px;
-                    width: 75px;
-                  }
+            .owl-dot {
+              span {
+              }
+              .owl-dot-inner {
+
+                img {
                 }
               }
-              .owl-dot {
-                span {
-                }
-                .owl-dot-inner {
-                  img {
-                  }
+            }
+            .owl-dot {
+              span {
+              }
+              .owl-dot-inner {
+                img {
                 }
               }
-              .owl-dot {
-                span {
-                }
-                .owl-dot-inner {
-                  img {
-                  }
-                }
+            }
+            .owl-dot {
+              float: right;
+              span {
               }
-              .owl-dot {
-                float: right;
-                span {
-                }
-                .owl-dot-inner {
-                  img {
-                  }
+              .owl-dot-inner {
+                img {
                 }
               }
             }
@@ -647,59 +621,6 @@ body {
             .fab.fa-pinterest-square {
               color: #aa262a;
             }
-          }
-        }
-      }
-    }
-
-    .items-in-user-profile {
-      width: 700px;
-      margin: 0 auto;
-      .items-box-container {
-        overflow: hidden;
-        .item-box.head {
-          font-size: 24px;
-          margin: 24px 0 8px;
-          width: 700px;
-          height: 30px;
-          .user-page-pro {
-            font-size: 100px;
-          }
-        }
-        .items-box-content.clearfix {
-          padding: 0;
-          .item-box {
-            float: left;
-            width: 220px;
-            height: 330px;
-            margin: 0 0 20px 0;
-          }
-          .item-box2 {
-            display: inline-block;
-            margin: 0 0 20px 20px;
-            width: 220px;
-            height: 330px;
-          }
-          .item-box3 {
-            float: right;
-            width: 220px;
-            height: 330px;
-            margin: 0 0 20px 20px;
-          }
-          .item-box4 {
-            float: left;
-            width: 220px;
-            height: 330px;
-            margin: 0 0 20px 0;
-          }
-          .item-box5 {
-            display: inline-block;
-            margin: 0 0 20px 20px;
-            width: 220px;
-            height: 330px;
-          }
-          .item-box6 {
-            float: right;
           }
         }
       }
