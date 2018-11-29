@@ -16,7 +16,7 @@
                   %label カード番号
                   %span.form-require-1 必須
                   = form_with model: @payment, url: "/users/#{current_user.id}/card",  method: "POST", local: true do |f|
-                    = f.text_field :number, id: "payment_card_no", class: "input-default", maxlength: "19", placeholder: "半角数字のみ"
+                    = f.text_field :number, id: "payment_card_no", class: "input-default", maxlength: "16", placeholder: "半角数字のみ"
                     %ul#card-no-error-wrapper.has-error-text
                     %ul.signup-card-list
                       %li
