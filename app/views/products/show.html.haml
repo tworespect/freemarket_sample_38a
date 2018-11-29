@@ -151,7 +151,7 @@
       - if user_signed_in?
         - unless current_user.id == @product.user_id
           - if @product.status.to_i == 0
-            = link_to "buy" do
+            = link_to products_buy_path do
               .item-buy-btn 購入画面に進む
               .item-btn-client
           - else
