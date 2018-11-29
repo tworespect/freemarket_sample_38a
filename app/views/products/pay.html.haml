@@ -1,0 +1,50 @@
+.done
+  = render "users/header"
+  .done-main
+    .done-top
+      .done-top__wait
+        %i.far.fa-clock
+        .done-top__wait__text
+          発送をお待ちください
+      .done-top__text
+        出品者からの発送通知をお待ちください
+    .done-text
+      .done-text__buy
+        購入が完了しました
+    .done-image
+      .done-image__content
+      .done-image__name
+        = @product.name
+    .done-price
+      ¥
+      = number_with_delimiter(@product.price)
+      .done-price__postage
+        - if @product.freight == 1
+          送料込み
+        - else
+          着払い
+    .done-address
+      .done-address__title
+        発送先
+      .done-address__content
+        %br 〒578-0937
+        %br 大阪府 東大阪市 花園本町1-1-11
+        %br 小山 大輔
+    .done-bottom
+      .done-bottom__top
+        発送通知後の流れ
+      .done-bottom__icon
+        %i.fas.fa-star.star
+        %i.fas.fa-grin.smile
+        %i.fas.fa-meh.meh
+        %i.fas.fa-tired.bad
+        %i.fas.fa-star.star
+      .done-bottom__text
+        %br 商品を受け取ったら
+        %br 出品者の評価をしましょう。
+        %br 購入代金が出品者に振り込まれます。
+        %br 評価後に取引は完了です。
+      .done-bottom__link
+        = link_to root_path do
+          マイページもどる
+  = render "users/footer"

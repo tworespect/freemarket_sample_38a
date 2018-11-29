@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+include Charge
+  before_action :set_product, only: [:show, :destroy, :completion]
 
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
@@ -51,13 +53,25 @@ class ProductsController < ApplicationController
   end
 
   def buy
+    @product = Product.find(params[:product_id])
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    @mycard = Payjp::Customer.retrieve(current_user.payments.first.payjp_customer_id).cards.data[0] if current_user.payments.present?
   end
+
+  def pay
+    @product = Product.find(params[:product_id])
+    @payment = Payment.find_by(user_id: current_user.id)
+    create_charge(@product.price, @payment.payjp_customer_id)
+    @product.update(status: 1)
+  end
+
 
   private
 
   def product_params
     params.require(:product).permit(:name, :price, :freight, :state_of_goods, :description, :ship_method, :ship_from_location, :ship_day, product_sizes_attributes:[:id, :size_id], product_brands_attributes:[], product_categories_attributes:[:id, :category_id], images_attributes:[:id, :first_image, :second_image, :third_image, :forth_image]).merge(product_brands_attributes:[], status: 0, user_id: current_user.id)
   end
+
 
   def set_product
     @product = Product.find(params[:id])
