@@ -28,38 +28,34 @@
 
 
 .wrapper{
-  .siema {
+  .top_banner {
     height: 390px;
     width: 100vw;
-    &__top_banner {
+    &__banner_content {
       height: 390px;
-      width: 100vw;
-      &__banner_content {
+      width: 860px;
+      margin: 0 auto;
+      position: relative;
+      &__left {
+        color: #212121;
+        float: left;
+        margin: 50px 0 0 0;
+        &--main {
+          font-size: 60px;
+          line-height: 80px;
+          font-weight: bold;
+        }
+        &--sub {
+          font-size: 18px;
+          line-height: 36px;
+          margin: 16px 0;
+        }
+      }
+      &__right img {
         height: 390px;
-        width: 860px;
-        margin: 0 auto;
-        position: relative;
-        &__left {
-          color: #212121;
-          float: left;
-          margin: 50px 0 0 0;
-          &--main {
-            font-size: 60px;
-            line-height: 80px;
-            font-weight: bold;
-          }
-          &--sub {
-            font-size: 18px;
-            line-height: 36px;
-            margin: 16px 0;
-          }
-        }
-        &__right img {
-          height: 390px;
-          float: left;
-          position: absolute;
-          left: 400px;
-        }
+        float: left;
+        position: absolute;
+        left: 400px;
       }
     }
   }
