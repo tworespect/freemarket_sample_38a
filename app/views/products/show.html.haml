@@ -158,8 +158,11 @@
             .item-buy-btn.f18-24 売り切れました
         - else
       - else
-        = link_to new_user_session_path do
-          .item-buy-btn 購入画面に進む
+        - if @product.status.to_i == 0
+          = link_to new_user_session_path do
+            .item-buy-btn 購入画面に進む
+        - else
+          .item-buy-btn.f18-24 売り切れました
 
       /出品者記入項目
       .item-description.f14
