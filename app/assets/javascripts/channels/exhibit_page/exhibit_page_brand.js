@@ -29,7 +29,7 @@ $(function(){
 
     $('.medium_box__text').val('');
     $('.medium_box__text').val( brand_name )
-    $('.medium_box--brand__input').val( brand_id )
+    $('.medium_box__input').val( brand_id )
     $('.block--product_detail--right__brand__candidate').css('display','none');
   }
 
