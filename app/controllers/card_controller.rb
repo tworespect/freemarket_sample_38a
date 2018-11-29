@@ -18,7 +18,7 @@ include Card
       @payment.payjp_customer_id = customer_id
 
       if @payment.save
-        redirect_to root_path
+        redirect_to user_path(current_user.id)
       else
         render :new
       end
