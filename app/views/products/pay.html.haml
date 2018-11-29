@@ -13,6 +13,7 @@
         購入が完了しました
     .done-image
       .done-image__content
+        = image_tag @product.images[0].first_image.url
       .done-image__name
         = @product.name
     .done-price

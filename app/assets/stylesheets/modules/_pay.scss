@@ -62,7 +62,12 @@
         margin: 0 auto;
         background-size: cover;
         border-style:none;
-        background-image: url('https://pbs.twimg.com/media/DrU6Zi1WwAENywP.jpg');
+        img {
+          width: 148px;
+          height:148px;
+          background-size: cover;
+          border-style:none;
+        }
       }
       &__name {
         height: 34px;
