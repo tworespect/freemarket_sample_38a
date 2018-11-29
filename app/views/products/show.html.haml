@@ -160,13 +160,17 @@
           - else
             着払い
 
-      - unless current_user.id == @product.user_id
-        - if @product.status.to_i == 0
-          = link_to "buy" do
-            .item-buy-btn 購入画面に進む
-            .item-btn-client
-        - else
-          .item-buy-btn.f18-24 売り切れました
+      - if user_signed_in?
+        - unless current_user.id == @product.user_id
+          - if @product.status.to_i == 0
+            = link_to "buy" do
+              .item-buy-btn 購入画面に進む
+              .item-btn-client
+          - else
+            .item-buy-btn.f18-24 売り切れました
+      - else
+        = link_to new_user_session_path do
+          .item-buy-btn 購入画面に進む
 
       /出品者記入項目
       .item-description.f14
@@ -191,18 +195,19 @@
             %i.fas.fa-lock
             %span あんしん・あんぜんへの取り組み
 
-
-    - if current_user.id == @product.user_id
-      - if @product.status.to_i == 0
-        .item-edit-box
-          = link_to edit_product_path, class: "item-edit-box__edit-btn__btn" do
-            商品の編集
-          .item-edit-box__text
-            or
-          = button_tag class: "item-edit-box__stop-btn__btn" do
-            出品を一旦停止する
-          = link_to "/products/#{@product.id}", method: :delete, class: "item-edit-box__delete-btn__btn" do
-            この商品を削除する
+    - if user_signed_in?
+      - if current_user.id == @product.user_id
+        - if @product.status.to_i == 0
+          .item-edit-box
+            = link_to edit_product_path, class: "item-edit-box__edit-btn__btn" do
+              商品の編集
+            .item-edit-box__text
+              or
+            = button_tag class: "item-edit-box__stop-btn__btn" do
+              出品を一旦停止する
+            = link_to "/products/#{@product.id}", method: :delete, class: "item-edit-box__delete-btn__btn" do
+              この商品を削除する
+        - else
       - else
 
     /コメント表示（箱）
@@ -225,16 +230,18 @@
                   .message-icon-right
                     = button_tag type: "submit", class: 'flag-btn' do
                       %i.far.fa-flag
-        .message-content
-          .message-content__attension
-            相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          .message-content__text
-          .message-content__btns
-            .message-content__btns__confirm
-              - if @product.status.to_i == 0
-                コメントする
-              - else
-                売り切れのためコメントできません
+        - if user_signed_in?
+          .message-content
+            .message-content__attension
+              相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            .message-content__text
+            .message-content__btns
+              .message-content__btns__confirm
+                - if @product.status.to_i == 0
+                  コメントする
+                - else
+                  売り切れのためコメントできません
+        - else
 
     /別商品詳細ページリンク
     %ul.nav-item-link-prev-next.clearfix
