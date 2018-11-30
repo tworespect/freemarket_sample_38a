@@ -238,12 +238,12 @@
     /別商品詳細ページリンク
     %ul.nav-item-link-prev-next.clearfix
       %li.nav-item-link-prev
-        = link_to product_path(@pre_product[0].id) do
+        = link_to product_path(@other_products[0].id) do
           %i.fas.fa-angle-left
-          = @pre_product[0].name
+          = @other_products[0].name
       %li.nav-item-link-next
-        = link_to product_path(@post_product[0].id) do
-          = @post_product[0].name
+        = link_to product_path(@other_products[1].id) do
+          = @other_products[1].name
           %i.fas.fa-angle-right.right
 
     /facebook,twitter,pinterest?アイコン

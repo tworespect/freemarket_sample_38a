@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
 include Charge
-  before_action :set_product, only: [:show, :destroy, :completion]
 
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
@@ -19,16 +18,14 @@ include Charge
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to products_path
+      redirect_to product_path(@product.id)
     else
-      @products = @product
-      render :new
+      redirect_to new_product_path
     end
   end
 
   def show
-    @pre_product  = Product.order("RAND()").limit(1)
-    @post_product = Product.order("RAND()").limit(1)
+    @other_products     = Product.order("RAND()").limit(2)
     @page_host_products = Product.where(user_id: @product.user_id)
   end
 
