@@ -224,8 +224,9 @@
             に同意したことになります。
           .block--bottom__btns
             = f.submit '出品する', class: 'block--bottom__btns__confirm'
-            = button_tag class: "block--bottom__btns__back" do
-              戻る
+            = link_to products_path do
+              .block--bottom__btns__back
+                戻る
 
 
   = render "users/footer"
