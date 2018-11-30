@@ -126,7 +126,7 @@
           メール/パスワード
         = fa_icon 'angle-right', class: 'mypage-list__link__item__icon'
 
-    = link_to root_path, class: 'mypage-list__link' do
+    = link_to new_user_path(current_user), class: 'mypage-list__link' do
       %li.mypage-list__link__item.clearfix
         .mypage-list__link__item__text
           本人情報
