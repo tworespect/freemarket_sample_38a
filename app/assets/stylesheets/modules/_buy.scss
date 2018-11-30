@@ -34,8 +34,7 @@
           img {
             width: 148px;
             height:148px;
-            background-size: cover;
-            border-style:none;
+            object-fit: contain;
             // background-image: url('https://pbs.twimg.com/media/DrU6Zi1WwAENywP.jpg')
           }
         }
