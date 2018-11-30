@@ -101,10 +101,10 @@
                   ブランド
                 .sub_title__non_required
                   任意
-              .medium_box--brand
+              .medium_box
                 = f.fields_for :product_brands do |brand|
-                  %input.medium_box__text{ placeholder: '例）シャネル', type: "text" }
-                    %input{ :name => "@product[brands][]", :type => "hidden", value: "#{@product.brands[0]}" }
+                  %input.medium_box__text{ placeholder: "例）シャネル", type: "text", value: "" }
+                  = brand.hidden_field :brand_id, class: "medium_box__input"
               .block--product_detail--right__brand__candidate
             .block--product_detail--right__status
               .sub_title.clearfix

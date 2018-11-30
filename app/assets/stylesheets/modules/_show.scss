@@ -50,8 +50,7 @@ body {
         height: 375px;
         .item-photo {
           float: left;
-          min-width: 300px;
-          max-width: 300px;
+          width: 300px;
           min-height: 375px;
           margin: 0 auto;
           background: #fafafa;
@@ -61,9 +60,11 @@ body {
             vertical-align: middle;
             display: table-cell;
             text-align: center;
+            position: relative;
             img {
               max-height: 300px;
               max-width: 300px;
+              overflow: hidden;
             }
             .owl-sold {
               .owl-sold-mark {
@@ -621,6 +622,77 @@ body {
           .share-btn {
             .fab.fa-pinterest-square {
               color: #aa262a;
+            }
+          }
+        }
+      }
+    }
+
+    .items-in-user-profile {
+      width: 740px;
+      margin: 0 auto;
+      .items-box-head {
+        font-size: 24px;
+        margin: 24px 0 8px 20px;
+        width: 700px;
+        height: 30px;
+      }
+      .items-box {
+        max-height: 700px;
+        width: 740px;
+        margin: 0 auto;
+        .each-item{
+          height: 330px;
+          width: 220px;
+          background-color: white;
+          float: left;
+          margin: 0 0 20px 20px;
+          &__img{
+            height: 220px;
+            width: 220px;
+            vertical-align: middle;
+            display: table-cell;
+            text-align: center;
+            position: relative;
+            img {
+              max-height: 220px;
+              max-width: 220px;
+            }
+          }
+          &__detail{
+            color: $black;
+            padding: 16px;
+            &__top-name{
+              font-size: 16px;
+              font-weight: normal;
+              line-height: 1.5;
+            }
+            &__middle{
+              &--price{
+                font-size: 20px;
+                float: left;
+              }
+              &--heart{
+                float: right;
+                &__mark{
+                  float: left;
+                  opacity: 0.3;
+                  line-height: 2em;
+                  font-size: 0.5em;
+                }
+                &__num{
+                  font-size: 16px;
+                  font-weight: normal;
+                  padding: 6px 0 0 10px;
+                  float: left;
+                }
+              }
+            }
+            &__bottom-tax{
+              font-size: 10px;
+              font-weight: normal;
+              text-align: left;
+              clear: both;
             }
           }
         }
