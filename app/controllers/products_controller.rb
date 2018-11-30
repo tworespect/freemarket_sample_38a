@@ -25,8 +25,9 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @pre_product = Product.order("RAND()").limit(1)
+    @pre_product  = Product.order("RAND()").limit(1)
     @post_product = Product.order("RAND()").limit(1)
+    @page_host_products = Product.where(user_id: @product.user_id)
   end
 
   def edit

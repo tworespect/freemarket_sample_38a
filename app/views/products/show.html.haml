@@ -266,5 +266,40 @@
           %a.share-btn
             %i.fab.fa-pinterest-square.custum{ style: "font-size: 44px;" }
 
+    - if @page_host_products.length >= 2
+      .items-in-user-profile
+        .items-box-head
+          %a
+            = @product.user.name
+            さんのその他の出品
+        .items-box.clearfix
+          - number = 0
+          - @page_host_products.each do |product|
+            - unless product.id == @product.id
+              - number += 1
+              - if (number <= 6)
+                = link_to product_path(product.id) do
+                  .each-item
+                    .each-item__img
+                      = image_tag product.images[0].first_image.url
+                      - unless product.status.to_i == 0
+                        .owl-sold
+                          .owl-sold-mark
+                            .owl-sold-text
+                              SOLD
+                    .each-item__detail
+                      .each-item__detail__top-name
+                        = product.name
+                      .each-item__detail__middle.clearfix
+                        .each-item__detail__middle--price
+                          ¥
+                          = number_with_delimiter(product.price)
+                        .each-item__detail__middle--heart.clearfix
+                          .each-item__detail__middle--heart__mark
+                            %i.far.fa-heart.small
+                          .each-item__detail__middle--heart__num
+                            2
+                      .each-item__detail__bottom-tax
+                        (税込)
 
 = render partial: "share/footer"
