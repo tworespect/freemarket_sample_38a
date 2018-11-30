@@ -91,7 +91,7 @@
                   必須
               .medium_box.clearfix
                 = f.fields_for :product_sizes do |size|
-                  = size.select :size_id, options_for_select([["---","0"], ["S","1"], ["M","2"], ["L","3"], ["XL","4"], ["その他","5"], ["","6"], ["","7"], ["","8"], ["","9"], ["","10"], ["","11"], ["","12"], ["","13"]], selected: @product.sizes[0].id), {}, {class: 'medium_box__select'}
+                  = size.select :size_id, options_for_select([["---","0"], ["S","1"], ["M","2"], ["L","3"]], selected: @product.sizes[0].id), {}, {class: 'medium_box__select'}
                   = fa_icon 'angle-down', class: 'products_new_select_list_icon'
               .medium_box_error--size
                 選択してください
@@ -101,10 +101,11 @@
                   ブランド
                 .sub_title__non_required
                   任意
-              .medium_box--brand
+              .medium_box
                 = f.fields_for :product_brands do |brand|
-                  = brand.text_field :brand_id, class: 'medium_box__text', placeholder: '例）シャネル', value: @product.brands[0].name
-              .block--product_detail--right__brand__candidate
+                  %input.medium_box__text{ placeholder: "例）シャネル", type: "text", value: @product.brands[0].name }
+                  = brand.hidden_field :brand_id, class: "medium_box__input", id: @product.brands[0].id
+              .block--product_detail--right__brand-edit__candidate
             .block--product_detail--right__status
               .sub_title.clearfix
                 .sub_title__name
@@ -222,7 +223,7 @@
               加盟店規約
             に同意したことになります。
           .block--bottom__btns
-            = f.submit '出品する', class: 'block--bottom__btns__confirm'
+            = f.submit '編集する', class: 'block--bottom__btns__confirm'
             = button_tag class: "block--bottom__btns__back" do
               戻る
 

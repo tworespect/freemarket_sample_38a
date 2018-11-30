@@ -17,13 +17,13 @@ class Product < ApplicationRecord
 
   validates :user_id,            presence: true
   validates :images,             presence: true
-  validates :name,               presence: true, length: { maximum: 40 }
+  validates :name,               presence: true, length:       { maximum: 40 }
   validates :price,              presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
   validates :status,             presence: true
-  validates :freight,            presence: true
-  validates :state_of_goods,     presence: true
-  validates :description,        presence: true, length: { maximum: 1000 }
-  validates :ship_method,        presence: true
-  validates :ship_from_location, presence: true
-  validates :ship_day,           presence: true
+  validates :freight,            presence: true, numericality: { greater_than: 0 }
+  validates :state_of_goods,     presence: true, numericality: { greater_than: 0 }
+  validates :description,        presence: true, length:       { maximum: 1000 }
+  validates :ship_method,        presence: true, numericality: { greater_than: 0 }
+  validates :ship_from_location, presence: true, numericality: { greater_than: 0 }
+  validates :ship_day,           presence: true, numericality: { greater_than: 0 }
 end
