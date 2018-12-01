@@ -4,7 +4,12 @@ include Charge
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.order("id DESC").includes(:images, :categories)
+    @category          = Category.where("id<?", 4).order("RAND()").limit(2)
+    @first_category_products = Product.includes(:categories).where(categories: {id: @category[0]}).order("product_id DESC").limit(4)
+    @second_category_products = Product.includes(:categories).where(categories: {id: @category[1]}).order("product_id DESC").limit(4)
+    @brand          = Brand.order("RAND()").limit(2)
+    @first_brand_products = Product.includes(:brands).where(brands: {id: @brand[0]}).order("product_id DESC").limit(4)
+    @second_brand_products = Product.includes(:brands).where(brands: {id: @brand[1]}).order("product_id DESC").limit(4)
   end
 
   def new
@@ -17,7 +22,7 @@ include Charge
 
   def create
     @product = Product.new(product_params)
-    if @product.save
+    if @product.save()
       redirect_to product_path(@product.id)
     else
       redirect_to new_product_path
