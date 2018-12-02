@@ -350,7 +350,8 @@ body {
             border-radius: 40px;
             padding: 8px 16px;
             .far.fa-flag {
-              font-size: 13px;
+              font-size: 12px;
+              opacity: 0.5;
             }
             span {
               font-size: 14px;
@@ -444,10 +445,10 @@ body {
         .message-content {
           padding: 24px;
           background: #fff;
-          ul.message-items {
+          .message-items {
             margin: 0;
             list-style: none;
-            li.clearfix {
+            .message-item {
               .message-user {
                 display: inline-block;
                 color: #333;
@@ -501,16 +502,9 @@ body {
                     background-color: #eef0f4;
                     text-decoration: none;
                     border-color: #eef0f4;
-                    .flag-link {
-                      border-style: hidden;
-                      background-color: #eef0f4;
-                      .flag-btn {
-                        border-style: hidden;
-                        background-color: #eef0f4;
-                        .far.fa-flag {
-                          font-size: 13px;
-                        }
-                      }
+                    .far.fa-flag {
+                      font-size: 12px;
+                      opacity: 0.5;
                     }
                   }
                 }
