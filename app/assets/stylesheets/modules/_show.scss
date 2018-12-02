@@ -521,9 +521,12 @@ body {
       background-color: #eef0f4;
       text-decoration: none;
       border-color: #eef0f4;
+      font-size: 12px;
+      opacity: 0.5;
       .far.fa-flag {
-        font-size: 12px;
-        opacity: 0.5;
+      }
+      .page-message-trash {
+        color: $black;
       }
     }
   }
