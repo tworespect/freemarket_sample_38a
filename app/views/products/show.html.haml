@@ -223,16 +223,15 @@
                     = button_tag type: "submit", class: 'flag-btn' do
                       %i.far.fa-flag
         - if user_signed_in?
-          .message-content
-            .message-content__attension
+          .message-submit
+            .message-submit__attension
               相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            .message-content__text
-            .message-content__btns
-              .message-content__btns__confirm
-                - if @product.status.to_i == 0
-                  コメントする
-                - else
-                  売り切れのためコメントできません
+            = form_for @page_comment, url: {action: 'create'} do |f|
+              = f.text_area :text, class: 'message-submit__text'
+              - if @product.status.to_i == 0
+                = f.submit 'コメントする', class: 'message-submit__confirm'
+              - else
+                売り切れのためコメントできません
         - else
 
     /別商品詳細ページリンク
@@ -250,7 +249,6 @@
     .item-social-media-box
       .text-center
         .fb-save.fb_iframe_widget
-
       /snsリンク
       %ul.social-media-box
         %li

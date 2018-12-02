@@ -32,6 +32,8 @@ include Charge
   def show
     @other_products     = Product.order("RAND()").limit(2)
     @page_host_products = Product.where(user_id: @product.user_id)
+    @page_comment       = ProductPageComment.new
+    @page_comments      = @product.product_page_comments.includes(:user)
   end
 
   def edit
