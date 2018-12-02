@@ -1,0 +1,35 @@
+- num = 0
+- @page_comments.each do |comment|
+  - num += 1
+  - if num == 1
+    .message-item-1.clearfix
+      - if comment.user_id == current_user.id
+        .message-user-1
+          %figure
+            .message-user-unknown
+              %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?1016580576"}/
+        = render partial: "page-message", locals: { comment: comment }
+
+      - else
+        .message-user-2
+          %figure
+            .message-user-unknown
+              %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?1016580576"}/
+        = render partial: "page-message", locals: { comment: comment }
+
+
+  - else
+    .message-item-2.clearfix
+      - if comment.user_id == current_user.id
+        .message-user-1
+          %figure
+            .message-user-unknown
+              %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?1016580576"}/
+        = render partial: "page-message", locals: { comment: comment }
+
+      - else
+        .message-user-2
+          %figure
+            .message-user-unknown
+              %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?1016580576"}/
+        = render partial: "page-message", locals: { comment: comment }

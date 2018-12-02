@@ -1,0 +1,10 @@
+.message-body
+  .message-body-text
+    = comment.text
+  .message-icons.clearfix
+    %time.message-icon-left
+      %i.far.fa-clock
+      %span 13 日前
+    - if comment.user_id != current_user.id
+      .message-icon-right
+        %i.far.fa-flag
