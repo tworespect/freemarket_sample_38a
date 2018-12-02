@@ -226,7 +226,7 @@
           .message-submit
             .message-submit__attension
               相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            = form_for @page_comment, url: {action: 'create'} do |f|
+            = form_for [@product, @page_comment], url: product_page_comments_path(@product.id) do |f|
               = f.text_area :text, class: 'message-submit__text'
               - if @product.status.to_i == 0
                 = f.submit 'コメントする', class: 'message-submit__confirm'

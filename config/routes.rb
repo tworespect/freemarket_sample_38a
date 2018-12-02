@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :page_comments, only: [:create, :destroy]
     get   "buy"        => "products#buy"
     post  "buy"        => "products#pay", as: 'pay'
-    get   "completion"  => "products#completion"
+    get   "completion" => "products#completion"
   end
 
 end
