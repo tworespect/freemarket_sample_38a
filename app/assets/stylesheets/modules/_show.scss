@@ -438,29 +438,31 @@ body {
     }
 
 
-.message-user {
+.message-user-1 {
+  display: inline-block;
+  color: #333;
+  margin: -20px 0 0 12px;
+  float: right;
+}
+.message-user-2 {
   display: inline-block;
   color: #333;
   margin: -20px 0 0 0;
   float: left;
-  figure {
-    margin: 0;
-    .message-user-unknown {
-      width: 40px;
-      height: 40px;
-      overflow: hidden;
-      border-radius: 50%;
-      background: #eee;
-      text-align: center;
-      img {
-        width: 32px;
-        height: 32px;
-        vertical-align: bottom;
-      }
-    }
-    figcaption.bold {
-      width: 600px;
-      min-width: 600px
+}
+figure {
+  margin: 0;
+  .message-user-unknown {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #eee;
+    text-align: center;
+    img {
+      width: 32px;
+      height: 32px;
+      vertical-align: bottom;
     }
   }
 }
