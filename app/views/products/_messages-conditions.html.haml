@@ -8,6 +8,8 @@
           %figure
             .message-user-unknown
               %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?1016580576"}/
+          .message-name
+            = comment.user.name
         = render partial: "page-message", locals: { comment: comment }
 
       - else
@@ -15,6 +17,8 @@
           %figure
             .message-user-unknown
               %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?1016580576"}/
+          .message-name
+            = comment.user.name
         = render partial: "page-message", locals: { comment: comment }
 
 
@@ -25,6 +29,8 @@
           %figure
             .message-user-unknown
               %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?1016580576"}/
+          .message-name
+            = comment.user.name
         = render partial: "page-message", locals: { comment: comment }
 
       - else
@@ -32,4 +38,6 @@
           %figure
             .message-user-unknown
               %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?1016580576"}/
+          .message-name
+            = comment.user.name
         = render partial: "page-message", locals: { comment: comment }
