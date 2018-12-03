@@ -8,11 +8,13 @@ class PageCommentsController < ApplicationController
   end
 
   def destroy
-    page_comment = PageComment.find(params[:id])
-    text = page_comment.text
+    @product = Product.find(params[:product_id])
+    page_comment = ProductPageComment.find(params[:id])
     if current_user.id == @product.user_id
-      text = "出品者がコメントを削除しました"
+      page_comment.text = "出品者がコメントを削除しました"
+      page_comment.save
     end
+    redirect_to product_path(@product.id)
   end
 
 

@@ -10,7 +10,7 @@
         .message-icon-right
           - if current_user.id == @product.user_id
             - unless comment.text == '出品者がコメントを削除しました'
-              = link_to 'product_page_comment_path(comment.id)' do
+              = link_to "/products/#{@product.id}/page_comments/#{comment.id}", method: :delete do
                 = fa_icon 'trash-alt', class: 'page-message-trash'
 
 - else
@@ -25,5 +25,5 @@
         .message-icon-right
           %i.far.fa-flag
           - if current_user.id == @product.user_id
-            = link_to 'product_page_comment_path(comment.id)' do
-              = fa_icon 'trash-alt'
+            = link_to "/products/#{@product.id}/page_comments/#{comment.id}", method: :delete do
+              = fa_icon 'trash-alt', class: 'page-message-trash'
