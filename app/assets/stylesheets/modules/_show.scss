@@ -462,7 +462,7 @@ body {
   }
   .message-name {
     color: $red;
-    padding: 8px 12px;
+    padding: 0 12px 8px;
     float: right;
   }
 }
@@ -490,9 +490,21 @@ body {
   }
   .message-name {
     color: $black;
-    padding: 8px 12px;
+    padding: 0 12px 8px;
     float: left;
   }
+}
+.message-body-height-1 {
+  margin-top: 0px;
+}
+.message-body-height-2 {
+  margin-top: -48px;
+}
+.product-exhibit-mark {
+  font-size: 12px;
+  padding: 4px;
+  background-color: #fbf0e6;
+  margin-top: 8px;
 }
 .message-body {
   width: calc( 600px - 16px * 2 );
@@ -500,7 +512,6 @@ body {
   background: #eef0f4;
   border-radius: 15px;
   line-height: 1.5;
-  margin-top: -10px;
   .message-body-text {
   }
   .message-icons.clearfix {
@@ -545,6 +556,9 @@ body {
             list-style: none;
             .message-item-1 {
               margin: 20px 0 0 0;
+                .message-body {
+                  background-color: #fbf0e6;
+                }
               .message-body-1 {
                 float: left;
               }
@@ -556,6 +570,9 @@ body {
               margin: 60px 0 0 0;
               .message-body-1 {
                 float: left;
+                .message-body {
+                  background-color: #fbf0e6;
+                }
               }
               .message-body-2 {
                 float: right;

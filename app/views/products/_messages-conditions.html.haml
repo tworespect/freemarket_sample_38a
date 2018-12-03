@@ -1,43 +1,33 @@
 - num = 0
 - @page_comments.each do |comment|
   - num += 1
+  / 一番古いメッセージ
   - if num == 1
     .message-item-1.clearfix
       - if comment.user_id == @product.user_id
+        / 持ち主
         %a.message-user-1
-          %figure
-            .message-user-unknown
-              %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?1016580576"}/
-          .message-name
-            = comment.user.name
+          = render partial: "message-creater-name", locals: { comment: comment }
         = render partial: "page-message", locals: { comment: comment }
 
       - else
+        / その他
         %a.message-user-2
-          %figure
-            .message-user-unknown
-              %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?1016580576"}/
-          .message-name
-            = comment.user.name
+          = render partial: "message-creater-name", locals: { comment: comment }
         = render partial: "page-message", locals: { comment: comment }
 
 
   - else
+    / 二つ目以降
     .message-item-2.clearfix
       - if comment.user_id == @product.user_id
+        / 持ち主
         %a.message-user-1
-          %figure
-            .message-user-unknown
-              %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?1016580576"}/
-          .message-name
-            = comment.user.name
+          = render partial: "message-creater-name", locals: { comment: comment }
         = render partial: "page-message", locals: { comment: comment }
 
       - else
+        / その他
         %a.message-user-2
-          %figure
-            .message-user-unknown
-              %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?1016580576"}/
-          .message-name
-            = comment.user.name
+          = render partial: "message-creater-name", locals: { comment: comment }
         = render partial: "page-message", locals: { comment: comment }
