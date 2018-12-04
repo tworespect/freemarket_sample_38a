@@ -1,11 +1,15 @@
 class ProductsController < ApplicationController
 include Charge
-  before_action :set_product, only: [:show, :destroy, :completion]
 
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.order("id DESC").includes(:images, :categories)
+    @category  = Category.where("id<?", 4).order("RAND()").limit(2)
+    @brand     = Brand.order("RAND()").limit(2)
+    @first_category_products  = Product.includes(:categories).where(categories: {id: @category[0]}).order("product_id DESC").limit(4)
+    @second_category_products = Product.includes(:categories).where(categories: {id: @category[1]}).order("product_id DESC").limit(4)
+    @first_brand_products  = Product.includes(:brands).where(brands: {id: @brand[0]}).order("product_id DESC").limit(4)
+    @second_brand_products = Product.includes(:brands).where(brands: {id: @brand[1]}).order("product_id DESC").limit(4)
   end
 
   def new
@@ -18,18 +22,18 @@ include Charge
 
   def create
     @product = Product.new(product_params)
-    if @product.save
-      redirect_to products_path
+    if @product.save()
+      redirect_to product_path(@product.id)
     else
-      @products = @product
-      render :new
+      redirect_to new_product_path
     end
   end
 
   def show
-    @pre_product  = Product.order("RAND()").limit(1)
-    @post_product = Product.order("RAND()").limit(1)
+    @other_products     = Product.order("RAND()").limit(2)
     @page_host_products = Product.where(user_id: @product.user_id)
+    @page_comment       = ProductPageComment.new
+    @page_comments      = @product.product_page_comments.includes(:user)
   end
 
   def edit

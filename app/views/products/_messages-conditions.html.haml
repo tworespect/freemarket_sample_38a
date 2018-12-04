@@ -1,0 +1,33 @@
+- num = 0
+- @page_comments.each do |comment|
+  - num += 1
+  / 一番古いメッセージ
+  - if num == 1
+    .message-item-1.clearfix
+      - if comment.user_id == @product.user_id
+        / 持ち主
+        %a.message-user-1
+          = render partial: "message-creater-name", locals: { comment: comment }
+        = render partial: "page-message", locals: { comment: comment }
+
+      - else
+        / その他
+        %a.message-user-2
+          = render partial: "message-creater-name", locals: { comment: comment }
+        = render partial: "page-message", locals: { comment: comment }
+
+
+  - else
+    / 二つ目以降
+    .message-item-2.clearfix
+      - if comment.user_id == @product.user_id
+        / 持ち主
+        %a.message-user-1
+          = render partial: "message-creater-name", locals: { comment: comment }
+        = render partial: "page-message", locals: { comment: comment }
+
+      - else
+        / その他
+        %a.message-user-2
+          = render partial: "message-creater-name", locals: { comment: comment }
+        = render partial: "page-message", locals: { comment: comment }

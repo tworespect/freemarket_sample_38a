@@ -144,7 +144,6 @@ body {
           border-collapse: collapse;
           border: 1px solid #f5f5f5;
           tbody {
-
             tr {
               th {
                 width: 39%;
@@ -351,7 +350,8 @@ body {
             border-radius: 40px;
             padding: 8px 16px;
             .far.fa-flag {
-              font-size: 13px;
+              font-size: 12px;
+              opacity: 0.5;
             }
             span {
               font-size: 14px;
@@ -438,6 +438,112 @@ body {
     }
 
 
+.message-user-1 {
+  display: inline-block;
+  color: #333;
+  margin: -20px 0 0 12px;
+  float: right;
+  figure {
+    margin: 0;
+    float: right;
+    .message-user-unknown {
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+      border-radius: 50%;
+      background: #eee;
+      text-align: center;
+      img {
+        width: 32px;
+        height: 32px;
+        vertical-align: bottom;
+      }
+    }
+  }
+  .message-name {
+    color: $red;
+    padding: 0 12px 8px;
+    float: right;
+  }
+}
+.message-user-2 {
+  display: inline-block;
+  color: #333;
+  margin: -20px 0 0 0;
+  float: left;
+  figure {
+    margin: 0;
+    float: left;
+    .message-user-unknown {
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+      border-radius: 50%;
+      background: #eee;
+      text-align: center;
+      img {
+        width: 32px;
+        height: 32px;
+        vertical-align: bottom;
+      }
+    }
+  }
+  .message-name {
+    color: $black;
+    padding: 0 12px 8px;
+    float: left;
+  }
+}
+.message-body-height-1 {
+  margin-top: 0px;
+}
+.message-body-height-2 {
+  margin-top: -48px;
+}
+.product-exhibit-mark {
+  font-size: 12px;
+  padding: 4px;
+  background-color: #fbf0e6;
+  margin-top: 8px;
+}
+.message-body {
+  width: calc( 600px - 16px * 2 );
+  padding: 16px;
+  background: #eef0f4;
+  border-radius: 15px;
+  line-height: 1.5;
+  .message-body-text {
+  }
+  .message-icons.clearfix {
+    margin: 8px 0 0;
+    time.message-icon-left {
+      float: left;
+      display: block;
+      color: #aaa;
+      .far.fa-clock {
+        font-size: 16px;
+      }
+      span {
+      }
+    }
+    .message-icon-right {
+      float: right;
+      display: inline-block;
+      background-color: #eef0f4;
+      text-decoration: none;
+      border-color: #eef0f4;
+      font-size: 12px;
+      opacity: 0.5;
+      .far.fa-flag {
+      }
+      .page-message-trash {
+        color: $black;
+      }
+    }
+  }
+}
+
+
     .item-detail-message {
       width: 700px;
       margin: 8px auto;
@@ -445,80 +551,36 @@ body {
         .message-content {
           padding: 24px;
           background: #fff;
-          ul.message-items {
+          .message-items {
             margin: 0;
             list-style: none;
-            li.clearfix {
-              .message-user {
-                display: inline-block;
-                color: #333;
+            .message-item-1 {
+              margin: 20px 0 0 0;
+                .message-body {
+                  background-color: #fbf0e6;
+                }
+              .message-body-1 {
                 float: left;
-                figure {
-                  margin: 0;
-                  .message-user-unknown {
-                    width: 40px;
-                    height: 40px;
-                    overflow: hidden;
-                    border-radius: 50%;
-                    background: #eee;
-                    text-align: center;
-                    img {
-                      width: 32px;
-                      height: 32px;
-                      vertical-align: bottom;
-                    }
-                  }
-                  figcaption.bold {
-                    width: 600px;
-                    min-width: 600px
-                  }
+              }
+              .message-body-2 {
+                float: right;
+              }
+            }
+            .message-item-2 {
+              margin: 60px 0 0 0;
+              .message-body-1 {
+                float: left;
+                .message-body {
+                  background-color: #fbf0e6;
                 }
               }
-              .message-body {
-                width: calc( 600px - 16px * 2 );
-                padding: 16px;
-                background: #eef0f4;
-                border-radius: 15px;
-                line-height: 1.5;
+              .message-body-2 {
                 float: right;
-                margin: 17px 0 0 0;
-                .message-body-text {
-                }
-                .message-icons.clearfix {
-                  margin: 8px 0 0;
-                  time.message-icon-left {
-                    float: left;
-                    display: block;
-                    color: #aaa;
-                    .far.fa-clock {
-                      font-size: 16px;
-                    }
-                    span {
-                    }
-                  }
-                  .message-icon-right {
-                    float: right;
-                    display: inline-block;
-                    background-color: #eef0f4;
-                    text-decoration: none;
-                    border-color: #eef0f4;
-                    .flag-link {
-                      border-style: hidden;
-                      background-color: #eef0f4;
-                      .flag-btn {
-                        border-style: hidden;
-                        background-color: #eef0f4;
-                        .far.fa-flag {
-                          font-size: 13px;
-                        }
-                      }
-                    }
-                  }
-                }
               }
             }
           }
-        .message-content {
+        }
+        .message-submit {
           padding: 24px;
           background: #fff;
           &__attension {
@@ -533,17 +595,12 @@ body {
             border: 1px solid transparent;
             border-color: $gray;
           }
-          &__btns {
+          &__confirm {
             height: 50px;
             width: 650px;
             background-color: #aaa;
-            &__confirm {
-              color: $white;
-              text-align: center;
-              line-height: 50px;
-            }
+            color: $white;
           }
-        }
         }
       }
     }

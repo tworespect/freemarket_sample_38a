@@ -1,0 +1,65 @@
+.brand.clearfix
+  ピックアップブランド
+
+  .brand__name
+    = @brand[0].name
+    新着アイテム
+  .brand__items.clearfix
+    - @first_brand_products.each do |product|
+      = link_to product_path(product.id) do
+        .brand__items--each
+          .brand__items--each__img
+            = image_tag product.images[0].first_image.url
+            - unless product.status.to_i == 0
+              .owl-sold
+                .owl-sold-mark
+                  .owl-sold-text
+                    SOLD
+          .brand__items--each__detail
+            .brand__items--each__detail__top-name
+              = product.name
+            .brand__items--each__detail__middle.clearfix
+              .brand__items--each__detail__middle--price
+                ¥
+                = number_with_delimiter(product.price)
+              .brand__items--each__detail__middle--heart.clearfix
+                .brand__items--each__detail__middle--heart__mark
+                  %i.far.fa-heart.small
+                .brand__items--each__detail__middle--heart__num
+                  2
+            .brand__items--each__detail__bottom-tax
+              (税込)
+  .brand__link_to_all
+    全ての商品を見る
+
+
+  .brand__name
+    = @brand[1].name
+    新着アイテム
+  .brand__items.clearfix
+    - @second_brand_products.each do |product|
+      = link_to product_path(product.id) do
+        .brand__items--each
+          .brand__items--each__img
+            = image_tag product.images[0].first_image.url
+            - unless product.status.to_i == 0
+              .owl-sold
+                .owl-sold-mark
+                  .owl-sold-text
+                    SOLD
+          .brand__items--each__detail
+            .brand__items--each__detail__top-name
+              = product.name
+            .brand__items--each__detail__middle.clearfix
+              .brand__items--each__detail__middle--price
+                ¥
+                = number_with_delimiter(product.price)
+              .brand__items--each__detail__middle--heart.clearfix
+                .brand__items--each__detail__middle--heart__mark
+                  %i.far.fa-heart.small
+                .brand__items--each__detail__middle--heart__num
+                  2
+            .brand__items--each__detail__bottom-tax
+              (税込)
+  .brand__link_to_all
+    全ての商品を見る

@@ -17,34 +17,9 @@
         = image_tag('https://www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?1016580576', :class => "top_phone" )
   .main.clearfix
     .pickup.clearfix
-      .category.clearfix
-        ピックアップカテゴリー
-        .category__name
-          レディース新着アイテム
-        .category__items.clearfix
-          = render partial: "product-ladies"
-        .category__link_to_all
-          全ての商品を見る
-        .category__name
-          キッズ新着アイテム
-        .category__items.clearfix
-          = render partial: "product-kids"
-        .category__link_to_all
-          全ての商品を見る
+      = render partial: "product-categories"
     .pickup.clearfix
-      .brand.clearfix
-        ピックアップブランド
-        .brand__name
-          ユニクロ新着アイテム
-        .brand__items.clearfix
-          = render partial: "product-random"
-        .brand__link_to_all
-          全ての商品を見る
-        .brand__name
-          ZARA新着アイテム
-        .brand__items.clearfix
-          = render partial: "product-random"
-        .brand__link_to_all
-          全ての商品を見る
+      = render partial: "product-brands"
+
   = render partial: "share/footer"
   = render partial: "share/exhibit_btn"

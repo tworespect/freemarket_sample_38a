@@ -206,51 +206,37 @@
     .item-detail-message
       / コメント枠
       .message-container
-        .message-content.clearfix
-          %ul.message-items
-            %li.clearfix
-              .message-user
-                %figure
-                  .message-user-unknown
-                    %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?1016580576"}/
-              .message-body
-                .message-body-text 出品者がコメントを削除しました
-                .message-icons.clearfix
-                  %time.message-icon-left
-                    %i.far.fa-clock
-                    %span 13 日前
-                  .message-icon-right
-                    = button_tag type: "submit", class: 'flag-btn' do
-                      %i.far.fa-flag
-        - if user_signed_in?
+        - if @page_comments.length > 0
           .message-content
-            .message-content__attension
+            .message-items
+              = render partial: "messages-conditions"
+        - if user_signed_in?
+          .message-submit
+            .message-submit__attension
               相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            .message-content__text
-            .message-content__btns
-              .message-content__btns__confirm
-                - if @product.status.to_i == 0
-                  コメントする
-                - else
-                  売り切れのためコメントできません
+            = form_for [@product, @page_comment], url: product_page_comments_path(@product.id) do |f|
+              = f.text_area :text, class: 'message-submit__text'
+              - if @product.status.to_i == 0
+                = f.submit 'コメントする', class: 'message-submit__confirm'
+              - else
+                売り切れのためコメントできません
         - else
 
     /別商品詳細ページリンク
     %ul.nav-item-link-prev-next.clearfix
       %li.nav-item-link-prev
-        = link_to product_path(@pre_product[0].id) do
+        = link_to product_path(@other_products[0].id) do
           %i.fas.fa-angle-left
-          = @pre_product[0].name
+          = @other_products[0].name
       %li.nav-item-link-next
-        = link_to product_path(@post_product[0].id) do
-          = @post_product[0].name
+        = link_to product_path(@other_products[1].id) do
+          = @other_products[1].name
           %i.fas.fa-angle-right.right
 
     /facebook,twitter,pinterest?アイコン
     .item-social-media-box
       .text-center
         .fb-save.fb_iframe_widget
-
       /snsリンク
       %ul.social-media-box
         %li

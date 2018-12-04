@@ -1,0 +1,58 @@
+- if comment.user_id == @product.user_id
+  .message-body-1
+    - if comment.text == '出品者がコメントを削除しました'
+      .message-body-height-1
+        .message-body
+          .message-body-text
+            = comment.text
+          .message-icons.clearfix
+            %time.message-icon-left
+              %i.far.fa-clock
+              %span 13 日前
+            .message-icon-right
+
+    - else
+      .message-body-height-2
+        .message-body
+          .message-body-text
+            = comment.text
+          .message-icons.clearfix
+            %time.message-icon-left
+              %i.far.fa-clock
+              %span 13 日前
+            - if current_user.id == @product.user_id
+              .message-icon-right
+                = link_to "/products/#{@product.id}/page_comments/#{comment.id}", method: :delete do
+                  = fa_icon 'trash-alt', class: 'page-message-trash'
+            - else
+
+
+- else
+  .message-body-2
+    - if comment.text == '出品者がコメントを削除しました'
+      .message-body-height-1
+        .message-body
+          .message-body-text
+            = comment.text
+          .message-icons.clearfix
+            %time.message-icon-left
+              %i.far.fa-clock
+              %span 13 日前
+            .message-icon-right
+              %i.far.fa-flag
+
+    - else
+      .message-body-height-2
+        .message-body
+          .message-body-text
+            = comment.text
+          .message-icons.clearfix
+            %time.message-icon-left
+              %i.far.fa-clock
+              %span 13 日前
+            .message-icon-right
+              %i.far.fa-flag
+              - if current_user.id == @product.user_id
+                = link_to "/products/#{@product.id}/page_comments/#{comment.id}", method: :delete do
+                  = fa_icon 'trash-alt', class: 'page-message-trash'
+              - else
